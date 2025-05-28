@@ -1175,12 +1175,10 @@
             border-radius: 3px;
         }
         
-        /* MEJORAS PARA MÓVIL */
-        
-        /* Optimizaciones generales para móvil */
+        /* Responsive */
         @media (max-width: 992px) {
             .container {
-                padding: 0 15px;
+                padding: 0 12px;
             }
             
             .main-header .container {
@@ -1189,7 +1187,7 @@
             }
             
             .logo {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .search-bar {
@@ -1215,43 +1213,11 @@
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 15px;
             }
-            
-            /* Mejora: Ajuste del diseño del detalle de producto para tablets */
-            .product-detail-content {
-                gap: 20px;
-            }
-            
-            .product-gallery {
-                padding: 20px;
-            }
-            
-            .main-image {
-                height: 350px;
-            }
-            
-            .product-info {
-                padding: 20px;
-                padding-left: 0;
-            }
-            
-            .product-title {
-                font-size: 1.5rem;
-            }
-            
-            /* Mejora: Ajuste de tabs para tablets */
-            .tab-btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-            
-            .tab-content {
-                padding: 25px;
-            }
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 0 12px;
+                padding: 0 10px;
             }
             
             .top-bar .container {
@@ -1263,105 +1229,63 @@
                 gap: 10px;
             }
             
-            /* Mejora: Navegación más accesible en dispositivos medianos */
             .nav-list {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding-bottom: 5px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: thin;
-            }
-            
-            .nav-list::-webkit-scrollbar {
-                height: 4px;
-            }
-            
-            .nav-list::-webkit-scrollbar-track {
-                background: rgba(255, 255, 255, 0.1);
-            }
-            
-            .nav-list::-webkit-scrollbar-thumb {
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 4px;
-            }
-            
-            .nav-list li {
-                flex: 0 0 auto;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2px;
             }
             
             .nav-list a {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-                white-space: nowrap;
+                font-size: 0.75rem;
+                padding: 5px 6px;
             }
             
-            /* Mejora: Ajuste breadcrumb para evitar desbordamiento */
-            .breadcrumb-list {
-                flex-wrap: wrap;
-            }
-            
-            .breadcrumb-item:last-child .breadcrumb-link {
-                max-width: 200px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: block;
-            }
-            
-            /* Mejora: Detalle del producto para tablets */
-            .product-detail-content {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .product-gallery {
-                padding: 20px;
-            }
-            
-            .main-image {
-                height: 300px;
-            }
-            
-            .product-info {
-                padding: 20px;
-            }
-            
-            /* Mejora: Tabs en formato acordeón para mejor visualización */
-            .tabs-header {
+            .promo-banner .container {
                 flex-direction: column;
-                border-bottom: none;
+                gap: 8px;
             }
             
-            .tab-btn {
-                text-align: left;
-                padding: 15px;
-                border-bottom: 1px solid var(--border-light);
+            .promo-banner h3 {
+                font-size: 1rem;
             }
             
-            .tab-btn.active::after {
-                display: none;
+            .hero {
+                padding: 30px 0;
             }
             
-            .tab-btn.active {
-                background-color: var(--primary-light);
+            .hero h1 {
+                font-size: 1.7rem;
             }
             
-            /* Mejora: Grid de productos relacionados */
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
             .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
             
-            /* Mejora: Footer más compacto */
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
+            .post-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
             }
             
             .footer-bottom .container {
                 flex-direction: column;
-                gap: 15px;
+                text-align: center;
             }
             
             .payment-methods {
@@ -1370,255 +1294,137 @@
         }
         
         @media (max-width: 576px) {
-            .container {
-                padding: 0 10px;
-            }
-            
             .main-header {
-                padding: 10px 0;
+                padding: 8px 0;
             }
             
             .logo {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
             
             .logo img {
-                width: 28px;
-                height: 28px;
+                width: 24px;
+                height: 24px;
             }
             
-            /* Mejora: Navegación más compacta */
+            .social-links img {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .user-actions {
+                gap: 10px;
+            }
+            
+            .nav-list {
+                gap: 1px;
+            }
+            
             .nav-list a {
-                font-size: 0.75rem;
-                padding: 5px 10px;
+                font-size: 0.7rem;
+                padding: 4px 5px;
             }
             
-            /* Mejora: Breadcrumb más simple para móvil */
-            .breadcrumb {
-                padding: 10px 0;
-                margin-bottom: 15px;
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
             }
             
-            .breadcrumb-item:not(:last-child) {
-                display: none;
-            }
-            
-            .breadcrumb-item:last-child::before {
-                content: '← ';
-                color: var(--primary);
-            }
-            
-            /* Mejora: Detalle de producto para móvil */
-            .product-detail {
-                margin-bottom: 20px;
-            }
-            
-            .product-gallery {
-                padding: 15px;
-            }
-            
-            .main-image {
-                height: 250px;
-                margin-bottom: 15px;
-            }
-            
-            .image-thumbnails {
-                justify-content: center;
-            }
-            
-            .thumbnail {
+            .category-icon {
                 width: 60px;
                 height: 60px;
             }
             
+            .category-icon img {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .category-name {
+                font-size: 0.7rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .product-card {
+                min-width: 0;
+            }
+            
+            .product-image {
+                height: 140px;
+                padding: 10px;
+            }
+            
+            .product-image img {
+                max-height: 120px;
+            }
+            
             .product-info {
-                padding: 15px;
+                padding: 10px;
             }
             
             .product-title {
-                font-size: 1.25rem;
-            }
-            
-            .product-code {
                 font-size: 0.8rem;
+                height: 35px;
             }
             
             .current-price {
-                font-size: 1.5rem;
+                font-size: 0.9rem;
             }
             
-            .old-price {
-                font-size: 1rem;
+            .add-to-cart, .quick-view {
+                font-size: 0.7rem;
+                padding: 5px 8px;
             }
             
-            .product-description p {
-                font-size: 0.875rem;
+            .department-products {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .features-list li {
-                font-size: 0.875rem;
-            }
-            
-            /* Mejora: Botones de acción más accesibles */
-            .product-actions {
+            .newsletter-form {
                 flex-direction: column;
                 gap: 10px;
             }
             
-            .wishlist-btn {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                z-index: 2;
-                background-color: white;
-                box-shadow: var(--shadow);
-            }
-            
-            /* Mejora: Cantidad más accesible */
-            .quantity-input {
-                width: 100%;
-            }
-            
-            .quantity-btn {
-                width: 50px;
-                height: 45px;
-            }
-            
-            .quantity-value {
-                flex: 1;
-                height: 45px;
-            }
-            
-            /* Mejora: Tabs más accesibles */
-            .tab-content {
-                padding: 15px;
-            }
-            
-            .tab-pane h3 {
-                font-size: 1.1rem;
-            }
-            
-            .specifications-table th, .specifications-table td {
-                padding: 10px;
-                font-size: 0.875rem;
-            }
-            
-            /* Mejora: Grid de productos relacionados */
-            .section-title {
-                font-size: 1.2rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .product-image {
-                height: 180px;
-            }
-            
-            /* Mejora: Footer más compacto */
-            .footer {
-                padding: 40px 0 0;
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
             }
             
-            .footer-column h3 {
-                font-size: 1rem;
-                margin-bottom: 15px;
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.85rem;
             }
         }
         
         @media (max-width: 480px) {
-            /* Mejora: Visualización de elementos muy pequeños */
-            .container {
-                padding: 0 8px;
-            }
-            
-            .logo span {
-                display: none;
-            }
-            
-            .breadcrumb-item:last-child .breadcrumb-link {
-                max-width: 280px;
-                font-size: 0.8rem;
-            }
-            
-            .main-image {
-                height: 220px;
-            }
-            
-            .thumbnail {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .product-title {
-                font-size: 1.1rem;
-            }
-            
-            .current-price {
-                font-size: 1.3rem;
-            }
-            
-            .tab-btn {
-                padding: 12px;
-                font-size: 0.85rem;
-            }
-            
-            /* Mejora: Tabla de especificaciones */
-            .specifications-table {
-                display: block;
+            .nav-list {
+                justify-content: flex-start;
                 overflow-x: auto;
+                padding-bottom: 5px;
             }
             
-            /* Mejora: Acciones de producto más grandes para táctil */
-            .add-to-cart, .buy-now {
-                height: 50px;
-                font-size: 0.9rem;
+            .nav-list::-webkit-scrollbar {
+                height: 3px;
             }
             
-            /* Mejora: Visualización de botones de compartir */
-            .share-buttons {
-                gap: 15px;
+            .nav-list::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
             }
             
-            .share-btn {
-                width: 40px;
-                height: 40px;
-            }
-        }
-        
-        /* Mejoras adicionales de animación para móvil */
-        @media (any-pointer: coarse) {
-            /* Aumentar tamaño para objetivos táctiles */
-            .tab-btn, .nav-list a, .footer-links a {
-                padding-top: 12px;
-                padding-bottom: 12px;
+            .nav-list::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
             }
             
-            /* Animaciones más suaves para interacciones táctiles */
-            .quantity-btn, .add-to-cart, .buy-now, .wishlist-btn {
-                transition: transform 0.2s ease, background-color 0.2s ease;
-            }
-            
-            .quantity-btn:active, .add-to-cart:active, .buy-now:active, .wishlist-btn:active {
-                transform: scale(0.95);
-            }
-            
-            /* Mejorar visualización de hover en táctil */
-            .product-card:hover {
-                transform: none;
-            }
-            
-            .product-card:active {
-                transform: translateY(-2px);
+            .nav-list li {
+                flex-shrink: 0;
             }
         }
     </style>
@@ -1644,7 +1450,7 @@
     <!-- Main Header - Se oculta al hacer scroll -->
     <header class="main-header" id="main-header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="img/logo.png" width="32" height="32" alt="Logo SURTIMAX">
+            <a href="index.html" class="logo"><img src="img/logo.png" width="30" height="30" alt="Logo SURTIMAX">
                 FERRETERIA<span>VENTAS SURTIMAX</span>
             </a>
             
