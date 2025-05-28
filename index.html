@@ -12,7 +12,7 @@
             --primary: #007387;
             --primary-dark: #00656c;
             --primary-light: #E6F4EF;
-            --secondary: #f32213;
+            --secondary: #FF4438;
             --secondary-dark: #E02E22;
             --text-dark: #1A1A1A;
             --text-medium: #555555;
@@ -114,14 +114,6 @@
         }
         
         /* Header y navegación */
-        .header {
-            background-color: white;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
         .top-bar {
             background-color: var(--primary);
             color: white;
@@ -164,9 +156,19 @@
             color: rgba(255, 255, 255, 0.8);
         }
         
+        /* Main Header - Se oculta al hacer scroll */
         .main-header {
-            padding: 10px 0;
-            background-color: #1c7a86;
+            background-color: #0f0f0f;
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-header.hidden {
+            transform: translateY(-100%);
         }
         
         .main-header .container {
@@ -176,9 +178,9 @@
         }
         
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.2rem; /*Tamaño Texto Encabezado*/
             font-weight: 700;
-            color: white;
+            color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -275,15 +277,21 @@
             border-radius: 50%;
         }
         
+        /* Main Navigation - Siempre visible */
         .main-nav {
             background-color: var(--primary-dark);
             padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
         }
         
         .nav-list {
             display: flex;
             list-style: none;
             gap: 5px;
+            justify-content: space-between; /* Espacio Entre Categorias */
         }
         
         .nav-list li {
@@ -342,11 +350,11 @@
         
         /* Hero section */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background_001.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.png');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 0;
+            padding: 50px 0; /*Relleno de Tamaño Imagen*/
             text-align: center;
         }
         
@@ -1090,81 +1098,76 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <!-- Top Bar -->
-
-        <!-- Main Header -->
-        <div class="main-header">
-            <div class="container">
-                <a href="index.html" class="logo"><img src="logo.png" width="35" height="35" alt="Logo SURTIMAX">
-                    FERRETERÍA <span>VENTAS SURTIMAX</span>
-                </a>
-                
-                <!--div class="search-bar">
-                    <input type="text" placeholder="¿Qué estás buscando?">
-                    <button aria-label="Buscar">🔍</button>
-                </div>
-                
-                <div class="user-actions">
-                    <a href="#" class="user-action">
-                        <i>👤</i>
-                        <span>Mi Cuenta</span>
-                    </a>
-                    <a href="#" class="user-action">
-                        <i>❤️</i>
-                        <span>Favoritos</span>
-                    </a>
-                    <a href="#" class="user-action">
-                        <i class="cart-count" data-count="3">🛒</i>
-                        <span>Carrito</span>
-                    </a>
-                </div-->
-
-                <div class="social-links">
-                    <a>Siguenos👍</a>
-                    <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="26" height="26"></a>
-                    <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="25" height="25"></a>
-                    <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="25" height="25"></a>
-                </div>
-
+    
+    <!-- Top Bar -->
+    <!--div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+50768748881"><i>📞</i> Tel. 6874-8881 / 6804-3388</a>
+                <a href="mailto:vsurtimaxbocas1@gmail.com"><i>✉️</i>vsurtimaxbocas1@gmail.com</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📱</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">▶️</a>
             </div>
         </div>
+    </div-->
 
-        <!--div class="top-bar">
-            <div class="container">
-                <div class="contact-info">
-                    <a href="tel:+50768748881"><i>📞</i> Tel. 6874-8881 / 6804-3388</a>
-                    <a href="mailto:vsurtimaxbocas1@gmail.com"><i>✉️</i>vsurtimaxbocas1@gmail.com</a>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">📱</a>
-                    <a href="#" aria-label="Instagram">📷</a>
-                    <a href="#" aria-label="Twitter">🐦</a>
-                    <a href="#" aria-label="YouTube">▶️</a>
-                </div>
-            </div>
-        </div-->
+    <!-- Main Header - Se oculta al hacer scroll -->
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.png" width="32" height="32" alt="Logo SURTIMAX">
+                FERRETERIA<span>VENTAS SURTIMAX</span>
+            </a>
+            
+            <!--div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button aria-label="Buscar">🔍</button>
+            </div-->
+            
+            <!--div class="user-actions">
+                <a href="#" class="user-action">
+                    <i>👤</i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i>❤️</i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i class="cart-count" data-count="3">🛒</i>
+                    <span>Carrito</span>
+                </a>
+            </div-->
 
-        <!-- Main Navigation -->
-        <nav class="main-nav">
-            <div class="container">
-                <ul class="nav-list">
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="herramientas.html">Herramientas</a></li>
-                    <li><a href="#">Electricidad</a></li>
-                    <li><a href="#">Plomería</a></li>
-                    <li><a href="#">Pinturas</a></li>
-                    <li><a href="#">Cerrajería</a></li>
-                    <li><a href="#">Jardín</a></li>
-                    <li><a href="#">Construcción</a></li>
-                    <li><a href="#">Ofertas</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
+            <div class="social-links">
+                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="20" height="20"></a>
+                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="20" height="20"></a>
+                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="20" height="20"></a>
             </div>
-        </nav>
+        </div>
     </header>
+
+    <!-- Main Navigation - Siempre visible -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="herramientas.html">Herramientas</a></li>
+                <li><a href="#">Electricidad</a></li>
+                <li><a href="#">Plomería</a></li>
+                <li><a href="#">Pinturas</a></li>
+                <li><a href="#">Cerrajería</a></li>
+                <li><a href="#">Jardín</a></li>
+                <li><a href="#">Construcción</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
     
     <!-- Promo Banner -->
     <!--div class="promo-banner">
@@ -1249,13 +1252,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Productos destacados</h2>
-                <a href="#" class="view-all">Ver todos <span>→</span></a>
+                <!--a href="#" class="view-all">Ver todos <span>→</span></a-->
             </div>
             <div class="product-grid">
+
                 <div class="product-card">
                     <div class="product-image">
                         <img src="img_h/H1811032B.jpg" width="160" height="160" alt="Taladro Percutor">
-                        <!--img src="https://media.doitcenter.com.pa/media/catalog/product/1/5/15612001_q3tthhojouktreo3.jpg" width="160" height="160" alt="Taladro Percutor"-->
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
@@ -1282,7 +1285,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="img_h/UTDLI200518.webp" width="160" height="160" alt="Taladro Percutor">
+                        <img src="img_h/UTDLI200518.jpg" width="160" height="160" alt="Taladro Percutor">
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
@@ -1303,7 +1306,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
                         <img src="img_h/UWCDP522.jpg" width="180" height="180" alt="Taladro Percutor">
@@ -1332,7 +1335,7 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="img_h/H27031.png" alt="Taladro Percutor">
+                        <img src="img_h/H27031.jpg" alt="Taladro Percutor">
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
@@ -1598,5 +1601,26 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Script para ocultar/mostrar main-header al hacer scroll
+        let lastScrollTop = 0;
+        const mainHeader = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - ocultar main-header
+                mainHeader.classList.add('hidden');
+            } else {
+                // Scrolling up - mostrar main-header
+                mainHeader.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+    
 </body>
 </html>
