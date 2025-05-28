@@ -35,6 +35,11 @@
             font-family: 'Poppins', sans-serif;
         }
         
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
         body {
             background-color: var(--background-light);
             color: var(--text-dark);
@@ -119,6 +124,7 @@
             color: white;
             padding: 8px 0;
             font-size: 0.875rem;
+            width: 100%;
         }
         
         .top-bar .container {
@@ -165,6 +171,7 @@
             top: 0;
             z-index: 1001;
             transition: transform 0.3s ease;
+            width: 100%;
         }
         
         .main-header.hidden {
@@ -285,6 +292,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow);
+            width: 100%;
         }
         
         .nav-list {
@@ -292,6 +300,7 @@
             list-style: none;
             gap: 5px;
             justify-content: space-between; /* Espacio Entre Categorias */
+            flex-wrap: wrap;
         }
         
         .nav-list li {
@@ -307,6 +316,7 @@
             font-weight: 500;
             border-radius: var(--radius-sm);
             transition: var(--transition);
+            white-space: nowrap;
         }
         
         .nav-list a:hover {
@@ -323,6 +333,7 @@
             color: white;
             padding: 15px 0;
             text-align: center;
+            width: 100%;
         }
         
         .promo-banner .container {
@@ -356,6 +367,7 @@
             color: white;
             padding: 50px 0; /*Relleno de Tamaño Imagen*/
             text-align: center;
+            width: 100%;
         }
         
         .hero h1 {
@@ -380,6 +392,7 @@
         .categories {
             padding: 60px 0;
             background-color: white;
+            width: 100%;
         }
         
         .category-grid {
@@ -435,6 +448,7 @@
         .featured-products {
             padding: 60px 0;
             background-color: var(--background-light);
+            width: 100%;
         }
         
         .section-header {
@@ -654,6 +668,7 @@
         .featured-department {
             padding: 60px 0;
             background-color: white;
+            width: 100%;
         }
         
         .department-content {
@@ -693,6 +708,7 @@
         .services {
             padding: 60px 0;
             background-color: var(--background-light);
+            width: 100%;
         }
         
         .service-grid {
@@ -751,6 +767,7 @@
         .blog-posts {
             padding: 60px 0;
             background-color: white;
+            width: 100%;
         }
         
         .post-grid {
@@ -851,6 +868,7 @@
         .newsletter {
             padding: 60px 0;
             background-color: var(--primary-light);
+            width: 100%;
         }
         
         .newsletter-content {
@@ -902,6 +920,7 @@
             background-color: #1A1A1A;
             color: white;
             padding: 60px 0 0;
+            width: 100%;
         }
         
         .footer-content {
@@ -994,6 +1013,7 @@
             text-align: center;
             font-size: 0.875rem;
             color: rgba(255, 255, 255, 0.5);
+            width: 100%;
         }
         
         .footer-bottom .container {
@@ -1041,6 +1061,10 @@
         }
         
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .top-bar .container {
                 flex-direction: column;
                 gap: 10px;
@@ -1049,6 +1073,12 @@
             .nav-list {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 2px;
+            }
+            
+            .nav-list a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
             }
             
             .promo-banner .container {
@@ -1076,9 +1106,22 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .post-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
         
         @media (max-width: 576px) {
+            .container {
+                padding: 0 10px;
+            }
+            
             .user-actions {
                 gap: 15px;
             }
@@ -1088,11 +1131,62 @@
             }
             
             .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 10px;
             }
             
             .post-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .nav-list {
+                gap: 1px;
+            }
+            
+            .nav-list a {
+                padding: 5px 8px;
+                font-size: 0.75rem;
+            }
+            
+            .main-header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Correcciones adicionales para evitar overflow horizontal */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 8px;
+            }
+            
+            .nav-list a {
+                padding: 4px 6px;
+                font-size: 0.7rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -1296,7 +1390,7 @@
                             <span class="current-price">Total</span>
                         </div>
                         <div class="product-rating">
-                            <span class="rating-count">Código: UTDLI200518</span-->
+                            <span class="rating-count">Código: UTDLI200518</span>
                             <!--div class="stars">★★★★★</div>
                             <span class="rating-count">(86)</span-->
                         </div>
@@ -1346,7 +1440,7 @@
                             <span class="current-price">Best Value</span>
                         </div>
                         <div class="product-rating">
-                            <span class="rating-count">Código: H27031</span-->
+                            <span class="rating-count">Código: H27031</span>
                             <!--div class="stars">★★★★☆</div>
                             <span class="rating-count">(56)</span-->
                         </div>
