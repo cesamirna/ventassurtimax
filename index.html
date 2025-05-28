@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferretería Ventas Surtimax - Tu tienda especializada en herramientas y materiales</title>
-    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="icon" href="icon/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1045,42 +1045,41 @@
         /* Responsive Mejorado */
         @media (max-width: 992px) {
             .container {
-                padding: 0 12px;
-            }
-            
-            .main-header .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .logo {
-                font-size: 0.9rem;
-            }
-            
-            .search-bar {
-                max-width: 100%;
-                margin: 0;
-                order: 3;
-            }
-            
-            .department-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
-            }
-        }
+        padding: 0 15px; /* Mejor padding */
+    }
+    
+    /* NUEVO: Mejora del diseño del detalle de producto para tablets */
+    .product-detail-content {
+        gap: 20px;
+    }
+    
+    .product-gallery {
+        padding: 20px;
+    }
+    
+    .main-image {
+        height: 350px;
+    }
+    
+    .product-info {
+        padding: 20px;
+        padding-left: 0;
+    }
+    
+    .product-title {
+        font-size: 1.5rem;
+    }
+    
+    /* NUEVO: Ajuste de tabs para tablets */
+    .tab-btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .tab-content {
+        padding: 25px;
+    }
+}
         
         @media (max-width: 768px) {
             .container {
@@ -1317,7 +1316,7 @@
     <!-- Main Header - Se oculta al hacer scroll -->
     <header class="main-header" id="main-header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="img/logo.png" width="30" height="30" alt="Logo SURTIMAX">
+            <a href="index.html" class="logo"><img src="icon/logo.png" width="30" height="30" alt="Logo SURTIMAX">
                 FERRETERIA<span>VENTAS SURTIMAX</span>
             </a>
             
@@ -1342,9 +1341,9 @@
             </div-->
 
             <div class="social-links">
-                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="20" height="20"></a>
-                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="20" height="20"></a>
-                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="20" height="20"></a>
+                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
+                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
+                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
             </div>
         </div>
     </header>
