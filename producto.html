@@ -93,7 +93,7 @@
             background-color: var(--primary-light);
         }
         
-        /* Header y navegación - MANTENER ORIGINAL */
+        /* Header y navegación */
         .top-bar {
             background-color: var(--primary);
             color: white;
@@ -912,6 +912,18 @@
             transform: scale(1.05);
         }
         
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+        }
+        
         .product-wishlist {
             position: absolute;
             top: 10px;
@@ -934,10 +946,95 @@
             transform: scale(1.1);
         }
         
+        .product-info {
+            padding: 15px;
+        }
+        
         .product-category {
             font-size: 0.75rem;
             color: var(--text-light);
             margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .old-price {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .discount-percent {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            display: flex;
+            color: #FFB800;
+            font-size: 0.875rem;
+        }
+        
+        .rating-count {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
         }
         
         .quick-view {
@@ -1077,7 +1174,7 @@
             border-radius: 3px;
         }
         
-        /* MEJORAS RESPONSIVAS INTEGRADAS */
+        /* MEJORAS PARA MÓVIL */
         
         /* Optimizaciones generales para móvil */
         @media (max-width: 992px) {
@@ -1098,6 +1195,15 @@
                 max-width: 100%;
                 margin: 0;
                 order: 3;
+            }
+            
+            .department-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
             }
             
             .section-title {
@@ -1518,6 +1624,22 @@
 </head>
 <body>
     
+    <!-- Top Bar -->
+    <!--div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+123456789"><i>📞</i> (123) 456-789</a>
+                <a href="mailto:info@surtimax.com"><i>✉️</i> info@surtimax.com</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📱</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+        </div>
+    </div-->
+    
     <!-- Main Header - Se oculta al hacer scroll -->
     <header class="main-header" id="main-header">
         <div class="container">
@@ -1525,11 +1647,32 @@
                 FERRETERIA<span>VENTAS SURTIMAX</span>
             </a>
             
-            <div class="social-links">
+            <!--div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button aria-label="Buscar">🔍</button>
+            </div-->
+            
+            <!--div class="user-actions">
+                <a href="#" class="user-action">
+                    <i>👤</i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i>❤️</i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i class="cart-count" data-count="3">🛒</i>
+                    <span>Carrito</span>
+                </a>
+            </div-->
+        
+        <div class="social-links">
                 <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="20" height="20"></a>
                 <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="20" height="20"></a>
                 <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="20" height="20"></a>
             </div>
+        
         </div>
     </header>
     
@@ -2040,39 +2183,3 @@
     </script>
 </body>
 </html>
-
-Perfect! He integrado exitosamente las mejoras responsivas de "producto_2" al código original, manteniendo intacta la barra superior y navegación como solicitaste. 
-
-## Principales mejoras implementadas:
-
-### 📱 **Navegación móvil mejorada**
-- Scroll horizontal en dispositivos pequeños
-- Barras de desplazamiento personalizadas
-- Mejor espaciado entre elementos
-
-### 🖼️ **Detalle de producto optimizado**
-- Layout de una columna en tablets y móviles
-- Imágenes redimensionadas apropiadamente
-- Botones de acción más accesibles para táctil
-
-### 📋 **Tabs responsivos**
-- Formato acordeón en dispositivos móviles
-- Mejor visualización del contenido activo
-- Padding optimizado para diferentes pantallas
-
-### 🍞 **Breadcrumb inteligente**
-- Muestra solo el último elemento en móvil
-- Indicador de navegación hacia atrás
-- Previene desbordamiento de texto
-
-### 🎯 **Mejoras táctiles**
-- Objetivos táctiles más grandes (mínimo 44px)
-- Animaciones de feedback al tocar
-- Transiciones suaves optimizadas
-
-### 📊 **Grid adaptativo**
-- Productos relacionados: 4→2→1 columnas según pantalla
-- Espaciado dinámico
-- Mejor aprovechamiento del espacio
-
-El código mantiene toda la funcionalidad original mientras proporciona una experiencia móvil significativamente mejorada. ¡La página ahora se ve y funciona perfectamente en todos los dispositivos!
