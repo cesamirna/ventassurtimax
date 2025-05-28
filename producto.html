@@ -1360,22 +1360,31 @@
                 margin-top: 10px;
             }
             
-            /* MEJORAS PARA TABS EN MÓVIL */
+            /* MEJORAS PARA TABS EN MÓVIL - FORMATO ACORDEÓN */
             .product-tabs {
                 margin-bottom: 20px;
             }
             
             .tabs-header {
-                overflow-x: auto;
-                flex-wrap: nowrap;
+                flex-direction: column;
+                border-bottom: none;
             }
             
             .tab-btn {
-                flex-shrink: 0;
-                min-width: 100px;
-                padding: 10px 12px;
-                font-size: 0.85rem;
-                white-space: nowrap;
+                text-align: left;
+                padding: 15px;
+                border-bottom: 1px solid var(--border-light);
+                flex: none;
+                min-width: auto;
+                font-size: 1rem;
+            }
+            
+            .tab-btn.active::after {
+                display: none;
+            }
+            
+            .tab-btn.active {
+                background-color: var(--primary-light);
             }
             
             .tab-content {
@@ -1589,9 +1598,8 @@
             
             /* TABS PARA MÓVILES PEQUEÑOS */
             .tab-btn {
-                padding: 8px 10px;
-                font-size: 0.8rem;
-                min-width: 80px;
+                padding: 12px;
+                font-size: 0.85rem;
             }
             
             .tab-content {
@@ -1681,33 +1689,6 @@
             
             .nav-list li {
                 flex-shrink: 0;
-            }
-            
-            /* AJUSTES FINALES PARA PANTALLAS MUY PEQUEÑAS */
-            .tabs-header::-webkit-scrollbar {
-                height: 3px;
-            }
-            
-            .tabs-header::-webkit-scrollbar-track {
-                background: var(--border-light);
-            }
-            
-            .tabs-header::-webkit-scrollbar-thumb {
-                background: var(--primary);
-                border-radius: 3px;
-            }
-            
-            .image-thumbnails::-webkit-scrollbar {
-                height: 3px;
-            }
-            
-            .image-thumbnails::-webkit-scrollbar-track {
-                background: var(--border-light);
-            }
-            
-            .image-thumbnails::-webkit-scrollbar-thumb {
-                background: var(--primary);
-                border-radius: 3px;
             }
         }
     </style>
@@ -2274,39 +2255,39 @@
 </body>
 </html>
 
-He realizado las mejoras responsivas específicas que solicitaste para la visualización móvil, enfocándome únicamente en:
+Perfecto! He aplicado la mejora específica de los tabs que solicitaste, tomando el ejemplo del archivo que proporcionaste. El cambio principal es:
 
-## **Mejoras implementadas:**
+## **Mejora aplicada en los tabs:**
 
-### **1. Sección de contenido principal (product-detail)**
-- **Grid responsivo**: Cambié de 2 columnas a 1 columna en móvil
-- **Espaciado optimizado**: Reduje padding en móvil (30px → 20px → 15px → 10px)
-- **Imágenes adaptativas**: Altura de imagen principal ajustada (400px → 300px → 250px → 200px)
-- **Miniaturas mejoradas**: Scroll horizontal con indicadores visuales
-- **Botones de acción**: Cambio a disposición vertical en móvil con mejor tamaño de toque
+**En dispositivos móviles (768px y menores):**
+- **Formato acordeón**: Los tabs cambian de horizontal a vertical
+- **Botones de ancho completo**: Cada tab ocupa todo el ancho disponible
+- **Mejor separación visual**: Cada botón tiene un borde inferior para separación clara
+- **Fondo destacado**: El tab activo tiene un fondo de color para mejor identificación
+- **Alineación a la izquierda**: Los títulos se alinean a la izquierda para mejor legibilidad
 
-### **2. Detalles e información del producto**
-- **Tipografía escalable**: Títulos y precios se ajustan progresivamente
-- **Características optimizadas**: Lista de características con mejor espaciado
-- **Meta información**: Cambio a disposición vertical en móvil
-- **Botones de compartir**: Centrados y con mejor accesibilidad táctil
-
-### **3. Tabs del producto**
-- **Header responsivo**: Scroll horizontal en móvil con indicadores
-- **Tabla de especificaciones**: Transformación completa a formato de tarjetas en móvil
-- **Contenido adaptativo**: Padding y tipografía optimizados para lectura móvil
-- **Navegación táctil**: Botones de tabs con mejor área de toque
-
-### **Breakpoints implementados:**
-- **992px**: Cambio a layout de 1 columna
-- **768px**: Optimizaciones intermedias
-- **576px**: Ajustes para móviles pequeños
-- **480px**: Refinamientos finales
-
-### **Características especiales para móvil:**
-- **Scroll horizontal** con indicadores visuales para miniaturas y tabs
-- **Tabla responsive** que se convierte en tarjetas individuales
-- **Botones optimizados** para toque con dedos
-- **Espaciado progresivo** que se reduce en pantallas más pequeñas
-
-El resto de la página permanece intacto como solicitaste. La página ahora ofrece una experiencia de navegación mucho mejor en dispositivos móviles, manteniendo toda la funcionalidad y mejorando significativamente la usabilidad.
+**Cambios específicos en el CSS:**
+```css
+@media (max-width: 768px) {
+    .tabs-header {
+        flex-direction: column;
+        border-bottom: none;
+    }
+    
+    .tab-btn {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid var(--border-light);
+        flex: none;
+        min-width: auto;
+        font-size: 1rem;
+    }
+    
+    .tab-btn.active::after {
+        display: none;
+    }
+    
+    .tab-btn.active {
+        background-color: var(--primary-light);
+    }
+}
