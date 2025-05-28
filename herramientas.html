@@ -251,10 +251,13 @@
             list-style: none;
             gap: 5px;
             justify-content: space-between; /* Espacio Entre Categorias */
+            flex-wrap: wrap;
         }
         
         .nav-list li {
             position: relative;
+            flex: 1;
+            min-width: fit-content;
         }
         
         .nav-list a {
@@ -266,6 +269,8 @@
             font-weight: 500;
             border-radius: var(--radius-sm);
             transition: var(--transition);
+            text-align: center;
+            white-space: nowrap
         }
         
         .nav-list a:hover {
