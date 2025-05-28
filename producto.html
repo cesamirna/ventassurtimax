@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taladro Percutor Inalámbrico 20V DeWalt DCD778 - Ferretería Ventas Surtimax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007387;
+            --primary-dark: #00656c;
+            --primary-light: #E6F4EF;
+            --secondary: #FF4438;
+            --secondary-dark: #E02E22;
+            --text-dark: #1A1A1A;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --background: #FFFFFF;
+            --background-light: #F8F9FA;
+            --border-light: #E9ECEF;
+            --border: #DEE2E6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.07), 0 5px 10px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --radius-sm: 4px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Utilidades */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+        
+        /* Header y navegación */
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.875rem;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Main Header - Se oculta al hacer scroll */
+        .main-header {
+            background-color: #0f0f0f;
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            padding-right: 45px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.1);
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition);
+        }
+        
+        .search-bar button:hover {
+            color: var(--primary-dark);
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .user-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+        
+        .user-action i {
+            font-size: 1.25rem;
+            margin-bottom: 3px;
+        }
+        
+        .user-action:hover {
+            color: var(--primary);
+        }
+        
+        .cart-count {
+            position: relative;
+        }
+        
+        .cart-count::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.625rem;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+        /* Main Navigation - Siempre visible */
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            justify-content: space-between; /* Espacio Entre Categorias */
+            flex-wrap: wrap;
+        }
+        
+        .nav-list li {
+            position: relative;
+            flex: 1;
+            min-width: fit-content;
+        }
+        
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            text-align: center;
+            white-space: nowrap
+        }
+        
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-list a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 0;
+            background-color: white;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--text-light);
+        }
+        
+        .breadcrumb-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb-link:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb-item:last-child .breadcrumb-link {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        /* Detalle de producto */
+        .product-detail {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .product-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .product-gallery {
+            padding: 30px;
+        }
+        
+        .main-image {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .main-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            z-index: 1;
+        }
+        
+        .image-thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .thumbnail.active {
+            border-color: var(--primary);
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--primary-light);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 30px;
+            padding-left: 0;
+        }
+        
+        .product-brand {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
+        }
+        
+        .product-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .product-code {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            display: flex;
+            color: #FFB800;
+        }
+        
+        .rating-count {
+            color: var(--primary);
+            font-size: 0.875rem;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .product-price-container {
+            margin-bottom: 20px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .current-price {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .old-price {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .discount-percent {
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .tax-info {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .product-availability {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+        }
+        
+        .product-description p {
+            color: var(--text-medium);
+            font-size: 0.9375rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-features {
+            margin-bottom: 20px;
+        }
+        
+        .features-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .features-list {
+            list-style: none;
+        }
+        
+        .features-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-medium);
+            font-size: 0.9375rem;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .product-quantity {
+            margin-bottom: 20px;
+        }
+        
+        .quantity-label {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: var(--background-light);
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .quantity-value {
+            width: 60px;
+            height: 40px;
+            border: none;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .quantity-value:focus {
+            outline: none;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .buy-now {
+            flex: 1;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .buy-now:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .wishlist-btn {
+            height: 50px;
+            width: 50px;
+            background-color: var(--background-light);
+            color: var(--text-medium);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .wishlist-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary-light);
+        }
+        
+        .product-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.875rem;
+            color: var(--text-medium);
+        }
+        
+        .meta-label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .meta-value {
+            color: var(--text-medium);
+        }
+        
+        .meta-value a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .meta-value a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .share-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--background-light);
+            color: var(--text-medium);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .share-btn.facebook:hover {
+            background-color: #3b5998;
+            color: white;
+        }
+        
+        .share-btn.twitter:hover {
+            background-color: #1da1f2;
+            color: white;
+        }
+        
+        .share-btn.whatsapp:hover {
+            background-color: #25d366;
+            color: white;
+        }
+        
+        /* Tabs de producto */
+        .product-tabs {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            padding: 30px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .tab-pane h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .tab-pane p {
+            color: var(--text-medium);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .specifications-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specifications-table tr:nth-child(even) {
+            background-color: var(--background-light);
+        }
+        
+        .specifications-table th, .specifications-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .specifications-table th {
+            font-weight: 500;
+            color: var(--text-dark);
+            width: 30%;
+        }
+        
+        .specifications-table td {
+            color: var(--text-medium);
+        }
+        
+        /* Productos relacionados */
+        .related-products {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .product-wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-wishlist:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-category {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .old-price {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .discount-percent {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            display: flex;
+            color: #FFB800;
+            font-size: 0.875rem;
+        }
+        
+        .rating-count {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .quick-view {
+            background-color: var(--background-light);
+            color: var(--text-medium);
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quick-view:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary-light);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        
+        .contact-info-item i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            background-color: #111111;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-bottom .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .payment-methods img {
+            height: 24px;
+            background-color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .main-header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 0.9rem;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+                margin: 0;
+                order: 3;
+            }
+            
+            .department-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .top-bar .container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .contact-info {
+                gap: 10px;
+            }
+            
+            .nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2px;
+            }
+            
+            .nav-list a {
+                font-size: 0.75rem;
+                padding: 5px 6px;
+            }
+            
+            .promo-banner .container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .promo-banner h3 {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 30px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            
+            .post-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .payment-methods {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-header {
+                padding: 8px 0;
+            }
+            
+            .logo {
+                font-size: 0.8rem;
+            }
+            
+            .logo img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .social-links img {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .user-actions {
+                gap: 10px;
+            }
+            
+            .nav-list {
+                gap: 1px;
+            }
+            
+            .nav-list a {
+                font-size: 0.7rem;
+                padding: 4px 5px;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .category-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .category-icon img {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .category-name {
+                font-size: 0.7rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .product-card {
+                min-width: 0;
+            }
+            
+            .product-image {
+                height: 140px;
+                padding: 10px;
+            }
+            
+            .product-image img {
+                max-height: 120px;
+            }
+            
+            .product-info {
+                padding: 10px;
+            }
+            
+            .product-title {
+                font-size: 0.8rem;
+                height: 35px;
+            }
+            
+            .current-price {
+                font-size: 0.9rem;
+            }
+            
+            .add-to-cart, .quick-view {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+            }
+            
+            .department-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-list {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            
+            .nav-list::-webkit-scrollbar {
+                height: 3px;
+            }
+            
+            .nav-list::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-list::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            
+            .nav-list li {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Top Bar -->
+    <!--div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+123456789"><i>📞</i> (123) 456-789</a>
+                <a href="mailto:info@surtimax.com"><i>✉️</i> info@surtimax.com</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📱</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+        </div>
+    </div-->
+    
+    <!-- Main Header - Se oculta al hacer scroll -->
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.png" width="32" height="32" alt="Logo SURTIMAX">
+                FERRETERIA<span>VENTAS SURTIMAX</span>
+            </a>
+            
+            <!--div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button aria-label="Buscar">🔍</button>
+            </div-->
+            
+            <!--div class="user-actions">
+                <a href="#" class="user-action">
+                    <i>👤</i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i>❤️</i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i class="cart-count" data-count="3">🛒</i>
+                    <span>Carrito</span>
+                </a>
+            </div-->
+        
+        <div class="social-links">
+                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="20" height="20"></a>
+                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="20" height="20"></a>
+                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="20" height="20"></a>
+            </div>
+        
+        </div>
+    </header>
+    
+    <!-- Main Navigation - Siempre visible -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="herramientas.html" class="active">Herramientas</a></li>
+                <li><a href="#">Electricidad</a></li>
+                <li><a href="#">Plomería</a></li>
+                <li><a href="#">Pinturas</a></li>
+                <li><a href="#">Cerrajería</a></li>
+                <li><a href="#">Jardín</a></li>
+                <li><a href="#">Construcción</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="herramientas.html" class="breadcrumb-link">Herramientas</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Taladro Percutor Inalámbrico 20V DeWalt H1811032B</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <main>
+        <div class="container">
+            <!-- Detalle de producto -->
+            <section class="product-detail">
+                <div class="product-detail-content">
+                    <!-- Galería de imágenes -->
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <div class="product-badge">-20%</div>
+                            <img src="img_h/H1811032B.jpg" alt="Taladro Percutor Inalámbrico 20V DeWalt DCD778">
+                        </div>
+                        <div class="image-thumbnails">
+                            <div class="thumbnail active">
+                                <img src="/placeholder.svg?height=80&width=80" alt="Taladro Percutor - Vista 1">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="/placeholder.svg?height=80&width=80" alt="Taladro Percutor - Vista 2">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="/placeholder.svg?height=80&width=80" alt="Taladro Percutor - Vista 3">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="/placeholder.svg?height=80&width=80" alt="Taladro Percutor - Vista 4">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información del producto -->
+                    <div class="product-info">
+                        <span class="product-brand">DeWalt</span>
+                        <h1 class="product-title">Taladro Percutor Inalámbrico 20V DeWalt DCD778</h1>
+                        <p class="product-code">Código: DW-778-20V</p>
+                        
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <span class="rating-count">128 opiniones</span>
+                        </div>
+                        
+                        <div class="product-price-container">
+                            <div class="product-price">
+                                <span class="current-price">$129.99</span>
+                                <span class="old-price">$159.99</span>
+                                <span class="discount-percent">-20%</span>
+                            </div>
+                            <p class="tax-info">Precio incluye impuestos</p>
+                        </div>
+                        
+                        <p class="product-availability">✓ En stock - Entrega en 24-48 horas</p>
+                        
+                        <div class="product-description">
+                            <p>El taladro percutor inalámbrico DeWalt DCD778 de 20V es una herramienta potente y versátil, ideal para trabajos de perforación en madera, metal y mampostería. Con su diseño ergonómico y batería de larga duración, es perfecto tanto para profesionales como para aficionados al bricolaje.</p>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3 class="features-title">Características principales</h3>
+                            <ul class="features-list">
+                                <li>Motor sin escobillas para mayor eficiencia y durabilidad</li>
+                                <li>Batería de litio de 20V con carga rápida</li>
+                                <li>2 velocidades variables: 0-600 / 0-2000 RPM</li>
+                                <li>Torque máximo de 65 Nm para trabajos exigentes</li>
+                                <li>Portabrocas de 13mm con bloqueo automático</li>
+                                <li>Luz LED integrada para trabajar en áreas con poca iluminación</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-quantity">
+                            <label class="quantity-label">Cantidad</label>
+                            <div class="quantity-input">
+                                <button class="quantity-btn">-</button>
+                                <input type="text" class="quantity-value" value="1">
+                                <button class="quantity-btn">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="add-to-cart">🛒 Agregar al carrito</button>
+                            <button class="buy-now">💳 Comprar ahora</button>
+                            <button class="wishlist-btn">❤️</button>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Categoría:</span>
+                                <span class="meta-value"><a href="categoria.html">Herramientas Eléctricas</a></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Marca:</span>
+                                <span class="meta-value"><a href="#">DeWalt</a></span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Garantía:</span>
+                                <span class="meta-value">3 años</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Compartir:</span>
+                                <div class="share-buttons">
+                                    <a href="#" class="share-btn facebook" aria-label="Compartir en Facebook">📱</a>
+                                    <a href="#" class="share-btn twitter" aria-label="Compartir en Twitter">🐦</a>
+                                    <a href="#" class="share-btn whatsapp" aria-label="Compartir en WhatsApp">📲</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tabs de producto -->
+            <section class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Descripción</button>
+                    <button class="tab-btn" data-tab="specifications">Especificaciones</button>
+                    <button class="tab-btn" data-tab="reviews">Opiniones (128)</button>
+                    <button class="tab-btn" data-tab="shipping">Envío y devoluciones</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Descripción detallada</h3>
+                        <p>El taladro percutor inalámbrico DeWalt DCD778 es una herramienta versátil y potente diseñada para profesionales y entusiastas del bricolaje. Con su motor sin escobillas de última generación, ofrece un rendimiento superior y una vida útil más larga que los taladros convencionales.</p>
+                        
+                        <p>Su batería de litio de 20V proporciona una autonomía excepcional, permitiéndote trabajar durante más tiempo sin necesidad de recargar. Además, el sistema de carga rápida te permite volver al trabajo en poco tiempo.</p>
+                        
+                        <p>Con sus 2 velocidades variables (0-600 / 0-2000 RPM) y un torque máximo de 65 Nm, este taladro es capaz de enfrentar una amplia variedad de materiales y aplicaciones, desde madera y metal hasta mampostería ligera.</p>
+                        
+                        <p>El portabrocas de 13mm con bloqueo automático facilita el cambio rápido de accesorios, mientras que su diseño ergonómico con empuñadura de goma antideslizante proporciona comodidad durante el uso prolongado y reduce la fatiga.</p>
+                        
+                        <p>La luz LED integrada ilumina el área de trabajo, lo que resulta especialmente útil en espacios con poca iluminación o cuando se trabaja en armarios y rincones oscuros.</p>
+                        
+                        <p>El paquete incluye:</p>
+                        <ul class="features-list">
+                            <li>Taladro percutor inalámbrico DeWalt DCD778</li>
+                            <li>1 batería de litio de 20V (4.0Ah)</li>
+                            <li>Cargador rápido</li>
+                            <li>Maletín de transporte resistente</li>
+                            <li>Manual de instrucciones</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-pane" id="specifications">
+                        <h3>Especificaciones técnicas</h3>
+                        <table class="specifications-table">
+                            <tr>
+                                <th>Marca</th>
+                                <td>DeWalt</td>
+                            </tr>
+                            <tr>
+                                <th>Modelo</th>
+                                <td>DCD778</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo</th>
+                                <td>Taladro percutor inalámbrico</td>
+                            </tr>
+                            <tr>
+                                <th>Voltaje</th>
+                                <td>20V</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de batería</th>
+                                <td>Litio-Ion</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad de la batería</th>
+                                <td>4.0Ah</td>
+                            </tr>
+                            <tr>
+                                <th>Velocidad sin carga</th>
+                                <td>0-600 / 0-2000 RPM</td>
+                            </tr>
+                            <tr>
+                                <th>Torque máximo</th>
+                                <td>65 Nm</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad del portabrocas</th>
+                                <td>13 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad máxima de perforación (madera)</th>
+                                <td>40 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad máxima de perforación (metal)</th>
+                                <td>13 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Capacidad máxima de perforación (mampostería)</th>
+                                <td>13 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Peso</th>
+                                <td>1.65 kg (con batería)</td>
+                            </tr>
+                            <tr>
+                                <th>Dimensiones</th>
+                                <td>205 x 80 x 240 mm</td>
+                            </tr>
+                            <tr>
+                                <th>Garantía</th>
+                                <td>3 años</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="tab-pane" id="reviews">
+                        <h3>Opiniones de clientes</h3>
+                        <p>Esta sección mostrará las opiniones de los clientes sobre el producto.</p>
+                    </div>
+                    
+                    <div class="tab-pane" id="shipping">
+                        <h3>Envío y devoluciones</h3>
+                        <p><strong>Envío:</strong> Ofrecemos envío gratuito en pedidos superiores a $50. El tiempo estimado de entrega es de 24-48 horas para áreas urbanas y 2-5 días para zonas rurales.</p>
+                        
+                        <p><strong>Devoluciones:</strong> Puedes devolver cualquier producto sin usar dentro de los 30 días posteriores a la recepción. Para iniciar una devolución, contacta con nuestro servicio de atención al cliente.</p>
+                        
+                        <p><strong>Garantía:</strong> Este producto cuenta con una garantía del fabricante de 3 años que cubre defectos de fabricación. La garantía no cubre daños por mal uso o desgaste normal.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Productos relacionados -->
+            <section class="related-products">
+                <h2 class="section-title">Productos relacionados</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=160&width=160" alt="Juego de Brocas">
+                            <div class="product-wishlist">❤️</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Accesorios</div>
+                            <h3 class="product-title">Juego de Brocas para Metal y Madera DeWalt 15 piezas</h3>
+                            <div class="product-price">
+                                <span class="current-price">$29.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars">★★★★★</div>
+                                <span class="rating-count">(42)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">🛒 Agregar</button>
+                                <button class="quick-view">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=160&width=160" alt="Batería Adicional">
+                            <div class="product-badge">-10%</div>
+                            <div class="product-wishlist">❤️</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Accesorios</div>
+                            <h3 class="product-title">Batería de Repuesto DeWalt 20V 4.0Ah</h3>
+                            <div class="product-price">
+                                <span class="current-price">$79.99</span>
+                                <span class="old-price">$89.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars">★★★★☆</div>
+                                <span class="rating-count">(28)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">🛒 Agregar</button>
+                                <button class="quick-view">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=160&width=160" alt="Cargador Rápido">
+                            <div class="product-wishlist">❤️</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Accesorios</div>
+                            <h3 class="product-title">Cargador Rápido DeWalt para Baterías 12V-20V</h3>
+                            <div class="product-price">
+                                <span class="current-price">$49.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars">★★★★★</div>
+                                <span class="rating-count">(19)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">🛒 Agregar</button>
+                                <button class="quick-view">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=160&width=160" alt="Atornillador de Impacto">
+                            <div class="product-badge">Nuevo</div>
+                            <div class="product-wishlist">❤️</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Herramientas Eléctricas</div>
+                            <h3 class="product-title">Atornillador de Impacto DeWalt 20V DCF887</h3>
+                            <div class="product-price">
+                                <span class="current-price">$119.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars">★★★★☆</div>
+                                <span class="rating-count">(34)</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">🛒 Agregar</button>
+                                <button class="quick-view">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Nosotros</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Quiénes somos</a></li>
+                        <li><a href="#">→ Nuestras tiendas</a></li>
+                        <li><a href="#">→ Trabaja con nosotros</a></li>
+                        <li><a href="#">→ Responsabilidad social</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Información</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Términos y condiciones</a></li>
+                        <li><a href="#">→ Política de privacidad</a></li>
+                        <li><a href="#">→ Política de devoluciones</a></li>
+                        <li><a href="#">→ Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Atención al Cliente</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Contacto</a></li>
+                        <li><a href="#">→ Seguimiento de pedidos</a></li>
+                        <li><a href="#">→ Reclamos</a></li>
+                        <li><a href="#">→ Sugerencias</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="contact-info-item">
+                        <i>📍</i>
+                        <div>Av. Principal #123, Ciudad</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>📞</i>
+                        <div>(123) 456-789</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>✉️</i>
+                        <div>info@surtimax.com</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>🕒</i>
+                        <div>Lun-Sáb: 8:00 AM - 8:00 PM</div>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">📱</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div>© 2025 Ferretería Ventas Surtimax. Todos los derechos reservados.</div>
+                <div class="payment-methods">
+                    <img src="/placeholder.svg?height=24&width=40" alt="Visa">
+                    <img src="/placeholder.svg?height=24&width=40" alt="MasterCard">
+                    <img src="/placeholder.svg?height=24&width=40" alt="PayPal">
+                    <img src="/placeholder.svg?height=24&width=40" alt="American Express">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Script para ocultar/mostrar main-header al hacer scroll
+        let lastScrollTop = 0;
+        const mainHeader = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - ocultar main-header
+                mainHeader.classList.add('hidden');
+            } else {
+                // Scrolling up - mostrar main-header
+                mainHeader.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Script para las pestañas de producto
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Desactivar todas las pestañas
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Activar la pestaña seleccionada
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Script para las miniaturas de imágenes
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.main-image img');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Desactivar todas las miniaturas
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    
+                    // Activar la miniatura seleccionada
+                    thumbnail.classList.add('active');
+                    
+                    // Cambiar la imagen principal
+                    const imgSrc = thumbnail.querySelector('img').src;
+                    mainImage.src = imgSrc;
+                });
+            });
+            
+            // Script para el contador de cantidad
+            const minusBtn = document.querySelector('.quantity-btn:first-child');
+            const plusBtn = document.querySelector('.quantity-btn:last-child');
+            const quantityInput = document.querySelector('.quantity-value');
+            
+            minusBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                quantityInput.value = value + 1;
+            });
+        });
+    </script>
+</body>
+</html>
