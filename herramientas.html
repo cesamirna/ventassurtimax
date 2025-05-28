@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas - Ferretería Ventas Surtimax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007387;
+            --primary-dark: #00656c;
+            --primary-light: #E6F4EF;
+            --secondary: #FF4438;
+            --secondary-dark: #E02E22;
+            --text-dark: #1A1A1A;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --background: #FFFFFF;
+            --background-light: #F8F9FA;
+            --border-light: #E9ECEF;
+            --border: #DEE2E6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.07), 0 5px 10px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --radius-sm: 4px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Utilidades */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Header y navegación */
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.875rem;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Main Header - Se oculta al hacer scroll */
+        .main-header {
+            background-color: #0f0f0f;
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            padding-right: 45px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.1);
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition);
+        }
+        
+        .search-bar button:hover {
+            color: var(--primary-dark);
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .user-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+        
+        .user-action i {
+            font-size: 1.25rem;
+            margin-bottom: 3px;
+        }
+        
+        .user-action:hover {
+            color: var(--primary);
+        }
+        
+        .cart-count {
+            position: relative;
+        }
+        
+        .cart-count::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.625rem;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+        /* Main Navigation - Siempre visible */
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            justify-content: space-between; /* Espacio Entre Categorias */
+        }
+        
+        .nav-list li {
+            position: relative;
+        }
+        
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+        
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-list a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 0;
+            background-color: white;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--text-light);
+        }
+        
+        .breadcrumb-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb-link:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb-item:last-child .breadcrumb-link {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        /* Página de categoría */
+        .category-header {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .category-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .category-description {
+            color: var(--text-medium);
+            margin-bottom: 0;
+        }
+        
+        /* Productos */
+        .category-content {
+            /* Eliminada la estructura de grid con filtros */
+            display: block;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 140px;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .product-wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-wishlist:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-category {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            height: 45px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .old-price {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .discount-percent {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            display: flex;
+            color: #FFB800;
+            font-size: 0.875rem;
+        }
+        
+        .rating-count {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .quick-view {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none; /* Esto quita la línea del enlace */
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .quick-view:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-color: var(--primary-light);
+        }
+        
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .pagination-item a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background-color: white;
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pagination-item a:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .pagination-item.active a {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 60px 0 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        
+        .contact-info-item i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            background-color: #111111;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-bottom .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .payment-methods img {
+            height: 24px;
+            background-color: white;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-header .container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                margin: 15px 0 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-bottom .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .user-actions {
+                gap: 15px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Top Bar -->
+    <!--div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+123456789"><i>📞</i> (123) 456-789</a>
+                <a href="mailto:info@surtimax.com"><i>✉️</i> info@surtimax.com</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📱</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+        </div>
+    </div-->
+    
+    <!-- Main Header - Se oculta al hacer scroll -->
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.png" width="32" height="32" alt="Logo SURTIMAX">
+                FERRETERIA<span>VENTAS SURTIMAX</span>
+            </a>
+            
+            <!--div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button aria-label="Buscar">🔍</button>
+            </div-->
+            
+            <!--div class="user-actions">
+                <a href="#" class="user-action">
+                    <i>👤</i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i>❤️</i>
+                    <span>Favoritos</span>
+                </a>
+                <a href="#" class="user-action">
+                    <i class="cart-count" data-count="3">🛒</i>
+                    <span>Carrito</span>
+                </a>
+            </div-->
+        
+            <div class="social-links">
+                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="img_s/insta.png" width="20" height="20"></a>
+                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="img_s/face.png" width="20" height="20"></a>
+                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="img_s/tiktok.png" width="20" height="20"></a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Navigation - Siempre visible -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#" class="active">Herramientas</a></li>
+                <li><a href="#">Electricidad</a></li>
+                <li><a href="#">Plomería</a></li>
+                <li><a href="#">Pinturas</a></li>
+                <li><a href="#">Cerrajería</a></li>
+                <li><a href="#">Jardín</a></li>
+                <li><a href="#">Construcción</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Herramientas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Contenido principal -->
+    <main>
+        <div class="container">
+            <!-- Encabezado de categoría -->
+            <div class="category-header">
+                <h1 class="category-title">Herramientas</h1>
+                <p class="category-description">Encuentra todo tipo de herramientas manuales y eléctricas para tus proyectos de construcción, remodelación y bricolaje.</p>
+            </div>
+            
+            <!-- Contenido de categoría -->
+            <div class="category-content">
+                <!-- Productos -->
+                <div class="products">
+                    <!-- Se eliminó el div products-header que contenía el conteo y ordenamiento -->
+                    
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="img_h/H1811032B.jpg" alt="Taladro Percutor">
+                                <div class="product-badge">Disponible</div>
+                                <!--div class="product-wishlist">🧰</div-->
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Eléctricas</div>
+                                <h3 class="product-title">Taladro Percutor Inalámbrico 20V DeWalt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$97.10</span-->
+                                    <!--span class="old-price">$159.99</span-->
+                                </div>
+                                <div class="product-rating">
+                                    <span class="rating-count">Código: H1811032B</span>
+                                    <!--span class="rating-count">(128)</span-->
+                                </div>
+                                <div class="product-actions">
+                                    <!--button class="add-to-cart">🛒 Agregar</button-->
+                                    <!--button class="quick-view">👁️</button-->
+                                    <a href="producto.html" class="quick-view">Ver Producto</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Juego de Destornilladores">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Manuales</div>
+                                <h3 class="product-title">Juego de Destornilladores Stanley 42 piezas</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$45.50</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★★</div>
+                                    <span class="rating-count">(86)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Sierra Circular">
+                                <div class="product-badge">Nuevo</div>
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Eléctricas</div>
+                                <h3 class="product-title">Sierra Circular Bosch GKS 190 1400W</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$89.99</span>
+                                    <span class="old-price">$99.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(42)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Caja de Herramientas">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Organización</div>
+                                <h3 class="product-title">Caja de Herramientas Plástica 19" con Organizador</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$24.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(56)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Martillo">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Manuales</div>
+                                <h3 class="product-title">Martillo de Carpintero Stanley 16oz con Mango Fibra de Vidrio</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$15.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(78)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Llave Ajustable">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Manuales</div>
+                                <h3 class="product-title">Llave Ajustable Cromada 10" Profesional</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$12.50</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(45)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Cinta Métrica">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Medición</div>
+                                <h3 class="product-title">Cinta Métrica 5m con Bloqueo Automático</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$8.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★★</div>
+                                    <span class="rating-count">(92)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Nivel">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Medición</div>
+                                <h3 class="product-title">Nivel de Burbuja Profesional 60cm con 3 Burbujas</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$22.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(38)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Alicates">
+                                <div class="product-badge">-15%</div>
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Manuales</div>
+                                <h3 class="product-title">Set de Alicates 3 Piezas con Mango Ergonómico</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$19.99</span>
+                                    <span class="old-price">$23.50</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(52)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Lijadora">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Eléctricas</div>
+                                <h3 class="product-title">Lijadora Orbital 300W con Bolsa Recolectora</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$59.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(34)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Serrucho">
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Manuales</div>
+                                <h3 class="product-title">Serrucho para Madera 18" con Mango de Goma</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$14.50</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(29)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="/placeholder.svg?height=140&width=140" alt="Esmeriladora">
+                                <div class="product-badge">Nuevo</div>
+                                <div class="product-wishlist">❤️</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Herramientas Eléctricas</div>
+                                <h3 class="product-title">Esmeriladora Angular 4-1/2" 850W</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$49.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="stars">★★★★☆</div>
+                                    <span class="rating-count">(18)</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart">🛒 Agregar</button>
+                                    <button class="quick-view">👁️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Paginación -->
+                    <div class="pagination">
+                        <ul class="pagination-list">
+                            <li class="pagination-item active"><a href="#">1</a></li>
+                            <li class="pagination-item"><a href="#">2</a></li>
+                            <li class="pagination-item"><a href="#">3</a></li>
+                            <li class="pagination-item"><a href="#">4</a></li>
+                            <li class="pagination-item"><a href="#">5</a></li>
+                            <li class="pagination-item"><a href="#">→</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Nosotros</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Quiénes somos</a></li>
+                        <li><a href="#">→ Nuestras tiendas</a></li>
+                        <li><a href="#">→ Trabaja con nosotros</a></li>
+                        <li><a href="#">→ Responsabilidad social</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Información</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Términos y condiciones</a></li>
+                        <li><a href="#">→ Política de privacidad</a></li>
+                        <li><a href="#">→ Política de devoluciones</a></li>
+                        <li><a href="#">→ Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Atención al Cliente</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">→ Contacto</a></li>
+                        <li><a href="#">→ Seguimiento de pedidos</a></li>
+                        <li><a href="#">→ Reclamos</a></li>
+                        <li><a href="#">→ Sugerencias</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="contact-info-item">
+                        <i>📍</i>
+                        <div>Av. Principal #123, Ciudad</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>📞</i>
+                        <div>(123) 456-789</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>✉️</i>
+                        <div>info@surtimax.com</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>🕒</i>
+                        <div>Lun-Sáb: 8:00 AM - 8:00 PM</div>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">📱</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div>© 2025 Ferretería Ventas Surtimax. Todos los derechos reservados.</div>
+                <div class="payment-methods">
+                    <img src="/placeholder.svg?height=24&width=40" alt="Visa">
+                    <img src="/placeholder.svg?height=24&width=40" alt="MasterCard">
+                    <img src="/placeholder.svg?height=24&width=40" alt="PayPal">
+                    <img src="/placeholder.svg?height=24&width=40" alt="American Express">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para ocultar/mostrar main-header al hacer scroll
+        let lastScrollTop = 0;
+        const mainHeader = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - ocultar main-header
+                mainHeader.classList.add('hidden');
+            } else {
+                // Scrolling up - mostrar main-header
+                mainHeader.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+
+</body>
+</html>
