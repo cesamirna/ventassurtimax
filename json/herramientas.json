@@ -1,0 +1,209 @@
+{
+  "herramientas": [
+    {
+      "id": 1,
+      "nombre": "Taladro Percutor Inalámbrico 20V",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1811032B",
+      "marca": "DeWalt",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/herramientas/H1811032B.jpg",
+      "estado": "disponible",
+      "rating": "",
+      "reviews": "",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "nombre": "Juego de Destornilladores de 10PCS",
+      "categoria": "Herramientas Manuales",
+      "codigo": "THTDC251001",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/THTDC251001.jpg",
+      "estado": "disponible"
+    },
+    {
+      "id": 3,
+      "nombre": "Sierra Circular 1400W 110-120V 60HZ",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H3005012B",
+      "marca": "Best Value",
+      "url": "",
+      "imagen": "img/herramientas/H27012.png",
+      "estado": "disponible"
+    },
+    {
+      "id": 4,
+      "nombre": "Caja para Herramientas con Compartimientos 19\"",
+      "categoria": "Organización",
+      "codigo": "CHP-19CP",
+      "marca": "Pretul",
+      "url": "",
+      "imagen": "img/accesorios/CHP-19CP.webp",
+      "estado": "disponible"
+    },
+    {
+      "id": 5,
+      "nombre": "Martillo con Mango de Fibra de Vidrio 20oz",
+      "categoria": "Herramientas Manuales",
+      "codigo": "H0451392",
+      "marca": "Stanley",
+      "url": "",
+      "imagen": "img/herramientas/H0451392.webp",
+      "estado": "disponible"
+    },
+    {
+      "id": 6,
+      "nombre": "Llave Ajustable 12\" Industrial",
+      "categoria": "Herramientas Manuales",
+      "codigo": "THT101126",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/THT101126.jpg",
+      "estado": "disponible"
+    },
+    {
+      "id": 7,
+      "nombre": "Cinta Métrica Inoxidable 5m",
+      "categoria": "Medición",
+      "codigo": "IR59E",
+      "marca": "Komelon",
+      "url": "",
+      "imagen": "img/herramientas/IR59E.png",
+      "estado": "disponible"
+    },
+    {
+      "id": 8,
+      "nombre": "Nivel de Burbuja de 60cm Aluminio",
+      "categoria": "Medición",
+      "codigo": "TMT26036",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TMT26036.jpg",
+      "estado": "disponible"
+    },
+    {
+      "id": 9,
+      "nombre": "Set de Alicates 3 Piezas con Mango Ergonómico",
+      "categoria": "Herramientas Manuales",
+      "codigo": "H9006003A",
+      "marca": "Klein Tools",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 10,
+      "nombre": "Lijadora Orbital 300W con Bolsa Recolectora",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1007300L",
+      "marca": "Black & Decker",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 11,
+      "nombre": "Serrucho para Madera 18\" con Mango de Goma",
+      "categoria": "Herramientas Manuales",
+      "codigo": "H1108018S",
+      "marca": "Irwin",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 12,
+      "nombre": "Esmeriladora Angular 4-1/2\" 850W",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1209850E",
+      "marca": "Makita",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "nuevo"
+    },
+    {
+      "id": 13,
+      "nombre": "Taladro de Banco 350W con Mesa Ajustable",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1310350T",
+      "marca": "Delta",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 14,
+      "nombre": "Juego de Llaves Combinadas 8-19mm",
+      "categoria": "Herramientas Manuales",
+      "codigo": "H1411819L",
+      "marca": "Craftsman",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 15,
+      "nombre": "Pistola de Calor 2000W con Accesorios",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1512000P",
+      "marca": "Wagner",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 16,
+      "nombre": "Banco de Trabajo Plegable con Prensa",
+      "categoria": "Organización",
+      "codigo": "H1613001B",
+      "marca": "Keter",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 17,
+      "nombre": "Compresor de Aire 24L 2HP",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1714024C",
+      "marca": "Porter-Cable",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 18,
+      "nombre": "Soldadora Inverter 200A con Accesorios",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H1815200S",
+      "marca": "Lincoln Electric",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 19,
+      "nombre": "Multímetro Digital Profesional",
+      "categoria": "Medición",
+      "codigo": "H1916001M",
+      "marca": "Fluke",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    },
+    {
+      "id": 20,
+      "nombre": "Escalera Telescópica Aluminio 3.8m",
+      "categoria": "Organización",
+      "codigo": "H2017380E",
+      "marca": "Little Giant",
+      "url": "",
+      "imagen": "/placeholder.svg?height=140&width=140",
+      "estado": "disponible"
+    }
+  ]
+}
