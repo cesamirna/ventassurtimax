@@ -503,7 +503,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px;
+            padding: 20px;
             background-color: white;
             position: relative;
             overflow: hidden;
@@ -511,7 +511,7 @@
         
         .product-image img {
             max-width: 100%;
-            max-height: 150px;
+            max-height: 180px; /* Tamaño de Imagen de Producto*/
             object-fit: contain;
             transition: var(--transition);
         }
@@ -522,8 +522,8 @@
         
         .product-badge {
             position: absolute;
-            top: 8px;
-            left: 8px;
+            top: 10px;
+            left: 10px;
             background-color: var(--secondary);
             color: white;
             font-size: 0.7rem;
@@ -622,7 +622,7 @@
         
         .product-actions {
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
         
         .add-to-cart {
@@ -630,16 +630,16 @@
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: var(--radius-sm);
-            font-size: 0.8rem;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
         
         .add-to-cart:hover {
@@ -651,9 +651,9 @@
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: var(--radius-sm);
-            font-size: 0.8rem;
+            font-size: 0.875rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
@@ -661,7 +661,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
         
         .quick-view:hover {
@@ -1229,7 +1229,7 @@
             }
             
             .product-info {
-                padding: 10px;
+                padding: 15px;
             }
             
             .product-title {
@@ -1360,7 +1360,7 @@
                 <li><a href="#">Cerrajería</a></li>
                 <li><a href="#">Jardín</a></li>
                 <li><a href="#">Construcción</a></li>
-                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Hogar</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -1456,34 +1456,60 @@
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="img_h/H1811032B.jpg" width="160" height="160" alt="Taladro Percutor">
+                        <img src="img/accesorios/TGTSC52401.jpg" width="160" height="160" alt="Cadena para Motosierra">
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Herramientas Eléctricas</div>
-                        <h3 class="product-title">Taladro Percutor Inalámbrico 20V</h3>
+                        <div class="product-category">Accesorio/Repuesto</div>
+                        <h3 class="product-title">Cadena para Motosierra 24"</h3>
                         <div class="product-price">
-                            <span class="current-price">DeWalt</span>
+                            <span class="current-price">Total</span>
+                            <!--span class="old-price">$99.99</span>
+                            <span class="discount-percent">-10%</span-->
+                        </div>
+                        <div class="product-rating">
+                            <span class="rating-count">Código: TGTSC52401</span>
+                            <!--div class="stars">★★★★☆</div-->
+                            <!--span class="rating-count">(42)</span-->
+                        </div>
+                        <div class="product-actions">
+                            <!--button class="add-to-cart">🛒 Agregar</button-->
+                            <!--button class="quick-view">Ver Producto</button-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/herramientas/TG5451811.png" width="200" height="200" alt="Motosierra">
+                        <div class="product-badge">Disponible</div>
+                        <!--div class="product-wishlist">❤️</div-->
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Herramientas Manuales</div>
+                        <h3 class="product-title">Motosierra 46CC de 18"</h3>
+                        <div class="product-price">
+                            <span class="current-price">Total</span>
                             <!--span class="old-price">$159.99</span>
                             <span class="discount-percent">-20%</span-->
                         </div>
                         <div class="product-rating">
-                            <span class="rating-count">Código: H1811032B</span>
+                            <span class="rating-count">Código: TG5451811</span>
                             <!--div class="stars">★★★★☆</div>
                             <span class="rating-count">(128)</span-->
                         </div>
                         <div class="product-actions">
                             <!--button class="add-to-cart">🛒 Agregar</button>
                             <button class="quick-view">👁️</button-->
-                            <a href="producto.html" class="quick-view">Ver Producto</a>
+                            <!--a href="producto.html" class="quick-view">Ver Producto</a-->
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="img_h/UTDLI200518.jpg" width="160" height="160" alt="Taladro Percutor">
+                        <img src="img/herramientas/UTDLI200518.jpg" width="150" height="150" alt="Taladro Percutor">
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
@@ -1500,57 +1526,31 @@
                         </div>
                         <div class="product-actions">
                             <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <button class="quick-view">Ver Producto</button>
+                            <!--button class="quick-view">Ver Producto</button-->
                         </div>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="img_h/UWCDP522.jpg" width="180" height="180" alt="Taladro Percutor">
+                        <img src="img/accesorios/CHP-19CP.webp" width="180" height="180" alt="Caja para Herramientas">
                         <div class="product-badge">Disponible</div>
                         <!--div class="product-wishlist">❤️</div-->
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Herramientas Eléctricas</div>
-                        <h3 class="product-title">Taladro Percutor Inalámbrico 20V</h3>
+                        <div class="product-category">Organización</div>
+                        <h3 class="product-title">Caja para Herramientas con Compartimientos 19"</h3>
                         <div class="product-price">
-                            <span class="current-price">Wadfow</span>
-                            <!--span class="old-price">$99.99</span>
-                            <span class="discount-percent">-10%</span-->
+                            <span class="current-price">Pretul</span>
                         </div>
                         <div class="product-rating">
-                            <span class="rating-count">Código: UWCDP522</span>
-                            <!--div class="stars">★★★★☆</div-->
-                            <!--span class="rating-count">(42)</span-->
-                        </div>
-                        <div class="product-actions">
-                            <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <button class="quick-view">Ver Producto</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="img_h/H27031.jpg" alt="Taladro Percutor">
-                        <div class="product-badge">Disponible</div>
-                        <!--div class="product-wishlist">❤️</div-->
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Herramientas Eléctricas</div>
-                        <h3 class="product-title">Taladro Percutor Inalámbrico 20V</h3>
-                        <div class="product-price">
-                            <span class="current-price">Best Value</span>
-                        </div>
-                        <div class="product-rating">
-                            <span class="rating-count">Código: H27031</span>
+                            <span class="rating-count">Código: CHP-19CP</span>
                             <!--div class="stars">★★★★☆</div>
                             <span class="rating-count">(56)</span-->
                         </div>
                         <div class="product-actions">
                             <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <button class="quick-view">Ver Producto</button>
+                            <!--button class="quick-view">Ver Producto</button-->
                         </div>
                     </div>
                 </div>

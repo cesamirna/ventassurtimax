@@ -251,7 +251,7 @@
             display: flex;
             list-style: none;
             gap: 5px;
-            justify-content: space-between; /* Espacio Entre Categorias */
+            justify-content: space-between;
             flex-wrap: wrap;
         }
         
@@ -342,10 +342,63 @@
             color: var(--text-medium);
             margin-bottom: 0;
         }
+
+        /* Barra de búsqueda de productos */
+        .product-search {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .product-search-bar {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .product-search-bar input {
+            width: 100%;
+            padding: 12px 15px;
+            padding-right: 45px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .product-search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.1);
+        }
+
+        .product-search-bar button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            /*background-color: var(--primary);*/
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-search-bar button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .search-results-info {
+            margin-top: 15px;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
         
         /* Productos */
         .category-content {
-            /* Eliminada la estructura de grid con filtros */
             display: block;
         }
         
@@ -382,7 +435,7 @@
         
         .product-image img {
             max-width: 100%;
-            max-height: 140px;
+            max-height: 160px;
             object-fit: contain;
             transition: var(--transition);
         }
@@ -401,6 +454,18 @@
             font-weight: 600;
             padding: 3px 10px;
             border-radius: var(--radius-sm);
+        }
+
+        .product-badge.disponible {
+            background-color: #28a745;
+        }
+
+        .product-badge.agotado {
+            background-color: #dc3545;
+        }
+
+        .product-badge.nuevo {
+            background-color: var(--primary);
         }
         
         .product-wishlist {
@@ -451,7 +516,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .current-price {
@@ -470,6 +535,15 @@
             font-size: 0.75rem;
             color: var(--secondary);
             font-weight: 600;
+        }
+
+        /* Estilo para la marca del producto */
+        .product-brand {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
         }
         
         .product-rating {
@@ -525,7 +599,7 @@
             border-radius: var(--radius-sm);
             font-size: 0.875rem;
             font-weight: 500;
-            text-decoration: none; /* Esto quita la línea del enlace */
+            text-decoration: none;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -538,6 +612,18 @@
             background-color: var(--primary-light);
             color: var(--primary);
             border-color: var(--primary-light);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-medium);
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
         }
         
         /* Paginación */
@@ -952,48 +1038,12 @@
 </head>
 <body>
     
-    <!-- Top Bar -->
-    <!--div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <a href="tel:+123456789"><i>📞</i> (123) 456-789</a>
-                <a href="mailto:info@surtimax.com"><i>✉️</i> info@surtimax.com</a>
-            </div>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📱</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="YouTube">▶️</a>
-            </div>
-        </div>
-    </div-->
-    
     <!-- Main Header - Se oculta al hacer scroll -->
     <header class="main-header" id="main-header">
         <div class="container">
             <a href="index.html" class="logo"><img src="icon/logo.png" width="30" height="30" alt="Logo SURTIMAX">
                 FERRETERIA<span>VENTAS SURTIMAX</span>
             </a>
-            
-            <!--div class="search-bar">
-                <input type="text" placeholder="¿Qué estás buscando?">
-                <button aria-label="Buscar">🔍</button>
-            </div-->
-            
-            <!--div class="user-actions">
-                <a href="#" class="user-action">
-                    <i>👤</i>
-                    <span>Mi Cuenta</span>
-                </a>
-                <a href="#" class="user-action">
-                    <i>❤️</i>
-                    <span>Favoritos</span>
-                </a>
-                <a href="#" class="user-action">
-                    <i class="cart-count" data-count="3">🛒</i>
-                    <span>Carrito</span>
-                </a>
-            </div-->
         
             <div class="social-links">
                 <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
@@ -1015,7 +1065,7 @@
                 <li><a href="#">Cerrajería</a></li>
                 <li><a href="#">Jardín</a></li>
                 <li><a href="#">Construcción</a></li>
-                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Hogar</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -1045,285 +1095,27 @@
                 <p class="category-description">Encuentra todo tipo de herramientas manuales y eléctricas para tus proyectos de construcción, remodelación y bricolaje.</p>
             </div>
             
+            <!-- Barra de búsqueda de productos -->
+            <div class="product-search">
+                <div class="product-search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar herramientas...">
+                    <button onclick="searchProducts()">🔎</button>
+                </div>
+                <div class="search-results-info" id="searchInfo"></div>
+            </div>
+            
             <!-- Contenido de categoría -->
             <div class="category-content">
                 <!-- Productos -->
                 <div class="products">
-                    <!-- Se eliminó el div products-header que contenía el conteo y ordenamiento -->
+                    <div class="product-grid" id="productGrid">
+                        <!-- Los productos se cargarán aquí dinámicamente -->
+                    </div>
                     
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="img_h/H1811032B.jpg" alt="Taladro Percutor">
-                                <div class="product-badge">Disponible</div>
-                                <!--div class="product-wishlist">🧰</div-->
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Eléctricas</div>
-                                <h3 class="product-title">Taladro Percutor Inalámbrico 20V DeWalt</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$97.10</span-->
-                                    <!--span class="old-price">$159.99</span-->
-                                </div>
-                                <div class="product-rating">
-                                    <span class="rating-count">Código: H1811032B</span>
-                                    <!--span class="rating-count">(128)</span-->
-                                </div>
-                                <div class="product-actions">
-                                    <!--button class="add-to-cart">🛒 Agregar</button-->
-                                    <!--button class="quick-view">👁️</button-->
-                                    <a href="producto.html" class="quick-view">Ver Producto</a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Juego de Destornilladores">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Manuales</div>
-                                <h3 class="product-title">Juego de Destornilladores Stanley 42 piezas</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$45.50</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★★</div>
-                                    <span class="rating-count">(86)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Sierra Circular">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Eléctricas</div>
-                                <h3 class="product-title">Sierra Circular Bosch GKS 190 1400W</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$89.99</span>
-                                    <span class="old-price">$99.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(42)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Caja de Herramientas">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Organización</div>
-                                <h3 class="product-title">Caja de Herramientas Plástica 19" con Organizador</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$24.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(56)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Martillo">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Manuales</div>
-                                <h3 class="product-title">Martillo de Carpintero Stanley 16oz con Mango Fibra de Vidrio</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$15.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(78)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Llave Ajustable">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Manuales</div>
-                                <h3 class="product-title">Llave Ajustable Cromada 10" Profesional</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$12.50</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(45)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Cinta Métrica">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Medición</div>
-                                <h3 class="product-title">Cinta Métrica 5m con Bloqueo Automático</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$8.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★★</div>
-                                    <span class="rating-count">(92)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Nivel">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Medición</div>
-                                <h3 class="product-title">Nivel de Burbuja Profesional 60cm con 3 Burbujas</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$22.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(38)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Alicates">
-                                <div class="product-badge">-15%</div>
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Manuales</div>
-                                <h3 class="product-title">Set de Alicates 3 Piezas con Mango Ergonómico</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$19.99</span>
-                                    <span class="old-price">$23.50</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(52)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Lijadora">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Eléctricas</div>
-                                <h3 class="product-title">Lijadora Orbital 300W con Bolsa Recolectora</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$59.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(34)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Serrucho">
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Manuales</div>
-                                <h3 class="product-title">Serrucho para Madera 18" con Mango de Goma</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$14.50</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(29)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=140&width=140" alt="Esmeriladora">
-                                <div class="product-badge">Nuevo</div>
-                                <div class="product-wishlist">❤️</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-category">Herramientas Eléctricas</div>
-                                <h3 class="product-title">Esmeriladora Angular 4-1/2" 850W</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$49.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <div class="stars">★★★★☆</div>
-                                    <span class="rating-count">(18)</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="add-to-cart">🛒 Agregar</button>
-                                    <button class="quick-view">👁️</button>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Mensaje cuando no hay resultados -->
+                    <div class="no-results" id="noResults" style="display: none;">
+                        <h3>No se encontraron productos</h3>
+                        <p>Intenta con otros términos de búsqueda o explora nuestras categorías.</p>
                     </div>
                     
                     <!-- Paginación -->
@@ -1419,6 +1211,10 @@
     </footer>
 
     <script>
+        // Variables globales
+        let allProducts = [];
+        let filteredProducts = [];
+
         // Script para ocultar/mostrar main-header al hacer scroll
         let lastScrollTop = 0;
         const mainHeader = document.getElementById('main-header');
@@ -1435,6 +1231,213 @@
             }
             
             lastScrollTop = scrollTop;
+        });
+
+        // Cargar productos desde JSON
+        async function loadProducts() {
+            try {
+                const response = await fetch('json/herramientas.json');
+                const data = await response.json();
+                allProducts = data.herramientas;
+                filteredProducts = [...allProducts];
+                displayProducts(filteredProducts);
+                updateSearchInfo(filteredProducts.length, allProducts.length);
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                // Mostrar productos de ejemplo si no se puede cargar el JSON
+                loadExampleProducts();
+            }
+        }
+
+        // Productos de ejemplo en caso de que no se pueda cargar el JSON
+        function loadExampleProducts() {
+            allProducts = [
+                {
+                    id: 1,
+                    nombre: "Taladro Percutor Inalámbrico 20V DeWalt",
+                    categoria: "Herramientas Eléctricas",
+                    codigo: "H1811032B",
+                    marca: "DeWalt",
+                    url: "#",
+                    precio: 90.10,
+                    precioAnterior: 159.99,
+                    imagen: "img/herramientas/H1811032B.jpg",
+                    estado: "disponible",
+                    rating: 4.5,
+                    reviews: 128,
+                    descripcion: ""
+                },
+                {
+                    id: 2,
+                    nombre: "Juego de Destornilladores Stanley 42 piezas",
+                    categoria: "Herramientas Manuales",
+                    codigo: "H2001045S",
+                    marca: "Stanley",
+                    url: "#",
+                    precio: 45.50,
+                    imagen: "/placeholder.svg?height=140&width=140",
+                    estado: "disponible",
+                    rating: 5.0,
+                    reviews: 86
+                },
+                {
+                    id: 3,
+                    nombre: "Sierra Circular Bosch GKS 190 1400W",
+                    categoria: "Herramientas Eléctricas",
+                    codigo: "H3005012B",
+                    marca: "Bosch",
+                    // Este producto no tiene URL para probar
+                    precio: 89.99,
+                    precioAnterior: 99.99,
+                    imagen: "/placeholder.svg?height=140&width=140",
+                    estado: "disponible",
+                    rating: 4.0,
+                    reviews: 42
+                }
+            ];
+            filteredProducts = [...allProducts];
+            displayProducts(filteredProducts);
+            updateSearchInfo(filteredProducts.length, allProducts.length);
+        }
+
+        // Mostrar productos en la grilla
+        function displayProducts(products) {
+            const productGrid = document.getElementById('productGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (products.length === 0) {
+                productGrid.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            productGrid.style.display = 'grid';
+            noResults.style.display = 'none';
+            
+            productGrid.innerHTML = products.map(product => {
+                // Verificar si hay botones para mostrar
+                const hasAddToCart = product.precio;
+                const hasViewButton = product.url && product.url.trim() !== '';
+                const hasAnyButton = hasAddToCart || hasViewButton;
+                
+                return `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.imagen}" width="140" height="140" alt="${product.nombre}">
+                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.categoria}</div>
+                        <h3 class="product-title">${product.nombre}</h3>
+                        ${product.precio ? `
+                        <div class="product-price">
+                            <span class="current-price">$${product.precio.toFixed(2)}</span>
+                            ${product.precioAnterior ? `<span class="old-price">$${product.precioAnterior.toFixed(2)}</span>` : ''}
+                        </div>
+                        ` : ''}
+                        ${product.marca ? `<div class="product-brand">${product.marca}</div>` : ''}
+                        <div class="product-rating">
+                            ${product.rating ? `
+                            <div class="stars">${generateStars(product.rating)}</div>
+                            <span class="rating-count">(${product.reviews})</span>
+                            ` : ''}
+                            <span class="rating-count">Código: ${product.codigo}</span>
+                        </div>
+                        ${hasAnyButton ? `
+                        <div class="product-actions">
+                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        // Generar estrellas para rating
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '★';
+            }
+            
+            if (hasHalfStar) {
+                stars += '☆';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '☆';
+            }
+            
+            return stars;
+        }
+
+        // Obtener texto del estado
+        function getEstadoText(estado) {
+            switch(estado) {
+                case 'disponible': return 'Disponible';
+                case 'agotado': return 'Agotado';
+                case 'nuevo': return 'Nuevo';
+                default: return 'Disponible';
+            }
+        }
+
+        // Buscar productos
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                filteredProducts = [...allProducts];
+            } else {
+                filteredProducts = allProducts.filter(product => 
+                    product.nombre.toLowerCase().includes(searchTerm) ||
+                    product.categoria.toLowerCase().includes(searchTerm) ||
+                    product.codigo.toLowerCase().includes(searchTerm) ||
+                    (product.marca && product.marca.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            displayProducts(filteredProducts);
+            updateSearchInfo(filteredProducts.length, allProducts.length, searchTerm);
+        }
+
+        // Actualizar información de búsqueda
+        function updateSearchInfo(found, total, searchTerm = '') {
+            const searchInfo = document.getElementById('searchInfo');
+            
+            if (searchTerm) {
+                searchInfo.textContent = `Se encontraron ${found} productos de ${total} para "${searchTerm}"`;
+            } else {
+                searchInfo.textContent = `Mostrando ${found} productos`;
+            }
+        }
+
+        // Búsqueda en tiempo real
+        document.getElementById('searchInput').addEventListener('input', function() {
+            searchProducts();
+        });
+
+        // Búsqueda al presionar Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchProducts();
+            }
+        });
+
+        // Funciones para los botones (placeholder)
+        function addToCart(productId) {
+            alert(`Producto ${productId} agregado al carrito`);
+        }
+
+        // Cargar productos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
         });
     </script>
 
