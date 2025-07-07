@@ -85,15 +85,15 @@
     },
     {
       "id": 7,
-      "nombre": "Cinta Métrica Inoxidable 5m",
-      "categoria": "Medición",
-      "codigo": "IR59E",
-      "marca": "Komelon",
+      "nombre": "Taladro Percutor Inalámbrico 20V",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "UTDLI200518",
+      "marca": "Best Value",
       "url": "",
-      "imagen": "img/herramientas/IR59E.png",
+      "imagen": "img/herramientas/H27031.jpg",
       "estado": "disponible",
       "productdestacado": false,
-      "deptdestacado": true,
+      "deptdestacado": false,
       "compra": false
     },
     {
@@ -155,8 +155,8 @@
       "codigo": "H27011",
       "marca": "Best Value",
       "url": "",
-      "imagen": "img/herramientas/H27011.webp",
-      "estado": "nuevo",
+      "imagen": "img/herramientas/H27011.png",
+      "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": false,
       "compra": false
@@ -199,7 +199,20 @@
       "productdestacado": false,
       "deptdestacado": true,
       "compra": false
+    },
+    
+    {
+      "id": 16,
+      "nombre": "Cinta Métrica Inoxidable 5m",
+      "categoria": "Medición",
+      "codigo": "IR59E",
+      "marca": "Komelon",
+      "url": "",
+      "imagen": "img/herramientas/IR59E.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
     }
-
   ]
 }
