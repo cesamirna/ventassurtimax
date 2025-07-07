@@ -27,6 +27,7 @@
             --radius: 8px;
             --radius-sm: 4px;
             --transition: all 0.3s ease;
+            --header-height: 60px; /* Nueva variable para la altura del header */
         }
 
         * {
@@ -171,6 +172,7 @@
             top: 0;
             z-index: 1001;
             transition: transform 0.3s ease;
+            height: var(--header-height); /* Altura fija para el header */
         }
         
         .main-header.hidden {
@@ -290,9 +292,15 @@
             background-color: var(--primary-dark);
             padding: 10px 0;
             position: sticky;
-            top: 0;
+            top: 0; /* Posición inicial */
             z-index: 1000;
             box-shadow: var(--shadow);
+            transition: top 0.3s ease; /* Transición suave para el cambio de posición */
+        }
+        
+        /* Cuando el header está visible, el nav se posiciona debajo */
+        .main-nav.header-visible {
+            top: var(--header-height);
         }
         
         .nav-list {
@@ -1349,7 +1357,7 @@
     </header>
 
     <!-- Main Navigation - Siempre visible -->
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
         <div class="container">
             <ul class="nav-list">
                 <li><a href="#" class="active">Inicio</a></li>
@@ -1801,6 +1809,7 @@
         // Script para ocultar/mostrar main-header al hacer scroll
         let lastScrollTop = 0;
         const mainHeader = document.getElementById('main-header');
+        const mainNav = document.getElementById('main-nav');
         
         window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -1808,9 +1817,11 @@
             if (scrollTop > lastScrollTop && scrollTop > 100) {
                 // Scrolling down - ocultar main-header
                 mainHeader.classList.add('hidden');
+                mainNav.classList.remove('header-visible');
             } else {
                 // Scrolling up - mostrar main-header
                 mainHeader.classList.remove('hidden');
+                mainNav.classList.add('header-visible');
             }
             
             lastScrollTop = scrollTop;
