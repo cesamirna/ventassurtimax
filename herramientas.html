@@ -1276,7 +1276,8 @@
                     estado: "disponible",
                     rating: 4.5,
                     reviews: 128,
-                    descripcion: ""
+                    descripcion: "",
+                    compra: true
                 },
                 {
                     id: 2,
@@ -1289,7 +1290,8 @@
                     imagen: "/placeholder.svg?height=140&width=140",
                     estado: "disponible",
                     rating: 5.0,
-                    reviews: 86
+                    reviews: 86,
+                    compra: false
                 },
                 {
                     id: 3,
@@ -1303,7 +1305,8 @@
                     imagen: "/placeholder.svg?height=140&width=140",
                     estado: "disponible",
                     rating: 4.0,
-                    reviews: 42
+                    reviews: 42,
+                    compra: true
                 }
             ];
             filteredProducts = [...allProducts];
@@ -1326,8 +1329,8 @@
             noResults.style.display = 'none';
             
             productGrid.innerHTML = products.map(product => {
-                // Verificar si hay botones para mostrar
-                const hasAddToCart = product.precio;
+                // Verificar si hay botones para mostrar - CAMBIO AQUÍ
+                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
                 const hasViewButton = product.url && product.url.trim() !== '';
                 const hasAnyButton = hasAddToCart || hasViewButton;
                 

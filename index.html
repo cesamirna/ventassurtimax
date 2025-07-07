@@ -27,7 +27,7 @@
             --radius: 8px;
             --radius-sm: 4px;
             --transition: all 0.3s ease;
-            --header-height: 60px; /* Nueva variable para la altura del header */
+            --header-height: 60px;
         }
 
         * {
@@ -172,7 +172,7 @@
             top: 0;
             z-index: 1001;
             transition: transform 0.3s ease;
-            height: var(--header-height); /* Altura fija para el header */
+            height: var(--header-height);
         }
         
         .main-header.hidden {
@@ -183,7 +183,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
         }
         
         .logo {
@@ -292,13 +291,12 @@
             background-color: var(--primary-dark);
             padding: 10px 0;
             position: sticky;
-            top: 0; /* Posición inicial */
+            top: 0;
             z-index: 1000;
             box-shadow: var(--shadow);
-            transition: top 0.3s ease; /* Transición suave para el cambio de posición */
+            transition: top 0.3s ease;
         }
         
-        /* Cuando el header está visible, el nav se posiciona debajo */
         .main-nav.header-visible {
             top: var(--header-height);
         }
@@ -401,64 +399,9 @@
             flex-wrap: wrap;
         }
         
-        /* Categorías */
-        .categories {
-            padding: 60px 0;
-            background-color: white;
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-        }
-        
-        .category-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .category-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-        
-        .category-icon img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-        
-        .category-name {
-            color: var(--text-medium);
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .category-item:hover .category-icon {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .category-item:hover .category-name {
-            color: var(--primary);
-        }
-        
         /* Productos destacados */
         .featured-products {
-            padding: 60px 0;
+            padding: 20px 0;            /*Espacios*/
             background-color: var(--background-light);
         }
         
@@ -519,7 +462,7 @@
         
         .product-image img {
             max-width: 100%;
-            max-height: 180px; /* Tamaño de Imagen de Producto*/
+            max-height: 180px;
             object-fit: contain;
             transition: var(--transition);
         }
@@ -538,6 +481,18 @@
             font-weight: 600;
             padding: 2px 8px;
             border-radius: var(--radius-sm);
+        }
+
+        .product-badge.disponible {
+            background-color: #28a745;
+        }
+
+        .product-badge.agotado {
+            background-color: #dc3545;
+        }
+
+        .product-badge.nuevo {
+            background-color: var(--primary);
         }
         
         .product-wishlist {
@@ -609,6 +564,14 @@
             color: var(--secondary);
             font-weight: 600;
         }
+
+        .product-brand {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
         
         .product-rating {
             display: flex;
@@ -677,11 +640,43 @@
             color: var(--primary);
             border-color: var(--primary-light);
         }
+
+        /* Loading state para productos destacados */
+        .loading-products {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: var(--text-medium);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-light);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         
-        /* Departamento destacado */
-        .featured-department {
-            padding: 60px 0;
+        /* Departamentos destacados */
+        .featured-departments {
+            padding: 15px 0;            /*Espacios*/
             background-color: white;
+        }
+        
+        .department-section {
+            margin-bottom: 60px;
+        }
+        
+        .department-section:last-child {
+            margin-bottom: 0;
         }
         
         .department-content {
@@ -716,10 +711,25 @@
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
+
+        /* Loading state para departamentos destacados */
+        .loading-departments {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: var(--text-medium);
+        }
+
+        .no-departments {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-medium);
+        }
         
         /* Servicios */
         .services {
-            padding: 60px 0;
+            padding: 20px 0;            /*Espacios*/
             background-color: var(--background-light);
         }
         
@@ -777,7 +787,7 @@
         
         /* Boletines informativos */
         .blog-posts {
-            padding: 60px 0;
+            padding: 20px 0; /*Espacios*/
             background-color: white;
         }
         
@@ -878,7 +888,7 @@
         
         /* Newsletter */
         .newsletter {
-            padding: 40px 0;
+            padding: 20px 0;
             background-color: var(--primary-light);
         }
         
@@ -934,7 +944,7 @@
         .footer {
             background-color: #1A1A1A;
             color: white;
-            padding: 60px 0 0;
+            padding: 20px 0 0;
         }
         
         .footer-content {
@@ -1053,41 +1063,18 @@
         /* Responsive Mejorado */
         @media (max-width: 992px) {
             .container {
-        padding: 0 15px; /* Mejor padding */
-    }
-    
-    /* NUEVO: Mejora del diseño del detalle de producto para tablets */
-    .product-detail-content {
-        gap: 20px;
-    }
-    
-    .product-gallery {
-        padding: 20px;
-    }
-    
-    .main-image {
-        height: 350px;
-    }
-    
-    .product-info {
-        padding: 20px;
-        padding-left: 0;
-    }
-    
-    .product-title {
-        font-size: 1.5rem;
-    }
-    
-    /* NUEVO: Ajuste de tabs para tablets */
-    .tab-btn {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-    }
-    
-    .tab-content {
-        padding: 25px;
-    }
-}
+                padding: 0 15px;
+            }
+            
+            .department-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .department-products {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -1149,6 +1136,10 @@
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
             
+            .department-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .post-grid {
                 grid-template-columns: 1fr;
             }
@@ -1197,25 +1188,6 @@
             .nav-list a {
                 font-size: 0.7rem;
                 padding: 4px 5px;
-            }
-            
-            .category-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            
-            .category-icon {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .category-icon img {
-                width: 30px;
-                height: 30px;
-            }
-            
-            .category-name {
-                font-size: 0.7rem;
             }
             
             .product-grid {
@@ -1305,48 +1277,12 @@
 </head>
 <body>
     
-    <!-- Top Bar -->
-    <!--div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <a href="tel:+50768748881"><i>📞</i> Tel. 6874-8881 / 6804-3388</a>
-                <a href="mailto:vsurtimaxbocas1@gmail.com"><i>✉️</i>vsurtimaxbocas1@gmail.com</a>
-            </div>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📱</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="YouTube">▶️</a>
-            </div>
-        </div>
-    </div-->
-
     <!-- Main Header - Se oculta al hacer scroll -->
     <header class="main-header" id="main-header">
         <div class="container">
             <a href="index.html" class="logo"><img src="icon/logo.png" width="30" height="30" alt="Logo SURTIMAX">
                 FERRETERIA<span>VENTAS SURTIMAX</span>
             </a>
-            
-            <!--div class="search-bar">
-                <input type="text" placeholder="¿Qué estás buscando?">
-                <button aria-label="Buscar">🔍</button>
-            </div-->
-            
-            <!--div class="user-actions">
-                <a href="#" class="user-action">
-                    <i>👤</i>
-                    <span>Mi Cuenta</span>
-                </a>
-                <a href="#" class="user-action">
-                    <i>❤️</i>
-                    <span>Favoritos</span>
-                </a>
-                <a href="#" class="user-action">
-                    <i class="cart-count" data-count="3">🛒</i>
-                    <span>Carrito</span>
-                </a>
-            </div-->
 
             <div class="social-links">
                 <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
@@ -1375,257 +1311,62 @@
         </div>
     </nav>
     
-    <!-- Promo Banner -->
-    <!--div class="promo-banner">
-        <div class="container">
-            <h3>¡OFERTA ESPECIAL!</h3>
-            <p>15% de descuento en herramientas eléctricas con el código: <span class="promo-code">SURTIMAX15</span></p>
-            <a href="#" class="btn btn-outline">Ver ofertas</a>
-        </div>
-    </div-->
-    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Todo para tus proyectos en un solo lugar</h1>
             <p>Encuentra las mejores herramientas y materiales para construcción, remodelación y mantenimiento del hogar.</p>
-            <!--div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Ver productos</a>
-                <a href="#" class="btn btn-outline">Nuestros servicios</a>
-            </div-->
         </div>
     </section>
-    
-    <!-- Categorías -->
-    <!--section class="categories">
-        <div class="container">
-            <h2 class="section-title">Categorías</h2>
-            <div class="category-grid">
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Herramientas">
-                    </div>
-                    <span class="category-name">Herramientas</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Electricidad">
-                    </div>
-                    <span class="category-name">Electricidad</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Plomería">
-                    </div>
-                    <span class="category-name">Plomería</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Pinturas">
-                    </div>
-                    <span class="category-name">Pinturas</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Cerrajería">
-                    </div>
-                    <span class="category-name">Cerrajería</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Jardín">
-                    </div>
-                    <span class="category-name">Jardín</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Construcción">
-                    </div>
-                    <span class="category-name">Construcción</span>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon">
-                        <img src="/placeholder.svg?height=50&width=50" alt="Ver más">
-                    </div>
-                    <span class="category-name">Ver más</span>
-                </a>
-            </div>
-        </div>
-    </section-->
     
     <!-- Productos destacados -->
     <section class="featured-products">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Productos destacados</h2>
-                <!--a href="#" class="view-all">Ver todos <span>→</span></a-->
             </div>
-            <div class="product-grid">
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="img/accesorios/TGTSC52401.jpg" width="160" height="160" alt="Cadena para Motosierra">
-                        <div class="product-badge">Disponible</div>
-                        <!--div class="product-wishlist">❤️</div-->
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Accesorio/Repuesto</div>
-                        <h3 class="product-title">Cadena para Motosierra 24"</h3>
-                        <div class="product-price">
-                            <span class="current-price">Total</span>
-                            <!--span class="old-price">$99.99</span>
-                            <span class="discount-percent">-10%</span-->
-                        </div>
-                        <div class="product-rating">
-                            <span class="rating-count">Código: TGTSC52401</span>
-                            <!--div class="stars">★★★★☆</div-->
-                            <!--span class="rating-count">(42)</span-->
-                        </div>
-                        <div class="product-actions">
-                            <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <!--button class="quick-view">Ver Producto</button-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="img/herramientas/TG5451811.png" width="200" height="200" alt="Motosierra">
-                        <div class="product-badge">Disponible</div>
-                        <!--div class="product-wishlist">❤️</div-->
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Herramientas Manuales</div>
-                        <h3 class="product-title">Motosierra 46CC de 18"</h3>
-                        <div class="product-price">
-                            <span class="current-price">Total</span>
-                            <!--span class="old-price">$159.99</span>
-                            <span class="discount-percent">-20%</span-->
-                        </div>
-                        <div class="product-rating">
-                            <span class="rating-count">Código: TG5451811</span>
-                            <!--div class="stars">★★★★☆</div>
-                            <span class="rating-count">(128)</span-->
-                        </div>
-                        <div class="product-actions">
-                            <!--button class="add-to-cart">🛒 Agregar</button>
-                            <button class="quick-view">👁️</button-->
-                            <!--a href="producto.html" class="quick-view">Ver Producto</a-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="img/herramientas/UTDLI200518.jpg" width="150" height="150" alt="Taladro Percutor">
-                        <div class="product-badge">Disponible</div>
-                        <!--div class="product-wishlist">❤️</div-->
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Herramientas Eléctricas</div>
-                        <h3 class="product-title">Taladro Percutor Inalámbrico 20V</h3>
-                        <div class="product-price">
-                            <span class="current-price">Total</span>
-                        </div>
-                        <div class="product-rating">
-                            <span class="rating-count">Código: UTDLI200518</span>
-                            <!--div class="stars">★★★★★</div>
-                            <span class="rating-count">(86)</span-->
-                        </div>
-                        <div class="product-actions">
-                            <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <!--button class="quick-view">Ver Producto</button-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="img/accesorios/CHP-19CP.webp" width="180" height="180" alt="Caja para Herramientas">
-                        <div class="product-badge">Disponible</div>
-                        <!--div class="product-wishlist">❤️</div-->
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Organización</div>
-                        <h3 class="product-title">Caja para Herramientas con Compartimientos 19"</h3>
-                        <div class="product-price">
-                            <span class="current-price">Pretul</span>
-                        </div>
-                        <div class="product-rating">
-                            <span class="rating-count">Código: CHP-19CP</span>
-                            <!--div class="stars">★★★★☆</div>
-                            <span class="rating-count">(56)</span-->
-                        </div>
-                        <div class="product-actions">
-                            <!--button class="add-to-cart">🛒 Agregar</button-->
-                            <!--button class="quick-view">Ver Producto</button-->
-                        </div>
-                    </div>
-                </div>
-
+            
+            <!-- Loading state -->
+            <div class="loading-products" id="loadingProducts">
+                <div class="loading-spinner"></div>
+                <span>Cargando productos destacados...</span>
+            </div>
+            
+            <!-- Grid de productos -->
+            <div class="product-grid" id="featuredProductsGrid" style="display: none;">
+                <!-- Los productos destacados se cargarán aquí dinámicamente -->
+            </div>
+            
+            <!-- Mensaje cuando no hay productos destacados -->
+            <div class="no-results" id="noFeaturedProducts" style="display: none;">
+                <h3>No hay productos destacados disponibles</h3>
+                <p>Pronto agregaremos más productos destacados para ti.</p>
             </div>
         </div>
     </section>
     
-    <!-- Departamento destacado -->
-    <section class="featured-department">
+    <!-- Departamentos destacados -->
+    <section class="featured-departments">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Departamento de Jardín</h2>
-                <a href="#" class="view-all">Ver todo <span>→</span></a>
+            <!--div class="section-header">
+                <h2 class="section-title">Departamentos destacados</h2>
+            </div-->
+            
+            <!-- Loading state -->
+            <div class="loading-departments" id="loadingDepartments">
+                <div class="loading-spinner"></div>
+                <span>Cargando departamentos destacados...</span>
             </div>
-            <div class="department-content">
-                <div class="department-info">
-                    <h3>¡Todo lo que necesitas para un jardín perfecto!</h3>
-                    <p>Encuentra herramientas, macetas, sistemas de riego y más para mantener tu jardín en perfectas condiciones.</p>
-                    <a href="#" class="btn btn-secondary">Explorar productos</a>
-                </div>
-                <div class="department-products">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://goodyearpower.com/2289/cortacesped-electrico-a-cable-goodyear-220v-50h-1800w-40cm.jpg?height=160&width=160" alt="Cortacésped">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Cortacésped Eléctrico 1800W</h3>
-                            <div class="product-price">
-                                <span class="current-price">$199.99</span>
-                            </div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">🛒 Agregar</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://tiendatotalpty.com/cdn/shop/products/14_THPH2001_900x_87764288-1d6c-4a81-8cf8-088a99ef5c31.jpg?v=1631768730?height=160&width=160" alt="Manguera">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Manguera Flexible 20m</h3>
-                            <div class="product-price">
-                                <span class="current-price">$34.50</span>
-                            </div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">🛒 Agregar</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/71jJrhgVcvL._AC_UF894,1000_QL80_.jpg?height=160&width=160" alt="Macetas">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Set de 5 Macetas de Terracota</h3>
-                            <div class="product-price">
-                                <span class="current-price">$29.99</span>
-                            </div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">🛒 Agregar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <!-- Contenedor de departamentos -->
+            <div id="departmentsContainer" style="display: none;">
+                <!-- Los departamentos destacados se cargarán aquí dinámicamente -->
+            </div>
+            
+            <!-- Mensaje cuando no hay departamentos destacados -->
+            <div class="no-departments" id="noDepartments" style="display: none;">
+                <h3>No hay departamentos destacados disponibles</h3>
+                <p>Pronto agregaremos más departamentos destacados para ti.</p>
             </div>
         </div>
     </section>
@@ -1806,6 +1547,102 @@
     </footer>
 
     <script>
+        // Variables globales
+        let allFeaturedProducts = [];
+        let featuredDepartments = [];
+
+        // Configuración de departamentos con sus archivos JSON
+        const departmentConfigs = [
+            {
+                id: 'herramientas',
+                name: 'Herramientas',
+                title: 'Departamento de Herramientas',
+                description: '¡Todo lo que necesitas para tus proyectos de construcción y reparación!',
+                subtitle: 'Encuentra herramientas de calidad profesional, desde martillos hasta destornilladores, para cualquier trabajo que tengas en mente.',
+                jsonFile: 'json/herramientas.json',
+                jsonKey: 'herramientas',
+                categories: ['Herramientas Manuales', 'Herramientas Eléctricas', 'Medición', 'Organización', 'Accesorios'],
+                link: 'herramientas.html'
+            },
+            {
+                id: 'jardin',
+                name: 'Jardín',
+                title: 'Departamento de Jardín',
+                description: '¡Todo lo que necesitas para un jardín perfecto!',
+                subtitle: 'Encuentra herramientas, macetas, sistemas de riego y más para mantener tu jardín en perfectas condiciones.',
+                jsonFile: 'json/jardin.json',
+                jsonKey: 'herramientas', // Nota: el archivo jardin.json usa 'herramientas' como clave
+                categories: ['Jardín', 'Riego', 'Herramientas de Jardín'],
+                link: 'jardin.html'
+            },
+            {
+                id: 'electricidad',
+                name: 'Electricidad',
+                title: 'Departamento de Electricidad',
+                description: '¡Soluciones eléctricas para tu hogar y negocio!',
+                subtitle: 'Cables, interruptores, luminarias y todo lo necesario para instalaciones eléctricas seguras.',
+                jsonFile: 'json/electricidad.json',
+                jsonKey: 'electricidad',
+                categories: ['Cables', 'Interruptores', 'Luminarias', 'Herramientas Eléctricas'],
+                link: 'electricidad.html'
+            },
+            {
+                id: 'plomeria',
+                name: 'Plomería',
+                title: 'Departamento de Plomería',
+                description: '¡Soluciones completas para instalaciones hidráulicas!',
+                subtitle: 'Tuberías, conexiones, grifos y herramientas especializadas para trabajos de plomería.',
+                jsonFile: 'json/plomeria.json',
+                jsonKey: 'plomeria',
+                categories: ['Tuberías', 'Conexiones', 'Grifos', 'Herramientas de Plomería'],
+                link: 'plomeria.html'
+            },
+            {
+                id: 'pinturas',
+                name: 'Pinturas',
+                title: 'Departamento de Pinturas',
+                description: '¡Dale color y vida a tus espacios!',
+                subtitle: 'Pinturas, brochas, rodillos y todo lo necesario para renovar y decorar.',
+                jsonFile: 'json/pinturas.json',
+                jsonKey: 'pinturas',
+                categories: ['Pinturas', 'Brochas', 'Rodillos', 'Accesorios de Pintura'],
+                link: 'pinturas.html'
+            },
+            {
+                id: 'cerrajeria',
+                name: 'Cerrajería',
+                title: 'Departamento de Cerrajería',
+                description: '¡Seguridad y protección para tu hogar!',
+                subtitle: 'Cerraduras, llaves, candados y sistemas de seguridad de alta calidad.',
+                jsonFile: 'json/cerrajeria.json',
+                jsonKey: 'cerrajeria',
+                categories: ['Cerraduras', 'Llaves', 'Candados', 'Seguridad'],
+                link: 'cerrajeria.html'
+            },
+            {
+                id: 'construccion',
+                name: 'Construcción',
+                title: 'Departamento de Construcción',
+                description: '¡Materiales de construcción de primera calidad!',
+                subtitle: 'Cemento, arena, ladrillos y todo lo necesario para tus proyectos de construcción.',
+                jsonFile: 'json/construccion.json',
+                jsonKey: 'construccion',
+                categories: ['Cemento', 'Arena', 'Ladrillos', 'Materiales de Construcción'],
+                link: 'construccion.html'
+            },
+            {
+                id: 'hogar',
+                name: 'Hogar',
+                title: 'Departamento del Hogar',
+                description: '¡Todo para el confort y funcionalidad de tu hogar!',
+                subtitle: 'Artículos para el hogar, organización, limpieza y decoración.',
+                jsonFile: 'json/hogar.json',
+                jsonKey: 'hogar',
+                categories: ['Hogar', 'Organización', 'Limpieza', 'Decoración'],
+                link: 'hogar.html'
+            }
+        ];
+
         // Script para ocultar/mostrar main-header al hacer scroll
         let lastScrollTop = 0;
         const mainHeader = document.getElementById('main-header');
@@ -1825,6 +1662,411 @@
             }
             
             lastScrollTop = scrollTop;
+        });
+
+        // Lista de archivos JSON a cargar desde la carpeta json/
+        const jsonFiles = [
+            'json/herramientas.json',
+            'json/electricidad.json',
+            'json/plomeria.json',
+            'json/pinturas.json',
+            'json/cerrajeria.json',
+            'json/jardin.json',
+            'json/construccion.json',
+            'json/hogar.json'
+        ];
+
+        // Cargar productos destacados desde múltiples archivos JSON
+        async function loadFeaturedProducts() {
+            const loadingElement = document.getElementById('loadingProducts');
+            const gridElement = document.getElementById('featuredProductsGrid');
+            const noProductsElement = document.getElementById('noFeaturedProducts');
+            
+            try {
+                // Mostrar loading
+                loadingElement.style.display = 'flex';
+                gridElement.style.display = 'none';
+                noProductsElement.style.display = 'none';
+                
+                let allProducts = [];
+                
+                // Cargar todos los archivos JSON
+                for (const jsonFile of jsonFiles) {
+                    try {
+                        const response = await fetch(jsonFile);
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            // Extraer productos según la estructura del JSON
+                            let products = [];
+                            
+                            // Intentar diferentes estructuras de JSON
+                            if (data.herramientas) {
+                                products = data.herramientas;
+                            } else if (data.electricidad) {
+                                products = data.electricidad;
+                            } else if (data.plomeria) {
+                                products = data.plomeria;
+                            } else if (data.pinturas) {
+                                products = data.pinturas;
+                            } else if (data.cerrajeria) {
+                                products = data.cerrajeria;
+                            } else if (data.jardin) {
+                                products = data.jardin;
+                            } else if (data.construccion) {
+                                products = data.construccion;
+                            } else if (data.hogar) {
+                                products = data.hogar;
+                            } else if (Array.isArray(data)) {
+                                products = data;
+                            } else if (data.productos) {
+                                products = data.productos;
+                            }
+                            
+                            // Filtrar solo productos destacados usando el nuevo campo "productdestacado"
+                            const featuredProducts = products.filter(product => 
+                                product.productdestacado === true || 
+                                product.productdestacado === "true" || 
+                                product.productdestacado === 1
+                            );
+                            
+                            allProducts = allProducts.concat(featuredProducts);
+                        }
+                    } catch (fileError) {
+                        console.log(`No se pudo cargar ${jsonFile}:`, fileError);
+                        // Continuar con el siguiente archivo
+                    }
+                }
+                
+                // Si no se encontraron productos destacados, cargar productos de ejemplo
+                if (allProducts.length === 0) {
+                    console.log('No se encontraron productos destacados, cargando productos de ejemplo...');
+                    loadExampleFeaturedProducts();
+                    return;
+                }
+                
+                allFeaturedProducts = allProducts;
+                displayFeaturedProducts(allFeaturedProducts);
+                
+            } catch (error) {
+                console.error('Error al cargar productos destacados:', error);
+                loadExampleFeaturedProducts();
+            }
+        }
+
+        // Productos destacados de ejemplo
+        function loadExampleFeaturedProducts() {
+            allFeaturedProducts = [
+                {
+                    id: 1,
+                    nombre: "Taladro Percutor Inalámbrico 20V",
+                    categoria: "Herramientas Eléctricas",
+                    codigo: "H1811032B",
+                    marca: "DeWalt",
+                    imagen: "img/herramientas/H1811032B.jpg",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: true
+                },
+                {
+                    id: 2,
+                    nombre: "Caja para Herramientas con Compartimientos 19\"",
+                    categoria: "Organización",
+                    codigo: "CHP-19CP",
+                    marca: "Pretul",
+                    imagen: "img/accesorios/CHP-19CP.webp",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: false
+                },
+                {
+                    id: 3,
+                    nombre: "Martillo con Mango de Fibra de Vidrio 20oz",
+                    categoria: "Herramientas Manuales",
+                    codigo: "H0451392",
+                    marca: "Stanley",
+                    imagen: "img/herramientas/H0451392.webp",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: false
+                },
+                {
+                    id: 4,
+                    nombre: "Alicate de Punta Doblada 6\"",
+                    categoria: "Herramientas Manuales",
+                    codigo: "THT24616S",
+                    marca: "Total",
+                    imagen: "img/herramientas/THT24616S.webp",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: false
+                }
+            ];
+            
+            displayFeaturedProducts(allFeaturedProducts);
+        }
+
+        // Cargar departamentos destacados
+        async function loadFeaturedDepartments() {
+            const loadingElement = document.getElementById('loadingDepartments');
+            const containerElement = document.getElementById('departmentsContainer');
+            const noDepartmentsElement = document.getElementById('noDepartments');
+            
+            try {
+                // Mostrar loading
+                loadingElement.style.display = 'flex';
+                containerElement.style.display = 'none';
+                noDepartmentsElement.style.display = 'none';
+                
+                let departmentsWithProducts = [];
+                
+                // Verificar cada departamento
+                for (const deptConfig of departmentConfigs) {
+                    try {
+                        const response = await fetch(deptConfig.jsonFile);
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            // Extraer productos según la clave del JSON
+                            let products = [];
+                            
+                            if (data[deptConfig.jsonKey]) {
+                                products = data[deptConfig.jsonKey];
+                            } else if (Array.isArray(data)) {
+                                products = data;
+                            } else if (data.productos) {
+                                products = data.productos;
+                            }
+                            
+                            // Filtrar productos que sean destacados para departamento
+                            const deptFeaturedProducts = products.filter(product => 
+                                product.deptdestacado === true || 
+                                product.deptdestacado === "true" || 
+                                product.deptdestacado === 1
+                            );
+                            
+                            // Si hay productos destacados en este departamento, agregarlo
+                            if (deptFeaturedProducts.length > 0) {
+                                departmentsWithProducts.push({
+                                    config: deptConfig,
+                                    products: deptFeaturedProducts
+                                });
+                            }
+                        }
+                    } catch (fileError) {
+                        console.log(`No se pudo cargar ${deptConfig.jsonFile}:`, fileError);
+                        // Continuar con el siguiente departamento
+                    }
+                }
+                
+                // Si no se encontraron departamentos con productos destacados
+                if (departmentsWithProducts.length === 0) {
+                    console.log('No se encontraron departamentos con productos destacados');
+                    loadingElement.style.display = 'none';
+                    noDepartmentsElement.style.display = 'block';
+                    return;
+                }
+                
+                featuredDepartments = departmentsWithProducts;
+                displayFeaturedDepartments(featuredDepartments);
+                
+            } catch (error) {
+                console.error('Error al cargar departamentos destacados:', error);
+                loadingElement.style.display = 'none';
+                noDepartmentsElement.style.display = 'block';
+            }
+        }
+
+        // Mostrar departamentos destacados
+        function displayFeaturedDepartments(departments) {
+            const loadingElement = document.getElementById('loadingDepartments');
+            const containerElement = document.getElementById('departmentsContainer');
+            const noDepartmentsElement = document.getElementById('noDepartments');
+            
+            // Ocultar loading
+            loadingElement.style.display = 'none';
+            
+            if (departments.length === 0) {
+                containerElement.style.display = 'none';
+                noDepartmentsElement.style.display = 'block';
+                return;
+            }
+            
+            containerElement.style.display = 'block';
+            noDepartmentsElement.style.display = 'none';
+            
+            // Generar HTML para cada departamento
+            containerElement.innerHTML = departments.map(dept => {
+                const { config, products } = dept;
+                
+                return `
+                <div class="department-section">
+                    <div class="section-header">
+                        <h3 class="section-title">${config.title}</h3>
+                        <a href="${config.link}" class="view-all">Ver todo <span>→</span></a>
+                    </div>
+                    <div class="department-content">
+                        <div class="department-info">
+                            <h3>${config.description}</h3>
+                            <p>${config.subtitle}</p>
+                            <a href="${config.link}" class="btn btn-secondary">Explorar productos</a>
+                        </div>
+                        <div class="department-products">
+                            ${products.map(product => {
+                                // Verificar si hay botones para mostrar
+                                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+                                const hasViewButton = product.url && product.url.trim() !== '';
+                                const hasAnyButton = hasAddToCart || hasViewButton;
+                                
+                                return `
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="${product.imagen}" width="160" height="160" alt="${product.nombre}">
+                                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="product-category">${product.categoria}</div>
+                                        <h3 class="product-title">${product.nombre}</h3>
+                                        ${product.precio && product.precio !== "" ? `
+                                        <div class="product-price">
+                                            <span class="current-price">$${parseFloat(product.precio).toFixed(2)}</span>
+                                            ${product.precioAnterior ? `<span class="old-price">$${parseFloat(product.precioAnterior).toFixed(2)}</span>` : ''}
+                                        </div>
+                                        ` : `
+                                        <div class="product-price">
+                                            <span class="current-price">${product.marca || 'Consultar'}</span>
+                                        </div>
+                                        `}
+                                        <div class="product-rating">
+                                            ${product.rating ? `
+                                            <div class="stars">${generateStars(product.rating)}</div>
+                                            <span class="rating-count">(${product.reviews})</span>
+                                            ` : ''}
+                                            <span class="rating-count">Código: ${product.codigo}</span>
+                                        </div>
+                                        ${hasAnyButton ? `
+                                        <div class="product-actions">
+                                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                                        </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Mostrar productos destacados
+        function displayFeaturedProducts(products) {
+            const loadingElement = document.getElementById('loadingProducts');
+            const gridElement = document.getElementById('featuredProductsGrid');
+            const noProductsElement = document.getElementById('noFeaturedProducts');
+            
+            // Ocultar loading
+            loadingElement.style.display = 'none';
+            
+            if (products.length === 0) {
+                gridElement.style.display = 'none';
+                noProductsElement.style.display = 'block';
+                return;
+            }
+            
+            gridElement.style.display = 'grid';
+            noProductsElement.style.display = 'none';
+            
+            gridElement.innerHTML = products.map(product => {
+                // Verificar si hay botones para mostrar
+                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+                const hasViewButton = product.url && product.url.trim() !== '';
+                const hasAnyButton = hasAddToCart || hasViewButton;
+                
+                return `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.imagen}" width="160" height="160" alt="${product.nombre}">
+                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.categoria}</div>
+                        <h3 class="product-title">${product.nombre}</h3>
+                        ${product.precio && product.precio !== "" ? `
+                        <div class="product-price">
+                            <span class="current-price">$${parseFloat(product.precio).toFixed(2)}</span>
+                            ${product.precioAnterior ? `<span class="old-price">$${parseFloat(product.precioAnterior).toFixed(2)}</span>` : ''}
+                        </div>
+                        ` : `
+                        <div class="product-price">
+                            <span class="current-price">${product.marca || 'Consultar'}</span>
+                        </div>
+                        `}
+                        <div class="product-rating">
+                            ${product.rating ? `
+                            <div class="stars">${generateStars(product.rating)}</div>
+                            <span class="rating-count">(${product.reviews})</span>
+                            ` : ''}
+                            <span class="rating-count">Código: ${product.codigo}</span>
+                        </div>
+                        ${hasAnyButton ? `
+                        <div class="product-actions">
+                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        // Generar estrellas para rating
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '★';
+            }
+            
+            if (hasHalfStar) {
+                stars += '☆';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '☆';
+            }
+            
+            return stars;
+        }
+
+        // Obtener texto del estado
+        function getEstadoText(estado) {
+            switch(estado) {
+                case 'disponible': return 'Disponible';
+                case 'agotado': return 'Agotado';
+                case 'nuevo': return 'Nuevo';
+                case 'destacado': return 'Destacado';
+                default: return 'Disponible';
+            }
+        }
+
+        // Función para agregar al carrito (placeholder)
+        function addToCart(productId) {
+            alert(`Producto ${productId} agregado al carrito`);
+        }
+
+        // Cargar productos destacados y departamentos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFeaturedProducts();
+            loadFeaturedDepartments();
         });
     </script>
     
