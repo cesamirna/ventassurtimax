@@ -13,7 +13,10 @@
       "estado": "disponible",
       "rating": "",
       "reviews": "",
-      "descripcion": ""
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 2,
@@ -23,7 +26,10 @@
       "marca": "Total",
       "url": "",
       "imagen": "img/herramientas/THTDC251001.jpg",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 3,
@@ -33,7 +39,10 @@
       "marca": "Best Value",
       "url": "",
       "imagen": "img/herramientas/H27012.png",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 4,
@@ -43,7 +52,10 @@
       "marca": "Pretul",
       "url": "",
       "imagen": "img/accesorios/CHP-19CP.webp",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": true,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 5,
@@ -53,7 +65,10 @@
       "marca": "Stanley",
       "url": "",
       "imagen": "img/herramientas/H0451392.webp",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": true,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 6,
@@ -63,7 +78,10 @@
       "marca": "Total",
       "url": "",
       "imagen": "img/herramientas/THT101126.jpg",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 7,
@@ -73,7 +91,10 @@
       "marca": "Komelon",
       "url": "",
       "imagen": "img/herramientas/IR59E.png",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
     },
     {
       "id": 8,
@@ -83,7 +104,10 @@
       "marca": "Total",
       "url": "",
       "imagen": "img/herramientas/TMT26036.jpg",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 9,
@@ -93,7 +117,10 @@
       "marca": "Total",
       "url": "",
       "imagen": "img/herramientas/THT24616S.webp",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": true,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 10,
@@ -103,7 +130,10 @@
       "marca": "Total",
       "url": "",
       "imagen": "img/herramientas/UTF2131256.png",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 11,
@@ -113,7 +143,10 @@
       "marca": "Wadfow",
       "url": "",
       "imagen": "img/herramientas/WHW1120.webp",
-      "estado": "disponible"
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 12,
@@ -123,87 +156,50 @@
       "marca": "Best Value",
       "url": "",
       "imagen": "img/herramientas/H27011.webp",
-      "estado": "nuevo"
+      "estado": "nuevo",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 13,
-      "nombre": "Taladro de Banco 350W con Mesa Ajustable",
-      "categoria": "Herramientas Eléctricas",
-      "codigo": "H1310350T",
-      "marca": "Delta",
+      "nombre": "Motosierra 46CC de 18\"",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TG5451811",
+      "marca": "Total",
       "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
+      "imagen": "img/herramientas/TG5451811.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
     },
     {
       "id": 14,
-      "nombre": "Juego de Llaves Combinadas 8-19mm",
-      "categoria": "Herramientas Manuales",
-      "codigo": "H1411819L",
-      "marca": "Craftsman",
+      "nombre": "Taladro Percutor Inalámbrico 20V",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "UTDLI200518",
+      "marca": "Total",
       "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
+      "imagen": "img/herramientas/UTDLI200518.jpg",
+      "estado": "disponible",
+      "productdestacado": true,
+      "deptdestacado": false,
+      "compra": false
     },
     {
       "id": 15,
-      "nombre": "Pistola de Calor 2000W con Accesorios",
-      "categoria": "Herramientas Eléctricas",
-      "codigo": "H1512000P",
-      "marca": "Wagner",
+      "nombre": "Cadena para Motosierra 24\"",
+      "categoria": "Accesorios | Repuesto",
+      "codigo": "TGTSC52401",
+      "marca": "Total",
       "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
-    },
-    {
-      "id": 16,
-      "nombre": "Banco de Trabajo Plegable con Prensa",
-      "categoria": "Organización",
-      "codigo": "H1613001B",
-      "marca": "Keter",
-      "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
-    },
-    {
-      "id": 17,
-      "nombre": "Compresor de Aire 24L 2HP",
-      "categoria": "Herramientas Eléctricas",
-      "codigo": "H1714024C",
-      "marca": "Porter-Cable",
-      "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
-    },
-    {
-      "id": 18,
-      "nombre": "Soldadora Inverter 200A con Accesorios",
-      "categoria": "Herramientas Eléctricas",
-      "codigo": "H1815200S",
-      "marca": "Lincoln Electric",
-      "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
-    },
-    {
-      "id": 19,
-      "nombre": "Multímetro Digital Profesional",
-      "categoria": "Medición",
-      "codigo": "H1916001M",
-      "marca": "Fluke",
-      "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
-    },
-    {
-      "id": 20,
-      "nombre": "Escalera Telescópica Aluminio 3.8m",
-      "categoria": "Organización",
-      "codigo": "H2017380E",
-      "marca": "Little Giant",
-      "url": "",
-      "imagen": "/placeholder.svg?height=140&width=140",
-      "estado": "disponible"
+      "imagen": "img/accesorios/TGTSC52401.jpg",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
     }
+
   ]
 }
