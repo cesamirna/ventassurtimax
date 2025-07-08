@@ -1,0 +1,77 @@
+{
+  "construccion": [
+    {
+      "id": 1,
+      "nombre": "Cemento Interoceánico Gris 42.5KG Uso General",
+      "categoria": "Construcción",
+      "codigo": "CIG425KG",
+      "marca": "Cementos Progreso",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/construccion/CIG425KG.png",
+      "estado": "disponible",
+      "rating": "",
+      "reviews": "",
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 2,
+      "nombre": "Cemento Portland Tipo II Gris 42.5KG Uso Marino",
+      "categoria": "Construcción",
+      "codigo": "CPT2425KG",
+      "marca": "Cementos Progreso",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/construccion/CPT2425KG.png",
+      "estado": "nuevo",
+      "rating": "",
+      "reviews": "",
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
+    },
+    {
+      "id": 3,
+      "nombre": "Arena Fina",
+      "categoria": "Construcción",
+      "codigo": "AREFIN1",
+      "marca": "Generica",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/construccion/AREFIN1.jpg",
+      "estado": "disponible",
+      "rating": "",
+      "reviews": "",
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
+    },
+    {
+      "id": 4,
+      "nombre": "Bloque de Concreto 4",
+      "categoria": "Construcción",
+      "codigo": "BL4",
+      "marca": "Generica",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/construccion/BL4.jpg",
+      "estado": "disponible",
+      "rating": "",
+      "reviews": "",
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": true,
+      "compra": false
+    }
+    
+  ]
+}

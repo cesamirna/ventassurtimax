@@ -33,12 +33,12 @@
     },
     {
       "id": 3,
-      "nombre": "Sierra Circular 1400W",
-      "categoria": "Herramientas Eléctricas",
-      "codigo": "H3005012B",
-      "marca": "Best Value",
+      "nombre": "Serrucho 18\" Corta Madera y PVC",
+      "categoria": "Herramientas Manuales",
+      "codigo": "WHW1120",
+      "marca": "Wadfow",
       "url": "",
-      "imagen": "img/herramientas/H27012.png",
+      "imagen": "img/herramientas/WHW1120.webp",
       "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": false,
@@ -137,12 +137,12 @@
     },
     {
       "id": 11,
-      "nombre": "Serrucho 18\" Corta Madera y PVC",
-      "categoria": "Herramientas Manuales",
-      "codigo": "WHW1120",
-      "marca": "Wadfow",
+      "nombre": "Esmeriladora Angular 4-1/2\" 850W",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H27011",
+      "marca": "Best Value",
       "url": "",
-      "imagen": "img/herramientas/WHW1120.webp",
+      "imagen": "img/herramientas/H27011.png",
       "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": false,
@@ -150,12 +150,12 @@
     },
     {
       "id": 12,
-      "nombre": "Esmeriladora Angular 4-1/2\" 850W",
+      "nombre": "Taladro Percutor Inalámbrico 20V",
       "categoria": "Herramientas Eléctricas",
-      "codigo": "H27011",
-      "marca": "Best Value",
+      "codigo": "UWCDP522",
+      "marca": "Wadfow",
       "url": "",
-      "imagen": "img/herramientas/H27011.png",
+      "imagen": "img/herramientas/UWCDP522.jpg",
       "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": false,
@@ -200,7 +200,6 @@
       "deptdestacado": true,
       "compra": false
     },
-    
     {
       "id": 16,
       "nombre": "Cinta Métrica Inoxidable 5m",
@@ -212,6 +211,32 @@
       "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": true,
+      "compra": false
+    },
+    {
+      "id": 17,
+      "nombre": "Sierra Circular 1400W",
+      "categoria": "Herramientas Eléctricas",
+      "codigo": "H3005012B",
+      "marca": "Best Value",
+      "url": "",
+      "imagen": "img/herramientas/H27012.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 18,
+      "nombre": "Cinta Métrica 8m",
+      "categoria": "Medición",
+      "codigo": "PEN85E",
+      "marca": "Komelon",
+      "url": "",
+      "imagen": "img/herramientas/PEN85E.webp",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
       "compra": false
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "herramientas": [
+  "jardin": [
     {
       "id": 1,
       "nombre": "Manguera Reforzada 1/2\"x25' 4 Capas",
@@ -10,7 +10,7 @@
       "precio": "",
       "precioAnterior": "",
       "imagen": "img/jardin/J02MR325.png",
-      "estado": "nuevo",
+      "estado": "disponible",
       "rating": "",
       "reviews": "",
       "descripcion": "",
