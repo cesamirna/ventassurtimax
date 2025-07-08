@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferretería Ventas Surtimax - Tu tienda especializada en herramientas y materiales</title>
-    <link rel="icon" href="icon/logo.png" type="image/png">
+    <link rel="icon" href="icon/logo2x.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
             --primary: #007387;
             --primary-dark: #00656c;
             --primary-light: #E6F4EF;
-            --secondary: #FF4438;
+            --secondary: #F32213;
             --secondary-dark: #E02E22;
             --text-dark: #1A1A1A;
             --text-medium: #555555;
@@ -77,7 +77,8 @@
         }
         
         .btn-secondary {
-            background-color: var(--secondary);
+            /*background-color: var(--secondary); /*Color Explroar Productos*/
+            background-color: rgba(24, 23, 23, 0.815);
             color: white;
         }
         
@@ -165,7 +166,7 @@
         
         /* Main Header - Se oculta al hacer scroll */
         .main-header {
-            background-color: #0f0f0f;
+            background-color: #1A1A1A;
             box-shadow: var(--shadow);
             padding: 15px 0;
             position: sticky;
@@ -189,6 +190,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
+            /*color: rgb(224, 70, 9);*/
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -686,7 +688,7 @@
         }
         
         .department-info {
-            background-color: var(--primary);
+            background-color: var(--primary); /*Color cuadro departamento*/
             color: white;
             padding: 30px;
             border-radius: var(--radius);
@@ -1298,12 +1300,12 @@
             <ul class="nav-list">
                 <li><a href="#" class="active">Inicio</a></li>
                 <li><a href="herramientas.html">Herramientas</a></li>
+                <li><a href="#">Construcción</a></li>
                 <li><a href="#">Electricidad</a></li>
                 <li><a href="#">Plomería</a></li>
                 <li><a href="#">Pinturas</a></li>
                 <li><a href="#">Cerrajería</a></li>
                 <li><a href="#">Jardín</a></li>
-                <li><a href="#">Construcción</a></li>
                 <li><a href="#">Hogar</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Contacto</a></li>
@@ -1508,26 +1510,26 @@
                     <h3>Contacto</h3>
                     <div class="contact-info-item">
                         <i>📍</i>
-                        <div>Av. Principal #123, Ciudad</div>
+                        <div>Almirante, Bocas del Toro, Vía Chiriquí Grande, al lado del Restaurante Fortuna.</div>
                     </div>
                     <div class="contact-info-item">
                         <i>📞</i>
-                        <div>(123) 456-789</div>
+                        <div>6874-8881 / 6804-3388</div>
                     </div>
                     <div class="contact-info-item">
                         <i>✉️</i>
-                        <div>info@surtimax.com</div>
+                        <div>vsurtimaxbocas1@gmail.com</div>
                     </div>
                     <div class="contact-info-item">
                         <i>🕒</i>
-                        <div>Lun-Sáb: 8:00 AM - 8:00 PM</div>
+                        <div>Lun-Sáb: 8:00 AM - 6:00 PM</div>
                     </div>
                     
                     <div class="footer-social">
-                        <a href="#" aria-label="Facebook">📱</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="YouTube">▶️</a>
+                        <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
+                        <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
+                        <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
+                        <!--a href="#" aria-label="YouTube">▶️</a-->
                     </div>
                 </div>
             </div>
@@ -1536,12 +1538,12 @@
         <div class="footer-bottom">
             <div class="container">
                 <div>© 2025 Ferretería Ventas Surtimax. Todos los derechos reservados.</div>
-                <div class="payment-methods">
+                <!--div class="payment-methods">
                     <img src="/placeholder.svg?height=24&width=40" alt="Visa">
                     <img src="/placeholder.svg?height=24&width=40" alt="MasterCard">
                     <img src="/placeholder.svg?height=24&width=40" alt="PayPal">
                     <img src="/placeholder.svg?height=24&width=40" alt="American Express">
-                </div>
+                </div-->
             </div>
         </div>
     </footer>
@@ -1565,13 +1567,24 @@
                 link: 'herramientas.html'
             },
             {
+                id: 'construccion',
+                name: 'Construcción',
+                title: 'Departamento de Construcción',
+                description: '¡Materiales de construcción de primera calidad!',
+                subtitle: 'Cemento, arena, bloques y todo lo necesario para tus proyectos de construcción.',
+                jsonFile: 'json/construccion.json',
+                jsonKey: 'construccion',
+                categories: ['Cemento', 'Arena', 'Ladrillos', 'Materiales de Construcción'],
+                link: 'construccion.html'
+            },
+            {
                 id: 'jardin',
                 name: 'Jardín',
                 title: 'Departamento de Jardín',
                 description: '¡Todo lo que necesitas para un jardín perfecto!',
                 subtitle: 'Encuentra herramientas, macetas, sistemas de riego y más para mantener tu jardín en perfectas condiciones.',
                 jsonFile: 'json/jardin.json',
-                jsonKey: 'herramientas', // Nota: el archivo jardin.json usa 'herramientas' como clave
+                jsonKey: 'jardin',
                 categories: ['Jardín', 'Riego', 'Herramientas de Jardín'],
                 link: 'jardin.html'
             },
@@ -1620,17 +1633,6 @@
                 link: 'cerrajeria.html'
             },
             {
-                id: 'construccion',
-                name: 'Construcción',
-                title: 'Departamento de Construcción',
-                description: '¡Materiales de construcción de primera calidad!',
-                subtitle: 'Cemento, arena, ladrillos y todo lo necesario para tus proyectos de construcción.',
-                jsonFile: 'json/construccion.json',
-                jsonKey: 'construccion',
-                categories: ['Cemento', 'Arena', 'Ladrillos', 'Materiales de Construcción'],
-                link: 'construccion.html'
-            },
-            {
                 id: 'hogar',
                 name: 'Hogar',
                 title: 'Departamento del Hogar',
@@ -1667,12 +1669,12 @@
         // Lista de archivos JSON a cargar desde la carpeta json/
         const jsonFiles = [
             'json/herramientas.json',
+            'json/construccion.json',
             'json/electricidad.json',
             'json/plomeria.json',
             'json/pinturas.json',
             'json/cerrajeria.json',
             'json/jardin.json',
-            'json/construccion.json',
             'json/hogar.json'
         ];
 
@@ -1703,6 +1705,8 @@
                             // Intentar diferentes estructuras de JSON
                             if (data.herramientas) {
                                 products = data.herramientas;
+                            } else if (data.construccion) {
+                                products = data.construccion;
                             } else if (data.electricidad) {
                                 products = data.electricidad;
                             } else if (data.plomeria) {
@@ -1713,8 +1717,6 @@
                                 products = data.cerrajeria;
                             } else if (data.jardin) {
                                 products = data.jardin;
-                            } else if (data.construccion) {
-                                products = data.construccion;
                             } else if (data.hogar) {
                                 products = data.hogar;
                             } else if (Array.isArray(data)) {
