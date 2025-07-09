@@ -14,7 +14,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
@@ -32,7 +32,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": true,
       "compra": false
     },
@@ -68,7 +68,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": true,
       "compra": false
     }

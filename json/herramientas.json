@@ -14,7 +14,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
@@ -27,7 +27,7 @@
       "url": "",
       "imagen": "img/herramientas/THTDC251001.jpg",
       "estado": "disponible",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
@@ -79,7 +79,7 @@
       "url": "",
       "imagen": "img/herramientas/THT101126.jpg",
       "estado": "disponible",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
