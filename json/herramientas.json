@@ -14,7 +14,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": true,
+      "productdestacado": false,
       "deptdestacado": false,
       "compra": false
     },
@@ -27,7 +27,7 @@
       "url": "",
       "imagen": "img/herramientas/THTDC251001.jpg",
       "estado": "disponible",
-      "productdestacado": true,
+      "productdestacado": false,
       "deptdestacado": false,
       "compra": false
     },
@@ -53,7 +53,7 @@
       "url": "",
       "imagen": "img/accesorios/CHP-19CP.webp",
       "estado": "disponible",
-      "productdestacado": true,
+      "productdestacado": false,
       "deptdestacado": false,
       "compra": false
     },
@@ -79,7 +79,7 @@
       "url": "",
       "imagen": "img/herramientas/THT101126.jpg",
       "estado": "disponible",
-      "productdestacado": true,
+      "productdestacado": false,
       "deptdestacado": false,
       "compra": false
     },
