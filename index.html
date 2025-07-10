@@ -477,11 +477,13 @@
         }
         
         .product-grid {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            display: grid;
             gap: 25px;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            overflow: hidden;
             padding: 0 10px;
+            transition: all 0.5s ease-in-out;
         }
         
         .product-card {
@@ -491,8 +493,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            flex: 0 0 250px;
-            min-width: 250px;
+            width: 100%;
         }
         
         .product-card:hover {
@@ -1133,6 +1134,10 @@
             .carousel-arrow.right {
                 right: -15px;
             }
+            
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -1191,9 +1196,9 @@
                 font-size: 1.2rem;
             }
             
-            .product-card {
-                flex: 0 0 180px;
-                min-width: 180px;
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
             .carousel-arrow.left {
@@ -1258,11 +1263,6 @@
                 padding: 4px 5px;
             }
             
-            .product-card {
-                flex: 0 0 160px;
-                min-width: 160px;
-            }
-            
             .product-image {
                 height: 140px;
                 padding: 10px;
@@ -1273,7 +1273,7 @@
             }
             
             .product-info {
-                padding: 15px;
+                padding: 12px;
             }
             
             .product-title {
@@ -1637,6 +1637,7 @@
         // Variables globales
         let allFeaturedProducts = [];
         let featuredDepartments = [];
+        let currentProductIndex = 0;
 
         // Configuración de departamentos con sus archivos JSON
         const departmentConfigs = [
@@ -1763,27 +1764,35 @@
             'json/hogar.json'
         ];
 
+        // Función para obtener el número de productos por vista según el tamaño de pantalla
+        function getProductsPerView() {
+            if (window.innerWidth <= 768) {
+                return 2; // 2 productos en móvil
+            } else {
+                return 4; // 4 productos en desktop
+            }
+        }
+
         // Función para controlar las flechas de navegación
         function updateArrowsVisibility() {
-            const productGrid = document.getElementById('featuredProductsGrid');
             const leftArrow = document.getElementById('leftArrow');
             const rightArrow = document.getElementById('rightArrow');
             
-            if (!productGrid || !leftArrow || !rightArrow) return;
+            if (!leftArrow || !rightArrow || allFeaturedProducts.length === 0) return;
             
-            const scrollLeft = productGrid.scrollLeft;
-            const scrollWidth = productGrid.scrollWidth;
-            const clientWidth = productGrid.clientWidth;
+            const productsPerView = getProductsPerView();
+            const totalProducts = allFeaturedProducts.length;
+            const maxIndex = Math.max(0, totalProducts - productsPerView);
             
             // Mostrar/ocultar flecha izquierda
-            if (scrollLeft <= 0) {
+            if (currentProductIndex <= 0) {
                 leftArrow.classList.add('hidden');
             } else {
                 leftArrow.classList.remove('hidden');
             }
             
             // Mostrar/ocultar flecha derecha
-            if (scrollLeft >= scrollWidth - clientWidth - 1) {
+            if (currentProductIndex >= maxIndex) {
                 rightArrow.classList.add('hidden');
             } else {
                 rightArrow.classList.remove('hidden');
@@ -1792,20 +1801,78 @@
 
         // Función para hacer scroll de los productos
         function scrollProducts(direction) {
-            const productGrid = document.getElementById('featuredProductsGrid');
-            if (!productGrid) return;
+            if (allFeaturedProducts.length === 0) return;
             
-            const cardWidth = 250; // Ancho de cada tarjeta + gap
-            const scrollAmount = cardWidth * 2; // Scroll de 2 productos a la vez
+            const productsPerView = getProductsPerView();
+            const totalProducts = allFeaturedProducts.length;
+            const maxIndex = Math.max(0, totalProducts - productsPerView);
             
             if (direction === 'left') {
-                productGrid.scrollLeft -= scrollAmount;
+                currentProductIndex = Math.max(0, currentProductIndex - productsPerView);
             } else {
-                productGrid.scrollLeft += scrollAmount;
+                currentProductIndex = Math.min(maxIndex, currentProductIndex + productsPerView);
             }
             
-            // Actualizar visibilidad de flechas después del scroll
-            setTimeout(updateArrowsVisibility, 300);
+            // Mostrar los productos actuales
+            displayCurrentProducts();
+            
+            // Actualizar visibilidad de flechas
+            setTimeout(updateArrowsVisibility, 100);
+        }
+
+        // Función para mostrar los productos actuales según el índice
+        function displayCurrentProducts() {
+            const gridElement = document.getElementById('featuredProductsGrid');
+            if (!gridElement || allFeaturedProducts.length === 0) return;
+            
+            const productsPerView = getProductsPerView();
+            const startIndex = currentProductIndex;
+            const endIndex = Math.min(startIndex + productsPerView, allFeaturedProducts.length);
+            const productsToShow = allFeaturedProducts.slice(startIndex, endIndex);
+            
+            gridElement.innerHTML = productsToShow.map(product => {
+                // Verificar si hay botones para mostrar
+                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+                const hasViewButton = product.url && product.url.trim() !== '';
+                const hasAnyButton = hasAddToCart || hasViewButton;
+                
+                return `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.imagen}" width="160" height="160" alt="${product.nombre}">
+                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.categoria}</div>
+                        <h3 class="product-title">${product.nombre}</h3>
+                        ${product.precio && product.precio !== "" ? `
+                        <div class="product-price">
+                            <span class="current-price">$${parseFloat(product.precio).toFixed(2)}</span>
+                            ${product.precioAnterior ? `<span class="old-price">$${parseFloat(product.precioAnterior).toFixed(2)}</span>` : ''}
+                        </div>
+                        ` : `
+                        <div class="product-price">
+                            <span class="current-price">${product.marca || 'Consultar'}</span>
+                        </div>
+                        `}
+                        <div class="product-rating">
+                            ${product.rating ? `
+                            <div class="stars">${generateStars(product.rating)}</div>
+                            <span class="rating-count">(${product.reviews})</span>
+                            ` : ''}
+                            <span class="rating-count">Código: ${product.codigo}</span>
+                        </div>
+                        ${hasAnyButton ? `
+                        <div class="product-actions">
+                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            }).join('');
         }
 
         // Cargar productos destacados desde múltiples archivos JSON
@@ -1878,7 +1945,8 @@
                 }
                 
                 allFeaturedProducts = allProducts;
-                displayFeaturedProducts(allFeaturedProducts);
+                currentProductIndex = 0; // Resetear índice
+                displayFeaturedProducts();
                 
             } catch (error) {
                 console.error('Error al cargar productos destacados:', error);
@@ -1932,10 +2000,33 @@
                     estado: "disponible",
                     productdestacado: true,
                     compra: false
+                },
+                {
+                    id: 5,
+                    nombre: "Sierra Circular 7-1/4\"",
+                    categoria: "Herramientas Eléctricas",
+                    codigo: "SC-7250",
+                    marca: "Bosch",
+                    imagen: "img/herramientas/sierra-circular.webp",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: true
+                },
+                {
+                    id: 6,
+                    nombre: "Nivel de Burbuja 24\"",
+                    categoria: "Medición",
+                    codigo: "NB-24",
+                    marca: "Stanley",
+                    imagen: "img/herramientas/nivel-burbuja.webp",
+                    estado: "disponible",
+                    productdestacado: true,
+                    compra: false
                 }
             ];
             
-            displayFeaturedProducts(allFeaturedProducts);
+            currentProductIndex = 0; // Resetear índice
+            displayFeaturedProducts();
         }
 
         // Cargar departamentos destacados
@@ -2095,16 +2186,15 @@
         }
 
         // Mostrar productos destacados
-        function displayFeaturedProducts(products) {
+        function displayFeaturedProducts() {
             const loadingElement = document.getElementById('loadingProducts');
             const carouselContainer = document.getElementById('productsCarouselContainer');
-            const gridElement = document.getElementById('featuredProductsGrid');
             const noProductsElement = document.getElementById('noFeaturedProducts');
             
             // Ocultar loading
             loadingElement.style.display = 'none';
             
-            if (products.length === 0) {
+            if (allFeaturedProducts.length === 0) {
                 carouselContainer.style.display = 'none';
                 noProductsElement.style.display = 'block';
                 return;
@@ -2113,52 +2203,8 @@
             carouselContainer.style.display = 'block';
             noProductsElement.style.display = 'none';
             
-            gridElement.innerHTML = products.map(product => {
-                // Verificar si hay botones para mostrar
-                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
-                const hasViewButton = product.url && product.url.trim() !== '';
-                const hasAnyButton = hasAddToCart || hasViewButton;
-                
-                return `
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="${product.imagen}" width="160" height="160" alt="${product.nombre}">
-                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
-                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">${product.categoria}</div>
-                        <h3 class="product-title">${product.nombre}</h3>
-                        ${product.precio && product.precio !== "" ? `
-                        <div class="product-price">
-                            <span class="current-price">$${parseFloat(product.precio).toFixed(2)}</span>
-                            ${product.precioAnterior ? `<span class="old-price">$${parseFloat(product.precioAnterior).toFixed(2)}</span>` : ''}
-                        </div>
-                        ` : `
-                        <div class="product-price">
-                            <span class="current-price">${product.marca || 'Consultar'}</span>
-                        </div>
-                        `}
-                        <div class="product-rating">
-                            ${product.rating ? `
-                            <div class="stars">${generateStars(product.rating)}</div>
-                            <span class="rating-count">(${product.reviews})</span>
-                            ` : ''}
-                            <span class="rating-count">Código: ${product.codigo}</span>
-                        </div>
-                        ${hasAnyButton ? `
-                        <div class="product-actions">
-                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
-                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
-                        </div>
-                        ` : ''}
-                    </div>
-                </div>
-            `;
-            }).join('');
-            
-            // Configurar eventos de scroll para las flechas
-            gridElement.addEventListener('scroll', updateArrowsVisibility);
+            // Mostrar productos actuales
+            displayCurrentProducts();
             
             // Actualizar visibilidad inicial de las flechas
             setTimeout(updateArrowsVisibility, 100);
@@ -2201,6 +2247,24 @@
         function addToCart(productId) {
             alert(`Producto ${productId} agregado al carrito`);
         }
+
+        // Event listener para cambio de tamaño de ventana
+        window.addEventListener('resize', function() {
+            if (allFeaturedProducts.length > 0) {
+                // Reajustar la vista cuando cambie el tamaño de pantalla
+                const productsPerView = getProductsPerView();
+                const totalProducts = allFeaturedProducts.length;
+                const maxIndex = Math.max(0, totalProducts - productsPerView);
+                
+                // Ajustar el índice actual si es necesario
+                if (currentProductIndex > maxIndex) {
+                    currentProductIndex = maxIndex;
+                }
+                
+                displayCurrentProducts();
+                updateArrowsVisibility();
+            }
+        });
 
         // Cargar productos destacados y departamentos al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
