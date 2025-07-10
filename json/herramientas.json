@@ -277,6 +277,19 @@
       "productdestacado": false,
       "deptdestacado": false,
       "compra": false
+    },
+    {
+      "id": 22,
+      "nombre": "Fumigador Manual 20L Tipo Mochila",
+      "categoria": "Herramientas Manuales",
+      "codigo": "THSPP42002",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/THSPP42002.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     }
   ]
 }
