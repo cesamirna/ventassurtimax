@@ -63,13 +63,31 @@
       "url": "",
       "precio": "",
       "precioAnterior": "",
-      "imagen": "img/construccion/BL4.jpg",
+      "imagen": "img/construccion/BL.jpg",
       "estado": "disponible",
       "rating": "",
       "reviews": "",
       "descripcion": "",
       "productdestacado": false,
       "deptdestacado": true,
+      "compra": false
+    },
+    {
+      "id": 4,
+      "nombre": "Bloque de Concreto 6",
+      "categoria": "Construcción",
+      "codigo": "BL6",
+      "marca": "Generica",
+      "url": "",
+      "precio": "",
+      "precioAnterior": "",
+      "imagen": "img/construccion/BL.jpg",
+      "estado": "disponible",
+      "rating": "",
+      "reviews": "",
+      "descripcion": "",
+      "productdestacado": false,
+      "deptdestacado": false,
       "compra": false
     }
     

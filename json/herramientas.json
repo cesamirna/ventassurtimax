@@ -1,6 +1,32 @@
 {
   "herramientas": [
     {
+      "id": 19,
+      "nombre": "Motosierra 68CC de 20\"",
+      "categoria": "Herramientas Manuales",
+      "codigo": "VG12021",
+      "marca": "Victeche",
+      "url": "",
+      "imagen": "img/herramientas/VG12021.png",
+      "estado": "agotado",
+      "productdestacado": true,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 20,
+      "nombre": "Motosierra 58CC de 22\"",
+      "categoria": "Herramientas Manuales",
+      "codigo": "VG12021",
+      "marca": "Hoteche",
+      "url": "",
+      "imagen": "img/herramientas/G840006.webp",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
       "id": 1,
       "nombre": "Taladro Percutor Inalámbrico 20V",
       "categoria": "Herramientas Eléctricas",
@@ -14,7 +40,7 @@
       "rating": "",
       "reviews": "",
       "descripcion": "",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
@@ -53,7 +79,7 @@
       "url": "",
       "imagen": "img/accesorios/CHP-19CP.webp",
       "estado": "disponible",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
@@ -172,6 +198,19 @@
       "estado": "disponible",
       "productdestacado": false,
       "deptdestacado": true,
+      "compra": false
+    },
+    {
+      "id": 21,
+      "nombre": "Motosierra 6CC de 24\"",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TG5602411",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TG5602411.webp",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
       "compra": false
     },
     {
