@@ -22,7 +22,7 @@
       "url": "",
       "imagen": "img/herramientas/G840006.webp",
       "estado": "disponible",
-      "productdestacado": false,
+      "productdestacado": true,
       "deptdestacado": false,
       "compra": false
     },
