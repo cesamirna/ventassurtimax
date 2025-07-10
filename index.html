@@ -434,6 +434,7 @@
         /* Contenedor con flechas para productos destacados */
         .products-carousel-container {
             position: relative;
+            overflow: hidden;
         }
         
         .carousel-arrow {
@@ -469,21 +470,25 @@
         }
         
         .carousel-arrow.left {
-            left: -20px;
+            left: 15px;
         }
         
         .carousel-arrow.right {
-            right: -20px;
+            right: 15px;
+        }
+        
+        /* Contenedor de productos para el deslizamiento */
+        .product-grid-wrapper {
+            overflow: hidden;
+            width: 100%;
         }
         
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            display: grid;
+            display: flex;
             gap: 25px;
-            overflow: hidden;
             padding: 0 10px;
-            transition: all 0.5s ease-in-out;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
         
         .product-card {
@@ -493,7 +498,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            width: 100%;
+            flex: 0 0 calc(25% - 18.75px); /* 4 productos en desktop */
+            min-width: 0;
         }
         
         .product-card:hover {
@@ -1135,8 +1141,8 @@
                 right: -15px;
             }
             
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .product-card {
+                flex: 0 0 calc(33.333% - 16.67px); /* 3 productos en tablet */
             }
         }
         
@@ -1196,9 +1202,8 @@
                 font-size: 1.2rem;
             }
             
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+            .product-card {
+                flex: 0 0 calc(50% - 12.5px); /* 2 productos en móvil */
             }
             
             .carousel-arrow.left {
@@ -1418,9 +1423,12 @@
                 <img src="icon/derecha.png" alt="Flecha derecha" width="15" height="15"></button>
                 </button>
                 
-                <!-- Grid de productos -->
-                <div class="product-grid" id="featuredProductsGrid">
-                    <!-- Los productos destacados se cargarán aquí dinámicamente -->
+                <!-- Wrapper para el deslizamiento -->
+                <div class="product-grid-wrapper">
+                    <!-- Grid de productos -->
+                    <div class="product-grid" id="featuredProductsGrid">
+                        <!-- Los productos destacados se cargarán aquí dinámicamente -->
+                    </div>
                 </div>
             </div>
             
@@ -1799,7 +1807,7 @@
             }
         }
 
-        // Función para hacer scroll de los productos
+        // Función para hacer scroll de los productos con animación suave
         function scrollProducts(direction) {
             if (allFeaturedProducts.length === 0) return;
             
@@ -1808,29 +1816,43 @@
             const maxIndex = Math.max(0, totalProducts - productsPerView);
             
             if (direction === 'left') {
-                currentProductIndex = Math.max(0, currentProductIndex - productsPerView);
+                currentProductIndex = Math.max(0, currentProductIndex - 1);
             } else {
-                currentProductIndex = Math.min(maxIndex, currentProductIndex + productsPerView);
+                currentProductIndex = Math.min(maxIndex, currentProductIndex + 1);
             }
             
-            // Mostrar los productos actuales
-            displayCurrentProducts();
+            // Aplicar la transformación para el deslizamiento suave
+            updateCarouselPosition();
             
             // Actualizar visibilidad de flechas
             setTimeout(updateArrowsVisibility, 100);
         }
 
-        // Función para mostrar los productos actuales según el índice
-        function displayCurrentProducts() {
+        // Función para actualizar la posición del carousel
+        function updateCarouselPosition() {
             const gridElement = document.getElementById('featuredProductsGrid');
             if (!gridElement || allFeaturedProducts.length === 0) return;
             
             const productsPerView = getProductsPerView();
-            const startIndex = currentProductIndex;
-            const endIndex = Math.min(startIndex + productsPerView, allFeaturedProducts.length);
-            const productsToShow = allFeaturedProducts.slice(startIndex, endIndex);
+            let translatePercentage;
             
-            gridElement.innerHTML = productsToShow.map(product => {
+            if (window.innerWidth <= 768) {
+                // En móvil: 2 productos por vista, cada producto ocupa 50%
+                translatePercentage = currentProductIndex * 50;
+            } else {
+                // En desktop: 4 productos por vista, cada producto ocupa 25%
+                translatePercentage = currentProductIndex * 25;
+            }
+            
+            gridElement.style.transform = `translateX(-${translatePercentage}%)`;
+        }
+
+        // Función para renderizar todos los productos (sin limitación de vista)
+        function renderAllProducts() {
+            const gridElement = document.getElementById('featuredProductsGrid');
+            if (!gridElement || allFeaturedProducts.length === 0) return;
+            
+            gridElement.innerHTML = allFeaturedProducts.map(product => {
                 // Verificar si hay botones para mostrar
                 const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
                 const hasViewButton = product.url && product.url.trim() !== '';
@@ -1873,6 +1895,9 @@
                 </div>
             `;
             }).join('');
+            
+            // Inicializar la posición del carousel
+            updateCarouselPosition();
         }
 
         // Cargar productos destacados desde múltiples archivos JSON
@@ -2203,8 +2228,8 @@
             carouselContainer.style.display = 'block';
             noProductsElement.style.display = 'none';
             
-            // Mostrar productos actuales
-            displayCurrentProducts();
+            // Renderizar todos los productos
+            renderAllProducts();
             
             // Actualizar visibilidad inicial de las flechas
             setTimeout(updateArrowsVisibility, 100);
@@ -2261,7 +2286,7 @@
                     currentProductIndex = maxIndex;
                 }
                 
-                displayCurrentProducts();
+                updateCarouselPosition();
                 updateArrowsVisibility();
             }
         });
