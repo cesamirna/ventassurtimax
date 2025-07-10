@@ -290,6 +290,32 @@
       "productdestacado": false,
       "deptdestacado": false,
       "compra": false
+    },
+    {
+      "id": 23,
+      "nombre": "Fumigador Manual 20L Tipo Mochila",
+      "categoria": "Herramientas Manuales",
+      "codigo": "WKS1520",
+      "marca": "Wadfow",
+      "url": "",
+      "imagen": "img/herramientas/WKS1520.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 24,
+      "nombre": "Fumigador Manual 16L Tipo Mochila",
+      "categoria": "Herramientas Manuales",
+      "codigo": "WKS1516",
+      "marca": "Wadfow",
+      "url": "",
+      "imagen": "img/herramientas/WKS1520.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     }
   ]
 }
