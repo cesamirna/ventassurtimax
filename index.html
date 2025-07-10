@@ -1816,9 +1816,9 @@
             const maxIndex = Math.max(0, totalProducts - productsPerView);
             
             if (direction === 'left') {
-                currentProductIndex = Math.max(0, currentProductIndex - 1);
+                currentProductIndex = Math.max(0, currentProductIndex - 2);
             } else {
-                currentProductIndex = Math.min(maxIndex, currentProductIndex + 1);
+                currentProductIndex = Math.min(maxIndex, currentProductIndex + 2);
             }
             
             // Aplicar la transformación para el deslizamiento suave
