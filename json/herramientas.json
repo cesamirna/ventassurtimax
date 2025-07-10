@@ -368,6 +368,19 @@
       "productdestacado": false,
       "deptdestacado": false,
       "compra": false
+    },
+    {
+      "id": 29,
+      "nombre": "Desmalezadora y Cortadora de Cesped 40V Motor Sin Escobilla",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TSTLI20028",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TSTLI20028.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     }
 
   ]
