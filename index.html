@@ -431,10 +431,57 @@
             color: var(--primary-dark);
         }
         
+        /* Contenedor con flechas para productos destacados */
+        .products-carousel-container {
+            position: relative;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .carousel-arrow:hover {
+            background-color: white;
+            box-shadow: var(--shadow-hover);
+            color: var(--primary);
+        }
+        
+        .carousel-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .carousel-arrow.left {
+            left: -20px;
+        }
+        
+        .carousel-arrow.right {
+            right: -20px;
+        }
+        
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            display: flex;
             gap: 25px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding: 0 10px;
         }
         
         .product-card {
@@ -444,6 +491,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            flex: 0 0 250px;
+            min-width: 250px;
         }
         
         .product-card:hover {
@@ -1076,6 +1125,14 @@
             .department-products {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
+            
+            .carousel-arrow.left {
+                left: -15px;
+            }
+            
+            .carousel-arrow.right {
+                right: -15px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1134,8 +1191,17 @@
                 font-size: 1.2rem;
             }
             
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            .product-card {
+                flex: 0 0 180px;
+                min-width: 180px;
+            }
+            
+            .carousel-arrow.left {
+                left: -10px;
+            }
+            
+            .carousel-arrow.right {
+                right: -10px;
             }
             
             .department-products {
@@ -1192,13 +1258,9 @@
                 padding: 4px 5px;
             }
             
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
             .product-card {
-                min-width: 0;
+                flex: 0 0 160px;
+                min-width: 160px;
             }
             
             .product-image {
@@ -1248,6 +1310,20 @@
             
             .hero p {
                 font-size: 0.85rem;
+            }
+            
+            .carousel-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            .carousel-arrow.left {
+                left: -5px;
+            }
+            
+            .carousel-arrow.right {
+                right: -5px;
             }
         }
         
@@ -1300,7 +1376,7 @@
             <ul class="nav-list">
                 <li><a href="#" class="active">Inicio</a></li>
                 <li><a href="herramientas.html">Herramientas</a></li>
-                <li><a href="#">Construcción</a></li>
+                <li><a href="construccion.html">Construcción</a></li>
                 <li><a href="#">Electricidad</a></li>
                 <li><a href="#">Plomería</a></li>
                 <li><a href="#">Pinturas</a></li>
@@ -1334,9 +1410,18 @@
                 <span>Cargando productos destacados...</span>
             </div>
             
-            <!-- Grid de productos -->
-            <div class="product-grid" id="featuredProductsGrid" style="display: none;">
-                <!-- Los productos destacados se cargarán aquí dinámicamente -->
+            <!-- Contenedor con flechas -->
+            <div class="products-carousel-container" id="productsCarouselContainer" style="display: none;">
+                <button class="carousel-arrow left" id="leftArrow" onclick="scrollProducts('left')">
+                <img src="icon/izquierda.png" alt="Flecha izquierda" width="15" height="15"></button>
+                <button class="carousel-arrow right" id="rightArrow" onclick="scrollProducts('right')">
+                <img src="icon/derecha.png" alt="Flecha derecha" width="15" height="15"></button>
+                </button>
+                
+                <!-- Grid de productos -->
+                <div class="product-grid" id="featuredProductsGrid">
+                    <!-- Los productos destacados se cargarán aquí dinámicamente -->
+                </div>
             </div>
             
             <!-- Mensaje cuando no hay productos destacados -->
@@ -1678,16 +1763,61 @@
             'json/hogar.json'
         ];
 
+        // Función para controlar las flechas de navegación
+        function updateArrowsVisibility() {
+            const productGrid = document.getElementById('featuredProductsGrid');
+            const leftArrow = document.getElementById('leftArrow');
+            const rightArrow = document.getElementById('rightArrow');
+            
+            if (!productGrid || !leftArrow || !rightArrow) return;
+            
+            const scrollLeft = productGrid.scrollLeft;
+            const scrollWidth = productGrid.scrollWidth;
+            const clientWidth = productGrid.clientWidth;
+            
+            // Mostrar/ocultar flecha izquierda
+            if (scrollLeft <= 0) {
+                leftArrow.classList.add('hidden');
+            } else {
+                leftArrow.classList.remove('hidden');
+            }
+            
+            // Mostrar/ocultar flecha derecha
+            if (scrollLeft >= scrollWidth - clientWidth - 1) {
+                rightArrow.classList.add('hidden');
+            } else {
+                rightArrow.classList.remove('hidden');
+            }
+        }
+
+        // Función para hacer scroll de los productos
+        function scrollProducts(direction) {
+            const productGrid = document.getElementById('featuredProductsGrid');
+            if (!productGrid) return;
+            
+            const cardWidth = 250; // Ancho de cada tarjeta + gap
+            const scrollAmount = cardWidth * 2; // Scroll de 2 productos a la vez
+            
+            if (direction === 'left') {
+                productGrid.scrollLeft -= scrollAmount;
+            } else {
+                productGrid.scrollLeft += scrollAmount;
+            }
+            
+            // Actualizar visibilidad de flechas después del scroll
+            setTimeout(updateArrowsVisibility, 300);
+        }
+
         // Cargar productos destacados desde múltiples archivos JSON
         async function loadFeaturedProducts() {
             const loadingElement = document.getElementById('loadingProducts');
-            const gridElement = document.getElementById('featuredProductsGrid');
+            const carouselContainer = document.getElementById('productsCarouselContainer');
             const noProductsElement = document.getElementById('noFeaturedProducts');
             
             try {
                 // Mostrar loading
                 loadingElement.style.display = 'flex';
-                gridElement.style.display = 'none';
+                carouselContainer.style.display = 'none';
                 noProductsElement.style.display = 'none';
                 
                 let allProducts = [];
@@ -1967,6 +2097,7 @@
         // Mostrar productos destacados
         function displayFeaturedProducts(products) {
             const loadingElement = document.getElementById('loadingProducts');
+            const carouselContainer = document.getElementById('productsCarouselContainer');
             const gridElement = document.getElementById('featuredProductsGrid');
             const noProductsElement = document.getElementById('noFeaturedProducts');
             
@@ -1974,12 +2105,12 @@
             loadingElement.style.display = 'none';
             
             if (products.length === 0) {
-                gridElement.style.display = 'none';
+                carouselContainer.style.display = 'none';
                 noProductsElement.style.display = 'block';
                 return;
             }
             
-            gridElement.style.display = 'grid';
+            carouselContainer.style.display = 'block';
             noProductsElement.style.display = 'none';
             
             gridElement.innerHTML = products.map(product => {
@@ -2025,6 +2156,12 @@
                 </div>
             `;
             }).join('');
+            
+            // Configurar eventos de scroll para las flechas
+            gridElement.addEventListener('scroll', updateArrowsVisibility);
+            
+            // Actualizar visibilidad inicial de las flechas
+            setTimeout(updateArrowsVisibility, 100);
         }
 
         // Generar estrellas para rating
