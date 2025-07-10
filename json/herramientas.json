@@ -316,6 +316,59 @@
       "productdestacado": false,
       "deptdestacado": false,
       "compra": false
+    },
+    {
+      "id": 25,
+      "nombre": "Desmalezadora Grande Motor 2T 2.4KW/62CC",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TP5624421",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TP5624421.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 26,
+      "nombre": "Desmalezadora Grande Motor 2T 1.4KW/52CC",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TP5524411",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TP5624421.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 27,
+      "nombre": "Desmalezadora Grande Motor 2T 1.27KW/47CC",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TP5434421",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TP5624421.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
+    },
+    {
+      "id": 28,
+      "nombre": "Desmalezadora Inalámbrica 20V",
+      "categoria": "Herramientas Manuales",
+      "codigo": "TGTLI20018",
+      "marca": "Total",
+      "url": "",
+      "imagen": "img/herramientas/TGTLI20018.png",
+      "estado": "disponible",
+      "productdestacado": false,
+      "deptdestacado": false,
+      "compra": false
     }
+
   ]
 }
