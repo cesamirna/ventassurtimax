@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herramientas - Ferretería Ventas Surtimax</title>
-    <link rel="icon" href="icon/logo2x.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #007387;
-            --primary-dark: #00656c;
-            --primary-light: #E6F4EF;
-            --secondary: #F32213;
-            --secondary-dark: #E02E22;
-            --text-dark: #1A1A1A;
-            --text-medium: #555555;
-            --text-light: #777777;
-            --background: #FFFFFF;
-            --background-light: #F8F9FA;
-            --border-light: #E9ECEF;
-            --border: #DEE2E6;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.07), 0 5px 10px rgba(0, 0, 0, 0.05);
-            --radius: 8px;
-            --radius-sm: 4px;
-            --transition: all 0.3s ease;
-            --header-height: 60px; /* Nueva variable para la altura del header */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas - Ferretería Ventas Surtimax</title>
+  <link rel="icon" href="icon/logo2x.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+      :root {
+          --primary: #007387;
+          --primary-dark: #00656c;
+          --primary-light: #E6F4EF;
+          --secondary: #F32213;
+          --secondary-dark: #E02E22;
+          --text-dark: #1A1A1A;
+          --text-medium: #555555;
+          --text-light: #777777;
+          --background: #FFFFFF;
+          --background-light: #F8F9FA;
+          --border-light: #E9ECEF;
+          --border: #DEE2E6;
+          --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+          --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.07), 0 5px 10px rgba(0, 0, 0, 0.05);
+          --radius: 8px;
+          --radius-sm: 4px;
+          --transition: all 0.3s ease;
+          --header-height: 60px; /* Nueva variable para la altura del header */
+      }
 
         * {
             margin: 0;
@@ -161,14 +161,15 @@
             max-width: 500px;
             margin: 0 30px;
             position: relative;
+            min-width: 200px;
         }
         
         .search-bar input {
             width: 100%;
-            padding: 10px 15px;
+            padding: 8px 12px;
             padding-right: 45px;
             border: 1px solid var(--border);
-            border-radius: var(--radius);
+            border-radius: 3px;
             font-size: 0.875rem;
             transition: var(--transition);
         }
@@ -187,7 +188,7 @@
             background-color: transparent;
             border: none;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             cursor: pointer;
             padding: 5px;
             transition: var(--transition);
@@ -195,6 +196,113 @@
         
         .search-bar button:hover {
             color: var(--primary-dark);
+        }
+
+        /* Estilos para los resultados de búsqueda dropdown */
+        .search-results-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            max-height: none;
+            overflow-y: visible;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: none;
+            padding: 10px;
+        }
+
+        /* Contenedor vertical para los resultados */
+        .search-results-horizontal {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .search-result-item {
+            padding: 12px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--background-light);
+            border-color: var(--primary);
+        }
+
+        .search-result-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            background-color: var(--background-light);
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .search-result-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .search-result-name {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .search-result-details {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
+
+        .search-loading {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
+
+        /* Nuevo estilo para el texto "Ver más" clickeable */
+        .search-see-more {
+            padding: 6px;
+            text-align: center;
+            background-color: var(--primary-light);
+            border-radius: var(--radius-sm);
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-see-more:hover {
+            background-color: var(--primary-dark);
+            color: white;
         }
         
         .user-actions {
@@ -283,7 +391,7 @@
             text-align: center;
             white-space: nowrap;
         }
-        
+      
         .nav-list a:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
@@ -342,10 +450,10 @@
         }
         
         .category-title {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .category-description {
@@ -353,8 +461,8 @@
             margin-bottom: 0;
         }
 
-        /* Barra de búsqueda de productos */
-        .product-search {
+        /* Información de búsqueda */
+        .search-info {
             background-color: white;
             border-radius: var(--radius);
             padding: 20px;
@@ -362,49 +470,44 @@
             box-shadow: var(--shadow);
         }
 
-        .product-search-bar {
-            position: relative;
-            max-width: 400px;
+        .search-info h2 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
 
-        .product-search-bar input {
-            width: 100%;
-            padding: 12px 15px;
-            padding-right: 45px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 1rem;
-            transition: var(--transition);
+        .search-info p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
         }
 
-        .product-search-bar input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.1);
+        .search-query {
+            color: var(--primary);
+            font-weight: 600;
         }
 
-        .product-search-bar button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            /*background-color: var(--primary);*/
+        .search-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .clear-search {
+            background-color: var(--primary);
             color: white;
             border: none;
+            padding: 8px 16px;
             border-radius: var(--radius-sm);
-            padding: 8px 12px;
+            font-size: 0.875rem;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .product-search-bar button:hover {
+        .clear-search:hover {
             background-color: var(--primary-dark);
-        }
-
-        .search-results-info {
-            margin-top: 15px;
-            color: var(--text-medium);
-            font-size: 0.875rem;
         }
         
         /* Productos */
@@ -503,13 +606,13 @@
         .product-info {
             padding: 15px;
         }
-        
+      
         .product-category {
             font-size: 0.75rem;
             color: var(--text-light);
             margin-bottom: 5px;
         }
-        
+      
         .product-title {
             font-size: 0.9375rem;
             font-weight: 500;
@@ -635,66 +738,92 @@
             margin-bottom: 10px;
             color: var(--text-dark);
         }
-        
-        /* Paginación */
-        .pagination {
+
+        .no-results p {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+
+      .search-suggestions {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        .search-suggestions ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .search-suggestions li {
+            background-color: var(--background-light);
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-suggestions li:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+      
+        /* Ver más productos */
+        .load-more {
             display: flex;
             justify-content: center;
             margin-top: 40px;
         }
         
-        .pagination-list {
-            display: flex;
-            list-style: none;
-            gap: 5px;
-        }
-        
-        .pagination-item a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-            background-color: white;
-            color: var(--text-medium);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: var(--transition);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .pagination-item a:hover {
-            background-color: var(--primary-light);
-            color: var(--primary);
-        }
-        
-        .pagination-item.active a {
+        .load-more-btn {
             background-color: var(--primary);
             color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
+        .load-more-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .load-more-btn:disabled {
+            background-color: var(--text-light);
+            cursor: not-allowed;
+            transform: none;
+        }
+      
         /* Footer */
         .footer {
             background-color: #1A1A1A;
             color: white;
             padding: 20px 0 0;
-            margin-top: 60px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .footer-column h3 {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .footer-column h3::after {
@@ -712,17 +841,17 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
         
         .footer-links a:hover {
@@ -731,29 +860,29 @@
         
         .contact-info-item {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.875rem;
+            font-size: 0.85rem;
         }
         
         .contact-info-item i {
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .footer-social {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .footer-social a {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border-radius: 50%;
@@ -768,9 +897,9 @@
         
         .footer-bottom {
             background-color: #111111;
-            padding: 20px 0;
+            padding: 15px 0;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.5);
         }
         
@@ -778,20 +907,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .payment-methods {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         
         .payment-methods img {
-            height: 24px;
+            height: 20px;
             background-color: white;
-            padding: 3px;
+            padding: 2px;
             border-radius: 3px;
         }
-        
+      
         /* Responsive Mejorado - IGUAL QUE INDEX.HTML */
         @media (max-width: 992px) {
             .container {
@@ -819,7 +951,7 @@
             .product-title {
                 font-size: 1.5rem;
             }
-            
+          
             /* NUEVO: Ajuste de tabs para tablets */
             .tab-btn {
                 padding: 12px 20px;
@@ -829,8 +961,12 @@
             .tab-content {
                 padding: 25px;
             }
+
+            .search-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
         }
-        
+      
         @media (max-width: 768px) {
             .container {
                 padding: 0 10px;
@@ -1017,6 +1153,10 @@
             .hero p {
                 font-size: 0.85rem;
             }
+
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1043,418 +1183,830 @@
                 flex-shrink: 0;
             }
         }
-    </style>
+
+        /* Estilos adicionales para search-grid */
+        .search-grid {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+  </style>
 </head>
 <body>
-    
-    <!-- Main Header - Se oculta al hacer scroll -->
-    <header class="main-header" id="main-header">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="icon/logo.png" width="30" height="30" alt="Logo SURTIMAX">
-                FERRETERIA<span>VENTAS SURTIMAX</span>
-            </a>
-        
-            <div class="social-links">
-                <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
-                <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
-                <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Main Navigation - Siempre visible -->
-    <nav class="main-nav" id="main-nav">
-        <div class="container">
-            <ul class="nav-list">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="herramientas.html" class="active">Herramientas</a></li>
-                <li><a href="construccion.html">Construcción</a></li>
-                <li><a href="#">Electricidad</a></li>
-                <li><a href="#">Plomería</a></li>
-                <li><a href="#">Pinturas</a></li>
-                <li><a href="#">Cerrajería</a></li>
-                <li><a href="#">Jardín</a></li>
-                <li><a href="#">Hogar</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <ul class="breadcrumb-list">
-                <li class="breadcrumb-item">
-                    <a href="index.html" class="breadcrumb-link">Inicio</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#" class="breadcrumb-link">Herramientas</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Contenido principal -->
-    <main>
-        <div class="container">
-            <!-- Encabezado de categoría -->
-            <div class="category-header">
-                <h1 class="category-title">Herramientas</h1>
-                <p class="category-description">Encuentra todo tipo de herramientas manuales y eléctricas para tus proyectos de construcción, remodelación y bricolaje.</p>
-            </div>
-            
-            <!-- Barra de búsqueda de productos -->
-            <div class="product-search">
-                <div class="product-search-bar">
-                    <input type="text" id="searchInput" placeholder="Buscar herramientas...">
-                    <button onclick="searchProducts()">🔎</button>
-                </div>
-                <div class="search-results-info" id="searchInfo"></div>
-            </div>
-            
-            <!-- Contenido de categoría -->
-            <div class="category-content">
-                <!-- Productos -->
-                <div class="products">
-                    <div class="product-grid" id="productGrid">
-                        <!-- Los productos se cargarán aquí dinámicamente -->
-                    </div>
-                    
-                    <!-- Mensaje cuando no hay resultados -->
-                    <div class="no-results" id="noResults" style="display: none;">
-                        <h3>No se encontraron productos</h3>
-                        <p>Intenta con otros términos de búsqueda o explora nuestras categorías.</p>
-                    </div>
-                    
-                    <!-- Paginación -->
-                    <div class="pagination">
-                        <ul class="pagination-list">
-                            <li class="pagination-item active"><a href="#">1</a></li>
-                            <li class="pagination-item"><a href="#">2</a></li>
-                            <li class="pagination-item"><a href="#">3</a></li>
-                            <li class="pagination-item"><a href="#">4</a></li>
-                            <li class="pagination-item"><a href="#">5</a></li>
-                            <li class="pagination-item"><a href="#">→</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Sobre Nosotros</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">→ Quiénes somos</a></li>
-                        <li><a href="#">→ Nuestras tiendas</a></li>
-                        <li><a href="#">→ Trabaja con nosotros</a></li>
-                        <li><a href="#">→ Responsabilidad social</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Información</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">→ Términos y condiciones</a></li>
-                        <li><a href="#">→ Política de privacidad</a></li>
-                        <li><a href="#">→ Política de devoluciones</a></li>
-                        <li><a href="#">→ Preguntas frecuentes</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Atención al Cliente</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">→ Contacto</a></li>
-                        <li><a href="#">→ Seguimiento de pedidos</a></li>
-                        <li><a href="#">→ Reclamos</a></li>
-                        <li><a href="#">→ Sugerencias</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <div class="contact-info-item">
-                        <i>📍</i>
-                        <div>Almirante, Bocas del Toro, Vía Chiriquí Grande, al lado del Restaurante Fortuna.</div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i>📞</i>
-                        <div>6874-8881 / 6804-3388</div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i>✉️</i>
-                        <div>vsurtimaxbocas1@gmail.com</div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i>🕒</i>
-                        <div>Lun-Sáb: 8:00 AM - 6:00 PM</div>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
-                        <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
-                        <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
-                        <!--a href="#" aria-label="YouTube">▶️</a-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div>© 2025 Ferretería Ventas Surtimax. Todos los derechos reservados.</div>
-                <!--div class="payment-methods">
-                    <img src="/placeholder.svg?height=24&width=40" alt="Visa">
-                    <img src="/placeholder.svg?height=24&width=40" alt="MasterCard">
-                    <img src="/placeholder.svg?height=24&width=40" alt="PayPal">
-                    <img src="/placeholder.svg?height=24&width=40" alt="American Express">
-                </div-->
-            </div>
-        </div>
-    </footer>
+  
+  <!-- Main Header - Se oculta al hacer scroll -->
+  <header class="main-header" id="main-header">
+      <div class="container">
+          <a href="index.html" class="logo"><img src="icon/logo.png" width="30" height="30" alt="Logo SURTIMAX">
+              FERRETERIA<span>VENTAS SURTIMAX</span>
+          </a>
 
-    <script>
-        // Variables globales
-        let allProducts = [];
-        let filteredProducts = [];
+          <div class="search-bar">
+              <input type="text" id="searchInput" placeholder="¿Qué estás buscando?">
+              <button aria-label="Buscar" onclick="performSearch()">🔍</button>
+              <!-- Estructura modificada para resultados horizontales -->
+              <div class="search-results-dropdown" id="searchResultsDropdown">
+                  <div class="search-results-horizontal" id="searchResultsHorizontal">
+                      <!-- Los resultados se cargarán aquí horizontalmente -->
+                  </div>
+              </div>
+          </div>
+  
+          <div class="social-links">
+              <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
+              <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
+              <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
+          </div>
+      </div>
+  </header>
+  
+  <!-- Main Navigation - Siempre visible -->
+  <nav class="main-nav" id="main-nav">
+      <div class="container">
+          <ul class="nav-list">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="herramientas.html" class="active">Herramientas</a></li>
+              <li><a href="construccion.html">Construcción</a></li>
+              <li><a href="#">Electricidad</a></li>
+              <li><a href="#">Plomería</a></li>
+              <li><a href="#">Pinturas</a></li>
+              <li><a href="#">Cerrajería</a></li>
+              <li><a href="#">Jardín</a></li>
+              <li><a href="#">Hogar</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contacto</a></li>
+          </ul>
+      </div>
+  </nav>
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+      <div class="container">
+          <ul class="breadcrumb-list">
+              <li class="breadcrumb-item">
+                  <a href="index.html" class="breadcrumb-link">Inicio</a>
+              </li>
+              <li class="breadcrumb-item">
+                  <a href="#" class="breadcrumb-link">Herramientas</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+  <!-- Contenido principal -->
+  <main>
+      <div class="container">
+          <!-- Encabezado de categoría -->
+          <div class="category-header" id="categoryHeader">
+              <h1 class="category-title">Herramientas</h1>
+              <p class="category-description">Encuentra todo tipo de herramientas manuales y eléctricas para tus proyectos de construcción, remodelación y bricolaje.</p>
+          </div>
+          
+          <!-- Sección de resultados de búsqueda (copiada de index.html) -->
+          <section class="search-results" id="searchResults" style="display: none;">
+              <div class="container">
+                  <div class="search-info" id="searchResultsInfo">
+                      <!-- La información de la búsqueda se cargará aquí -->
+                  </div>
+                  <div class="search-grid" id="searchGrid">
+                      <!-- Los productos encontrados se cargarán aquí -->
+                  </div>
+                  <div class="no-results" id="noSearchResults" style="display: none;">
+                      <h3>No se encontraron productos</h3>
+                      <p>No encontramos productos que coincidan con tu búsqueda.</p>
+                      <div class="search-suggestions">
+                          <p>Sugerencias de búsqueda:</p>
+                          <ul onclick="handleSuggestionClick(event)">
+                              <li onclick="performFullSearch('martillo')">Martillo</li>
+                              <li onclick="performFullSearch('taladro')">Taladro</li>
+                              <li onclick="performFullSearch('cemento')">Cemento</li>
+                              <li onclick="performFullSearch('pintura')">Pintura</li>
+                              <li onclick="performFullSearch('tubería')">Tubería</li>
+                              <li onclick="performFullSearch('maceta')">Maceta</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </section>
 
-        // Script para ocultar/mostrar main-header al hacer scroll
-        let lastScrollTop = 0;
-        const mainHeader = document.getElementById('main-header');
-        const mainNav = document.getElementById('main-nav');
-        
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down - ocultar main-header
-                mainHeader.classList.add('hidden');
-                mainNav.classList.remove('header-visible');
-            } else {
-                // Scrolling up - mostrar main-header
-                mainHeader.classList.remove('hidden');
-                mainNav.classList.add('header-visible');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+          <!-- Contenido de categoría -->
+          <div class="category-content" id="categoryContent">
+              <!-- Productos -->
+              <div class="products">
+                  <div class="product-grid" id="productGrid">
+                      <!-- Los productos se cargarán aquí dinámicamente -->
+                  </div>
+                  
+                  <!-- Mensaje cuando no hay resultados -->
+                  <div class="no-results" id="noCategoryResults" style="display: none;">
+                      <h3>No se encontraron productos</h3>
+                      <p>Intenta con otros términos de búsqueda o explora nuestras categorías.</p>
+                  </div>
+                  
+                  <!-- Botón Ver más productos -->
+                  <div class="load-more" id="loadMoreContainer" style="display: none;">
+                      <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreProducts()">
+                          Ver más productos
+                          <span id="remainingCount"></span>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-column">
+                  <h3>Sobre Nosotros</h3>
+                  <ul class="footer-links">
+                      <li><a href="#">→ Quiénes somos</a></li>
+                      <li><a href="#">→ Nuestras tiendas</a></li>
+                      <li><a href="#">→ Trabaja con nosotros</a></li>
+                      <li><a href="#">→ Responsabilidad social</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-column">
+                  <h3>Información</h3>
+                  <ul class="footer-links">
+                      <li><a href="#">→ Términos y condiciones</a></li>
+                      <li><a href="#">→ Política de privacidad</a></li>
+                      <li><a href="#">→ Política de devoluciones</a></li>
+                      <li><a href="#">→ Preguntas frecuentes</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-column">
+                  <h3>Atención al Cliente</h3>
+                  <ul class="footer-links">
+                      <li><a href="#">→ Contacto</a></li>
+                      <li><a href="#">→ Seguimiento de pedidos</a></li>
+                      <li><a href="#">→ Reclamos</a></li>
+                      <li><a href="#">→ Sugerencias</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-column">
+                  <h3>Contacto</h3>
+                  <div class="contact-info-item">
+                      <i>📍</i>
+                      <div>Almirante, Bocas del Toro, Vía Chiriquí Grande, al lado del Restaurante Fortuna.</div>
+                  </div>
+                  <div class="contact-info-item">
+                      <i>📞</i>
+                      <div>6874-8881 / 6804-3388</div>
+                  </div>
+                  <div class="contact-info-item">
+                      <i>✉️</i>
+                      <div>vsurtimaxbocas1@gmail.com</div>
+                  </div>
+                  <div class="contact-info-item">
+                      <i>🕒</i>
+                      <div>Lun-Sáb: 8:00 AM - 6:00 PM</div>
+                  </div>
+                  
+                  <div class="footer-social">
+                      <a href="https://www.instagram.com/ventassurtimax/#" aria-label="Instagram"><img src="icon/insta.png" width="20" height="20"></a>
+                      <a href="https://www.facebook.com/share/1AS5etc59L/" aria-label="Facebook"><img src="icon/face.png" width="20" height="20"></a>
+                      <a href="https://www.tiktok.com/@ventassurtimax.bocas" aria-label="Tik-Tok"><img src="icon/tiktok.png" width="20" height="20"></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <div class="container">
+              <div>© 2025 Ferretería Ventas Surtimax. Todos los derechos reservados.</div>
+              <!--div class="payment-methods">
+                  <img src="/placeholder.svg?height=24&width=40" alt="Visa">
+                  <img src="/placeholder.svg?height=24&width=40" alt="MasterCard">
+                  <img src="/placeholder.svg?height=24&width=40" alt="PayPal">
+                  <img src="/placeholder.svg?height=24&width=40" alt="American Express">
+              </div-->
+          </div>
+      </div>
+  </footer>
 
-        // Cargar productos desde JSON
-        async function loadProducts() {
-            try {
-                const response = await fetch('json/herramientas.json');
-                const data = await response.json();
-                allProducts = data.herramientas;
-                filteredProducts = [...allProducts];
-                displayProducts(filteredProducts);
-                updateSearchInfo(filteredProducts.length, allProducts.length);
-            } catch (error) {
-                console.error('Error al cargar productos:', error);
-                // Mostrar productos de ejemplo si no se puede cargar el JSON
-                loadExampleProducts();
-            }
-        }
+  <script>
+      // Variables globales
+      let herramientasCategoryProducts = []; // Productos específicos de la categoría Herramientas
+      let filteredProducts = []; // Productos actualmente mostrados en la grilla principal (para la categoría)
+      let currentDisplayCount = 0;
+      const PRODUCTS_PER_PAGE = 32;
+      let searchTimeout;
+      let allSearchableProducts = []; // Todos los productos de todos los JSONs para la búsqueda global
+      let isSearchMode = false; // Para controlar si estamos en modo búsqueda
+      let currentSearchQuery = ''; // Para almacenar la consulta actual
 
-        // Productos de ejemplo en caso de que no se pueda cargar el JSON
-        function loadExampleProducts() {
-            allProducts = [
-                {
-                    id: 1,
-                    nombre: "Taladro Percutor Inalámbrico 20V DeWalt",
-                    categoria: "Herramientas Eléctricas",
-                    codigo: "H1811032B",
-                    marca: "DeWalt",
-                    url: "#",
-                    precio: 90.10,
-                    precioAnterior: 159.99,
-                    imagen: "img/herramientas/H1811032B.jpg",
-                    estado: "disponible",
-                    rating: 4.5,
-                    reviews: 128,
-                    descripcion: "",
-                    compra: true
-                },
-                {
-                    id: 2,
-                    nombre: "Juego de Destornilladores Stanley 42 piezas",
-                    categoria: "Herramientas Manuales",
-                    codigo: "H2001045S",
-                    marca: "Stanley",
-                    url: "#",
-                    precio: 45.50,
-                    imagen: "/placeholder.svg?height=140&width=140",
-                    estado: "disponible",
-                    rating: 5.0,
-                    reviews: 86,
-                    compra: false
-                },
-                {
-                    id: 3,
-                    nombre: "Sierra Circular Bosch GKS 190 1400W",
-                    categoria: "Herramientas Eléctricas",
-                    codigo: "H3005012B",
-                    marca: "Bosch",
-                    // Este producto no tiene URL para probar
-                    precio: 89.99,
-                    precioAnterior: 99.99,
-                    imagen: "/placeholder.svg?height=140&width=140",
-                    estado: "disponible",
-                    rating: 4.0,
-                    reviews: 42,
-                    compra: true
-                }
-            ];
-            filteredProducts = [...allProducts];
-            displayProducts(filteredProducts);
-            updateSearchInfo(filteredProducts.length, allProducts.length);
-        }
+      // Lista de archivos JSON a cargar para la búsqueda global
+      const jsonFiles = [
+          'json/construccion.json',
+          'json/herramientas.json',
+          'json/electricidad.json',
+          'json/plomeria.json',
+          'json/pinturas.json',
+          'json/cerrajeria.json',
+          'json/jardin.json',
+          'json/hogar.json'
+      ];
 
-        // Mostrar productos en la grilla
-        function displayProducts(products) {
-            const productGrid = document.getElementById('productGrid');
-            const noResults = document.getElementById('noResults');
-            
-            if (products.length === 0) {
-                productGrid.style.display = 'none';
-                noResults.style.display = 'block';
-                return;
-            }
-            
-            productGrid.style.display = 'grid';
-            noResults.style.display = 'none';
-            
-            productGrid.innerHTML = products.map(product => {
-                // Verificar si hay botones para mostrar - CAMBIO AQUÍ
-                const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
-                const hasViewButton = product.url && product.url.trim() !== '';
-                const hasAnyButton = hasAddToCart || hasViewButton;
-                
-                return `
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="${product.imagen}" width="140" height="140" alt="${product.nombre}">
-                        <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
-                        ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">${product.categoria}</div>
-                        <h3 class="product-title">${product.nombre}</h3>
-                        ${product.precio ? `
-                        <div class="product-price">
-                            <span class="current-price">$${product.precio.toFixed(2)}</span>
-                            ${product.precioAnterior ? `<span class="old-price">$${product.precioAnterior.toFixed(2)}</span>` : ''}
-                        </div>
-                        ` : ''}
-                        ${product.marca ? `<div class="product-brand">${product.marca}</div>` : ''}
-                        <div class="product-rating">
-                            ${product.rating ? `
-                            <div class="stars">${generateStars(product.rating)}</div>
-                            <span class="rating-count">(${product.reviews})</span>
-                            ` : ''}
-                            <span class="rating-count">Código: ${product.codigo}</span>
-                        </div>
-                        ${hasAnyButton ? `
-                        <div class="product-actions">
-                            ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
-                            ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
-                        </div>
-                        ` : ''}
-                    </div>
-                </div>
-            `;
-            }).join('');
-        }
+      // Script para ocultar/mostrar main-header al hacer scroll
+      let lastScrollTop = 0;
+      const mainHeader = document.getElementById('main-header');
+      const mainNav = document.getElementById('main-nav');
+      
+      window.addEventListener('scroll', function() {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          if (scrollTop > lastScrollTop && scrollTop > 100) {
+              // Scrolling down - ocultar main-header
+              mainHeader.classList.add('hidden');
+              mainNav.classList.remove('header-visible');
+          } else {
+              // Scrolling up - mostrar main-header
+              mainHeader.classList.remove('hidden');
+              mainNav.classList.add('header-visible');
+          }
+          
+          lastScrollTop = scrollTop;
+      });
 
-        // Generar estrellas para rating
-        function generateStars(rating) {
-            const fullStars = Math.floor(rating);
-            const hasHalfStar = rating % 1 !== 0;
-            let stars = '';
-            
-            for (let i = 0; i < fullStars; i++) {
-                stars += '★';
-            }
-            
-            if (hasHalfStar) {
-                stars += '☆';
-            }
-            
-            const emptyStars = 5 - Math.ceil(rating);
-            for (let i = 0; i < emptyStars; i++) {
-                stars += '☆';
-            }
-            
-            return stars;
-        }
+      // Cargar productos de la categoría Herramientas desde JSON
+      async function loadProducts() {
+          try {
+              const response = await fetch('json/herramientas.json');
+              const data = await response.json();
+              herramientasCategoryProducts = data.herramientas;
+              
+              // Ordenar productos alfabéticamente por nombre
+              herramientasCategoryProducts.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
+              
+              filteredProducts = [...herramientasCategoryProducts];
+              currentDisplayCount = 0;
+              displayProductsOnGrid();
+          } catch (error) {
+              console.error('Error al cargar productos de la categoría Herramientas:', error);
+              // Mostrar productos de ejemplo si no se puede cargar el JSON
+              loadExampleProducts();
+          }
+      }
 
-        // Obtener texto del estado
-        function getEstadoText(estado) {
-            switch(estado) {
-                case 'disponible': return 'Disponible';
-                case 'agotado': return 'Agotado';
-                case 'nuevo': return 'Nuevo';
-                default: return 'Disponible';
-            }
-        }
+      // Productos de ejemplo en caso de que no se pueda cargar el JSON
+      function loadExampleProducts() {
+          herramientasCategoryProducts = [
+              {
+                  id: 1,
+                  nombre: "Alicate de Punta Doblada 6\"",
+                  categoria: "Herramientas Manuales",
+                  codigo: "THT24616S",
+                  marca: "Total",
+                  url: "#",
+                  precio: 15.50,
+                  imagen: "img/herramientas/THT24616S.webp",
+                  estado: "disponible",
+                  rating: 4.5,
+                  reviews: 28,
+                  descripcion: "",
+                  compra: false
+              },
+              {
+                  id: 2,
+                  nombre: "Martillo con Mango de Fibra de Vidrio 20oz",
+                  categoria: "Herramientas Manuales",
+                  codigo: "H0451392",
+                  marca: "Stanley",
+                  url: "#",
+                  precio: 25.99,
+                  imagen: "img/herramientas/H0451392.webp",
+                  estado: "disponible",
+                  rating: 5.0,
+                  reviews: 86,
+                  compra: false
+              },
+              {
+                  id: 3,
+                  nombre: "Taladro Percutor Inalámbrico 20V DeWalt",
+                  categoria: "Herramientas Eléctricas",
+                  codigo: "H1811032B",
+                  marca: "DeWalt",
+                  precio: 90.10,
+                  precioAnterior: 159.99,
+                  imagen: "img/herramientas/H1811032B.jpg",
+                  estado: "disponible",
+                  rating: 4.0,
+                  reviews: 42,
+                  compra: true
+              }
+          ];
+          
+          // Ordenar productos alfabéticamente por nombre
+          herramientasCategoryProducts.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
+          
+          filteredProducts = [...herramientasCategoryProducts];
+          currentDisplayCount = 0;
+          displayProductsOnGrid();
+      }
 
-        // Buscar productos
-        function searchProducts() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (searchTerm === '') {
-                filteredProducts = [...allProducts];
-            } else {
-                filteredProducts = allProducts.filter(product => 
-                    product.nombre.toLowerCase().includes(searchTerm) ||
-                    product.categoria.toLowerCase().includes(searchTerm) ||
-                    product.codigo.toLowerCase().includes(searchTerm) ||
-                    (product.marca && product.marca.toLowerCase().includes(searchTerm))
-                );
-            }
-            
-            displayProducts(filteredProducts);
-            updateSearchInfo(filteredProducts.length, allProducts.length, searchTerm);
-        }
+      // Mostrar productos en la grilla principal (máximo 32 inicialmente)
+      function displayProductsOnGrid() {
+          const productGrid = document.getElementById('productGrid');
+          const noCategoryResults = document.getElementById('noCategoryResults');
+          const loadMoreContainer = document.getElementById('loadMoreContainer');
+          const categoryHeader = document.getElementById('categoryHeader');
+          const categoryContent = document.getElementById('categoryContent');
+          const searchResultsSection = document.getElementById('searchResults');
 
-        // Actualizar información de búsqueda
-        function updateSearchInfo(found, total, searchTerm = '') {
-            const searchInfo = document.getElementById('searchInfo');
-            
-            if (searchTerm) {
-                searchInfo.textContent = `Se encontraron ${found} productos de ${total} para "${searchTerm}"`;
-            } else {
-                searchInfo.textContent = `Mostrando ${found} productos`;
-            }
-        }
+          // Asegurar que el contenido de la categoría esté visible y la sección de búsqueda oculta
+          categoryHeader.style.display = 'block';
+          categoryContent.style.display = 'block';
+          searchResultsSection.style.display = 'none';
+          
+          if (filteredProducts.length === 0) {
+              productGrid.style.display = 'none';
+              noCategoryResults.style.display = 'block';
+              loadMoreContainer.style.display = 'none';
+              return;
+          }
+          
+          productGrid.style.display = 'grid';
+          noCategoryResults.style.display = 'none';
+          
+          // Mostrar solo los primeros 32 productos
+          const productsToShow = filteredProducts.slice(0, PRODUCTS_PER_PAGE);
+          currentDisplayCount = productsToShow.length;
+          
+          productGrid.innerHTML = productsToShow.map(product => {
+              // Verificar si hay botones para mostrar
+              const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+              const hasViewButton = product.url && product.url.trim() !== '';
+              const hasAnyButton = hasAddToCart || hasViewButton;
+              
+              return `
+              <div class="product-card">
+                  <div class="product-image">
+                      <img src="${product.imagen}" width="140" height="140" alt="${product.nombre}">
+                      <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                      ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">${product.categoria}</div>
+                      <h3 class="product-title">${product.nombre}</h3>
+                      ${product.precio ? `
+                      <div class="product-price">
+                          <span class="current-price">$${product.precio.toFixed(2)}</span>
+                          ${product.precioAnterior ? `<span class="old-price">$${product.precioAnterior.toFixed(2)}</span>` : ''}
+                      </div>
+                      ` : ''}
+                      ${product.marca ? `<div class="product-brand">${product.marca}</div>` : ''}
+                      <div class="product-rating">
+                          ${product.rating ? `
+                          <div class="stars">${generateStars(product.rating)}</div>
+                          <span class="rating-count">(${product.reviews})</span>
+                          ` : ''}
+                          <span class="rating-count">Código: ${product.codigo}</span>
+                      </div>
+                      ${hasAnyButton ? `
+                      <div class="product-actions">
+                          ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                          ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                      </div>
+                      ` : ''}
+                  </div>
+              </div>
+          `;
+          }).join('');
+          
+          // Mostrar botón "Ver más" si hay más productos
+          updateLoadMoreButton();
+      }
 
-        // Búsqueda en tiempo real
-        document.getElementById('searchInput').addEventListener('input', function() {
-            searchProducts();
-        });
+      // Actualizar botón "Ver más productos"
+      function updateLoadMoreButton() {
+          const loadMoreContainer = document.getElementById('loadMoreContainer');
+          const loadMoreBtn = document.getElementById('loadMoreBtn');
+          const remainingCount = document.getElementById('remainingCount');
+          
+          const remainingProducts = filteredProducts.length - currentDisplayCount;
+          
+          if (remainingProducts > 0) {
+              loadMoreContainer.style.display = 'flex';
+              remainingCount.textContent = `(${remainingProducts} restantes)`;
+              loadMoreBtn.disabled = false;
+          } else {
+              loadMoreContainer.style.display = 'none';
+          }
+      }
 
-        // Búsqueda al presionar Enter
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchProducts();
-            }
-        });
+      // Cargar más productos
+      function loadMoreProducts() {
+          const productGrid = document.getElementById('productGrid');
+          const nextBatch = filteredProducts.slice(currentDisplayCount, currentDisplayCount + PRODUCTS_PER_PAGE);
+          
+          if (nextBatch.length === 0) return;
+          
+          // Agregar los nuevos productos al grid existente
+          const newProductsHTML = nextBatch.map(product => {
+              // Verificar si hay botones para mostrar
+              const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+              const hasViewButton = product.url && product.url.trim() !== '';
+              const hasAnyButton = hasAddToCart || hasViewButton;
+              
+              return `
+              <div class="product-card">
+                  <div class="product-image">
+                      <img src="${product.imagen}" width="140" height="140" alt="${product.nombre}">
+                      <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                      ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                  </div>
+                  <div class="product-info">
+                      <div class="product-category">${product.categoria}</div>
+                      <h3 class="product-title">${product.nombre}</h3>
+                      ${product.precio ? `
+                      <div class="product-price">
+                          <span class="current-price">$${product.precio.toFixed(2)}</span>
+                          ${product.precioAnterior ? `<span class="old-price">$${product.precioAnterior.toFixed(2)}</span>` : ''}
+                      </div>
+                      ` : ''}
+                      ${product.marca ? `<div class="product-brand">${product.marca}</div>` : ''}
+                      <div class="product-rating">
+                          ${product.rating ? `
+                          <div class="stars">${generateStars(product.rating)}</div>
+                          <span class="rating-count">(${product.reviews})</span>
+                          ` : ''}
+                          <span class="rating-count">Código: ${product.codigo}</span>
+                      </div>
+                      ${hasAnyButton ? `
+                      <div class="product-actions">
+                          ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                          ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                      </div>
+                      ` : ''}
+                  </div>
+              </div>
+          `;
+          }).join('');
+          
+          productGrid.innerHTML += newProductsHTML;
+          currentDisplayCount += nextBatch.length;
+          
+          // Actualizar botón "Ver más"
+          updateLoadMoreButton();
+      }
 
-        // Funciones para los botones (placeholder)
-        function addToCart(productId) {
-            alert(`Producto ${productId} agregado al carrito`);
-        }
+      // Función para cargar todos los productos para la búsqueda global
+      async function loadAllProductsForSearch() {
+          try {
+              let products = [];
+              
+              // Cargar todos los archivos JSON
+              for (const jsonFile of jsonFiles) {
+                  try {
+                      const response = await fetch(jsonFile);
+                      if (response.ok) {
+                          const data = await response.json();
+                          
+                          // Extraer productos según la estructura del JSON
+                          let fileProducts = [];
+                          
+                          // Intentar diferentes estructuras de JSON
+                          if (data.herramientas) {
+                              fileProducts = data.herramientas;
+                          } else if (data.construccion) {
+                              fileProducts = data.construccion;
+                          } else if (data.electricidad) {
+                              fileProducts = data.electricidad;
+                          } else if (data.plomeria) {
+                              fileProducts = data.plomeria;
+                          } else if (data.pinturas) {
+                              fileProducts = data.pinturas;
+                          } else if (data.cerrajeria) {
+                              fileProducts = data.cerrajeria;
+                          } else if (data.jardin) {
+                              fileProducts = data.jardin;
+                          } else if (data.hogar) {
+                              fileProducts = data.hogar;
+                          } else if (Array.isArray(data)) {
+                              fileProducts = data;
+                          } else if (data.productos) {
+                              fileProducts = data.productos;
+                          }
+                          
+                          products = products.concat(fileProducts);
+                      }
+                  } catch (fileError) {
+                      console.log(`No se pudo cargar ${jsonFile}:`, fileError);
+                  }
+              }
+              
+              allSearchableProducts = products;
+              console.log(`Cargados ${allSearchableProducts.length} productos para búsqueda global.`);
+              
+          } catch (error) {
+              console.error('Error al cargar productos para búsqueda global:', error);
+          }
+      }
 
-        // Cargar productos al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            loadProducts();
-        });
-    </script>
+      // Buscar productos (para la barra de búsqueda del header, usa allSearchableProducts)
+      function searchProducts(query) {
+          if (!query || query.trim().length < 2) {
+              return [];
+          }
+          
+          const searchTerm = query.toLowerCase().trim();
+          
+          const results = allSearchableProducts.filter(product => {
+              return (
+                  product.nombre.toLowerCase().includes(searchTerm) ||
+                  product.categoria.toLowerCase().includes(searchTerm) ||
+                  product.codigo.toLowerCase().includes(searchTerm) ||
+                  (product.marca && product.marca.toLowerCase().includes(searchTerm)) ||
+                  (product.descripcion && product.descripcion.toLowerCase().includes(searchTerm))
+              );
+          });
+
+          // Ordenar alfabéticamente por nombre
+          return results.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
+      }
+
+      // Función para mostrar resultados de búsqueda en dropdown
+      function displaySearchResultsDropdown(results, query) {
+          const searchResults = document.getElementById('searchResultsDropdown');
+          const searchResultsHorizontal = document.getElementById('searchResultsHorizontal');
+          
+          if (results.length === 0) {
+              searchResultsHorizontal.innerHTML = `
+                  <div class="search-no-results">
+                      No se encontraron productos para "${query}"
+                  </div>
+              `;
+          } else {
+              // Limitar a solo 5 productos y mostrarlos verticalmente
+              const limitedResults = results.slice(0, 5);
+              
+              searchResultsHorizontal.innerHTML = limitedResults.map(product => `
+                  <div class="search-result-item" >
+                      <img src="${product.imagen}" alt="${product.nombre}" class="search-result-image">
+                      <div class="search-result-info">
+                          <div class="search-result-name">${product.nombre}</div>
+                          <div class="search-result-details">
+                              ${product.categoria}<br>
+                              Código: ${product.codigo}
+                              ${product.precio ? `<br>$${parseFloat(product.precio).toFixed(2)}` : ''}
+                          </div>
+                      </div>
+                  </div>
+              `).join('');
+
+              // Agregar texto "Ver más" clickeable si hay más de 5 resultados
+              if (results.length > 5) {
+                  searchResultsHorizontal.innerHTML += `
+                      <div class="search-see-more" onclick="performFullSearch('${query}')">
+                          Ver más (${results.length - 5} productos adicionales)
+                      </div>
+                  `;
+              }
+          }
+          
+          searchResults.style.display = 'block';
+      }
+
+      // Función para ocultar resultados de búsqueda dropdown
+      function hideSearchResultsDropdown() {
+          const searchResults = document.getElementById('searchResultsDropdown');
+          searchResults.style.display = 'none';
+      }
+
+      // Función para seleccionar un producto del dropdown (muestra el producto en la sección principal)
+
+
+      // Función para mostrar un solo producto en la sección principal de resultados
+
+
+      // Función para realizar búsqueda completa (muestra todos los resultados en la sección principal)
+      function performFullSearch(query) {
+          hideSearchResultsDropdown();
+          isSearchMode = true;
+          currentSearchQuery = query;
+
+          const results = searchProducts(query); // Usa la función de búsqueda global
+
+          // Ocultar secciones de la categoría
+          document.getElementById('categoryHeader').style.display = 'none';
+          document.getElementById('categoryContent').style.display = 'none';
+
+          // Mostrar sección de resultados de búsqueda
+          const searchResultsSection = document.getElementById('searchResults');
+          searchResultsSection.style.display = 'block';
+
+          const searchResultsInfo = document.getElementById('searchResultsInfo');
+          const searchGrid = document.getElementById('searchGrid');
+          const noSearchResults = document.getElementById('noSearchResults');
+
+          searchResultsInfo.innerHTML = `
+              <h2>Resultados de búsqueda</h2>
+              <p>Buscaste: <span class="search-query">"${query}"</span></p>
+              <div class="search-stats">
+                  <span>${results.length} producto${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}</span>
+                  <button class="clear-search" onclick="clearSearch()">Volver a Herramientas</button>
+              </div>
+          `;
+
+          if (results.length > 0) {
+              searchGrid.style.display = 'grid';
+              noSearchResults.style.display = 'none';
+
+              searchGrid.innerHTML = results.map(product => {
+                  const hasAddToCart = product.compra === true || product.compra === "true" || product.compra === 1;
+                  const hasViewButton = product.url && product.url.trim() !== '';
+                  const hasAnyButton = hasAddToCart || hasViewButton;
+
+                  return `
+                  <div class="product-card">
+                      <div class="product-image">
+                          <img src="${product.imagen}" width="160" height="160" alt="${product.nombre}">
+                          <div class="product-badge ${product.estado}">${getEstadoText(product.estado)}</div>
+                          ${product.precioAnterior ? `<div class="product-badge" style="top: 40px; background-color: var(--secondary);">-${Math.round(((product.precioAnterior - product.precio) / product.precioAnterior) * 100)}%</div>` : ''}
+                      </div>
+                      <div class="product-info">
+                          <div class="product-category">${product.categoria}</div>
+                          <h3 class="product-title">${product.nombre}</h3>
+                          ${product.precio && product.precio !== "" ? `
+                          <div class="product-price">
+                              <span class="current-price">$${parseFloat(product.precio).toFixed(2)}</span>
+                              ${product.precioAnterior ? `<span class="old-price">$${parseFloat(product.precioAnterior).toFixed(2)}</span>` : ''}
+                          </div>
+                          ` : `
+                          <div class="product-price">
+                              <span class="current-price">${product.marca || 'Consultar'}</span>
+                          </div>
+                          `}
+                          <div class="product-rating">
+                              ${product.rating ? `
+                              <div class="stars">${generateStars(product.rating)}</div>
+                              <span class="rating-count">(${product.reviews})</span>
+                              ` : ''}
+                              <span class="rating-count">Código: ${product.codigo}</span>
+                          </div>
+                          ${hasAnyButton ? `
+                          <div class="product-actions">
+                              ${hasAddToCart ? `<button class="add-to-cart" onclick="addToCart(${product.id})">🛒 Agregar</button>` : ''}
+                              ${hasViewButton ? `<a href="${product.url}" class="quick-view">Ver Producto</a>` : ''}
+                          </div>
+                          ` : ''}
+                      </div>
+                  </div>
+                  `;
+              }).join('');
+          } else {
+              searchGrid.style.display = 'none';
+              noSearchResults.style.display = 'block';
+          }
+
+          searchResultsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Función principal de búsqueda (cuando se hace clic en el botón de búsqueda del header o Enter)
+      function performSearch() {
+          const searchInput = document.getElementById('searchInput');
+          const query = searchInput.value.trim();
+          
+          if (query === '') {
+              clearSearch(); // Si no hay búsqueda, restablecer para mostrar todos los productos de la categoría
+              return;
+          }
+          
+          performFullSearch(query);
+      }
+
+      // Función para volver al inicio (mostrar productos de la categoría)
+      function clearSearch() {
+          isSearchMode = false;
+          currentSearchQuery = '';
+          
+          // Limpiar el campo de búsqueda
+          const searchInput = document.getElementById('searchInput');
+          if (searchInput) {
+              searchInput.value = '';
+          }
+
+          // Ocultar dropdown y sección de resultados de búsqueda
+          hideSearchResultsDropdown();
+          document.getElementById('searchResults').style.display = 'none';
+
+          // Mostrar secciones de la categoría
+          document.getElementById('categoryHeader').style.display = 'block';
+          document.getElementById('categoryContent').style.display = 'block';
+
+          // Re-renderizar los productos de la categoría original
+          filteredProducts = [...herramientasCategoryProducts];
+          currentDisplayCount = 0;
+          displayProductsOnGrid(); // Esto volverá a renderizar el lote inicial
+          
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Generar estrellas para rating
+      function generateStars(rating) {
+          const fullStars = Math.floor(rating);
+          const hasHalfStar = rating % 1 !== 0;
+          let stars = '';
+          
+          for (let i = 0; i < fullStars; i++) {
+              stars += '★';
+          }
+          
+          if (hasHalfStar) {
+              stars += '☆';
+          }
+          
+          const emptyStars = 5 - Math.ceil(rating);
+          for (let i = 0; i < emptyStars; i++) {
+              stars += '☆';
+          }
+          
+          return stars;
+      }
+
+      // Obtener texto del estado
+      function getEstadoText(estado) {
+          switch(estado) {
+              case 'disponible': return 'Disponible';
+              case 'agotado': return 'Agotado';
+              case 'nuevo': return 'Nuevo';
+              default: return 'Disponible';
+          }
+      }
+
+      // Funciones para los botones (placeholder)
+      function addToCart(productId) {
+          alert(`Producto ${productId} agregado al carrito`);
+      }
+
+      // Manejar clic en sugerencias de búsqueda
+      function handleSuggestionClick(event) {
+          if (event.target.tagName === 'LI') {
+              const query = event.target.textContent;
+              performFullSearch(query);
+          }
+      }
+
+      // Event listeners para búsqueda (como en index.html)
+      document.addEventListener('DOMContentLoaded', function() {
+          const searchInput = document.getElementById('searchInput');
+          const searchResultsDropdown = document.getElementById('searchResultsDropdown');
+          
+          // Cargar todos los productos para la búsqueda global primero
+          loadAllProductsForSearch();
+
+          // Luego cargar productos para la página de categoría actual
+          loadProducts();
+          
+          // Búsqueda en tiempo real para dropdown
+          searchInput.addEventListener('input', function() {
+              clearTimeout(searchTimeout);
+              const query = this.value.trim();
+              
+              if (query.length >= 2) {
+                  document.getElementById('searchResultsHorizontal').innerHTML = '<div class="search-loading">Buscando...</div>';
+                  searchResultsDropdown.style.display = 'block';
+                  
+                  searchTimeout = setTimeout(() => {
+                      const results = searchProducts(query);
+                      displaySearchResultsDropdown(results, query);
+                  }, 300);
+              } else {
+                  hideSearchResultsDropdown();
+              }
+          });
+          
+          // Búsqueda al presionar Enter
+          searchInput.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                  e.preventDefault();
+                  performSearch();
+              }
+          });
+          
+          // Ocultar resultados al hacer clic fuera
+          document.addEventListener('click', function(e) {
+              if (!searchInput.contains(e.target) && !searchResultsDropdown.contains(e.target)) {
+                  hideSearchResultsDropdown();
+              }
+          });
+          
+          // Mostrar resultados al hacer focus en el input si hay texto
+          searchInput.addEventListener('focus', function() {
+              if (this.value.trim().length >= 2) {
+                  const results = searchProducts(this.value.trim());
+                  displaySearchResultsDropdown(results, this.value.trim());
+              }
+          });
+      });
+  </script>
 
 </body>
 </html>
