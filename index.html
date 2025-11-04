@@ -442,7 +442,7 @@
     
     /* Estilo para la columna de ganancias */
     .profit-column {
-        color: #28a745;
+        color: #1c8d87;
         font-weight: bold;
         text-align: center;
     }
@@ -669,6 +669,11 @@
     </table>
     
     <div class="totals">
+        <p style="font-size: 15px" class="no-print">
+            <span class="total-label" style="color: #1c8d87">GANANCIAS:</span>
+            <span class="total-value" style="color: #1c8d87; font-weight: bold;">$<span id="total-profit">0.00</span></span>
+        </p>
+        
         <p style="font-size: 15px">
             <span class="total-label">SUB-TOTAL:</span>
             <span class="total-value">$<span id="subtotal">0.00</span></span>
@@ -676,10 +681,6 @@
         <p style="font-size: 15px">
             <span class="total-label">I.T.B.M.S. (7%):</span>
             <span class="total-value">$<span id="tax">0.00</span></span>
-        </p>
-        <p style="font-size: 14px" class="no-print">
-            <span class="total-label" >GANANCIAS:</span>
-            <span class="total-value" style="color: #28a745; font-weight: bold;">$<span id="total-profit">0.00</span>
         </p>
         <p style="font-size: 15px" id="discount-row" class="hide-when-zero">
             <span class="total-label">DESCUENTO:</span>
@@ -693,12 +694,10 @@
             <button onclick="editAdjustment('deposit')" class="action-btn no-print" style="margin-left: 10px;">Editar</button>
             <button onclick="deleteAdjustment('deposit')" class="action-btn delete-btn no-print">Eliminar</button>
         </p>
-        
         <p class="grand-total">
             <span class="total-total">TOTAL:</span>
             <span class="total-value">$<span id="total">0.00</span>
         </p>
-
     </div>
     
     <div class="signature">
